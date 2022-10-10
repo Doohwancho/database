@@ -10,14 +10,14 @@ modularize concepts in database
 ---\
 concepts in database 
 
-A. RDB.mysql\
-b. RDB modeling\
+A. Mysql\
+B. RDB modeling\
 C. Nosql\
 D. GraphQL\
 E. Redia\
 F. Kafka\
 G. Elastic Search
-H. 
+ 
 
 
 ---\
@@ -31,26 +31,3 @@ Books
 6. Database Internals
 
 
----\
-todos for RDB.mysql 
-
-
-a. query\ 
-x. 성능측정\
-x. index\
-x. join\
-x. transaction(ACID)\
-x. database constraints\
-x. database administration\
-x. locking\
-x. optimization
-
-
----\
-todos for RDB modeling 
-
-a. erd 
-x. basic rdb modeling\
-x. bbs modeling\
-x. shoppingmall modeling\
-x. 대용량 트래픽 처리 전용 modeling

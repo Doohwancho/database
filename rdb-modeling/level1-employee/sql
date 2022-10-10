@@ -1,0 +1,903 @@
+sql : structured query language
+language used to interact with rdmbs(관계형 db)
+
+---
+terminology
+
+
+
+database : any collection of related information
+
+dbms(database management system) : a special software that lets user create and maintain a database
+
+rdbms(relational db management system) : helps users create/maintain relational db. ex) mySQL, Oracle, postgreSQL, mariaDB, etc.
+they all use SQL.
+
+CRUD : create/read/update/delete
+
+relational db : organize data in one or more tables.
+
+non-relational db(noSQL): key-value hash, json(or xml..), graph, etc. organize data in form of key-value hash/json/graph/etc...
+ex) mongoDB, dynamoDB, apache cassandra, firebase, etc
+
+query : query grep specific piece of info on complex tables on rdb
+
+
+
+---
+tables and keys
+
+
+
+primary key : uniquely identifies specific row. two people can have exactly same name and other infos, but they still identified different b/c of primary key(i.e student_id)
+
+
+2 types of primary key
+
+surrogate key : artificial column of (mostly) number that has nothing to do with real world, but is there b/c we need primary key. surrogate key itselt isn't mapped to real world, so doesnt mean anything by itself. ex)emp_id
+
+natural key : it has mapped to realworld, not just in db. ex)emp_ssn(employ social security number)
+
+
+foreign key : attribute(column) in table A that will link us to another table B
+FK stores PK of another table.
+ex) branch_id, security_role
+
+cool thing about FK1)
+a table can have multiple FKs
+
+cool thing about FK2)
+FK can refer to another person in the same table
+ex) emp_id 103 's FK:supervisor_id:100
+
+
+composite key : when only 2 columns uniquely identifies each row
+when column A can't uniquely identify the table(as a PK) 
+AND column B can't also uniquely identify the table(as a PK).
+BOTH have to stick TOGETHER to uniquely identify the table
+ex) 
+branch_id  supplier_name  supply_type
+
+2           hammer_mill    paper
+2           uni-ball       writing utensils
+3           hammer_mill    paper
+3           uni-ball       writing utensils
+
+hammer_mill on branch number 2 only appears once.
+hammer_mill on branch number 3 only appears once.
+
+
+
+---
+Core datatypes
+
+
+
+INT	     : whole numbers
+DECIMAL(M,N) : decimal numbers. M:total number of digits you want to store for this number. N: number of digits you want to store after decimals. 
+VARCHAR(1)   : string of text of length 1. (variable character). maximum amount of character you want to store. 
+BLOB         : binary large object. stores large data(images, files). 
+DATE         : 'YYYY-MM-DD'
+TIMESTAMP    : 'YYYY-MM-DD HH:MM:SS' used for when things happen(e.i when an item was purchased)
+
+
+
+---
+Create Table
+
+
+
+//create
+CREATE TABLE student (
+    student_id INT PRIMARY KEY,
+    name VARCHAR(20),
+    major VARCHAR(20)
+);
+
+//? - another way to set primary key on separate row
+
+CREATE TABLE student (
+    student_id INT,
+    name VARCHAR(20),
+    major VARCHAR(20),
+    PRIMARY KEY(student_id)
+);
+
+
+//? - Contraints
+데이터 입력할때 조건에 안맞으면 처음부터 안넣음
+CREATE TABLE student (
+    student_id INT AUTO_INCREMENT, //primary key일일히 1,2,3 적어주는게 아니라, 자동으로 +1씩 올려줌. 
+//INSERT INTO student(name, major) VALUES('Kate','CS'); 하면 pk+1.
+
+
+    name VARCHAR(20) NOT NULL, //NULL값 들어오면 에러
+    address VARCHAR(20) UNIQUE, //'Gimpo'한명 들어왔으면, 다른사람 'Gimpo'못들어옴.
+    major VARCHAR(20) DEFAULT 'undecided', //major가 비어있으면, undecided가기초값
+    PRIMARY KEY(student_id)
+);
+
+
+
+
+
+---
+Baisc CRUD
+
+
+//delete
+DROP TABLE student;
+
+
+//add new column
+ALTER TABLE student ADD gpa DECIMAL(3,2);
+
+
+//delete column
+ALTER TABLE student DROP COLUMN gpa;
+
+
+//insert values
+INSERT INTO student VALUES(1, 'Jack', 'Biology'); //make sure it's single quotation, not double quotations.
+
+**warning
+INSERT INTO student(student_id, name) VALUES(3, 'Claire');
+INSERT INTO student(student_id, name) VALUES(3, 'Claire');
+하면, PK가 겹쳐서 안되지만,
+
+INSERT INTO student(student_id, name) VALUES(3, 'Claire');
+INSERT INTO student(student_id, name) VALUES(4, 'Claire');
+하면, 이름이 같아도 PK가 달라서 됨.
+
+
+//insert values except for a few
+INSERT INTO student(student_id, name) VALUES(2, 'Kate'); //you can still insert w/out major info. Kate gets NULL for major value.
+
+
+//grep all info from table
+SELECT * FROM student;
+
+
+//show table meta-info
+DESCRIBE student;
+
+
+//update
+UPDATE student
+SET major = 'Bio'
+WHERE major = 'Biology';
+
+
+//use OR
+UPDATE student
+SET major = 'BioChem'
+WHERE major = 'Bio' OR major = 'Chemestry'; //without where, SET applies to all rows
+
+
+
+
+
+
+
+---
+Basic Queries
+
+
+
+
+
+SELECT name, major //student.name, student.major to be more clear. b/c you can use multiple tables that share the same column name
+FROM student
+ORDER BY name //alphabetical order. ASC, DESC
+LIMIT 2; //only show 2 results
+
+
+
+//Key words
+<> : not
+=  : equal
+OR
+AND
+IN : contains
+ex) SELECT * FROM student WHERE name IN ('Claire', 'Jack', 'Mike');
+
+
+
+
+
+
+---
+company schema for practice
+
+
+
+
+CREATE TABLE employee (
+  emp_id INT PRIMARY KEY, //AUTO_INCREMENT해주면 좋음
+  first_name VARCHAR(40), //NOT NULL해주면 좋음
+  last_name VARCHAR(40),
+  birth_day DATE,    //TIME_STAMP는 transaction같은 특정시간 기록용도
+  sex VARCHAR(1),
+  salary INT,
+  super_id INT,  //FK이지만, 이어줄 table이 아직 없기 때문에 그냥 생성.
+  branch_id INT  //FK이지만, 이어줄 table이 아직 없기 때문에 그냥 생성. 후 나중에 이어줌.
+);
+
+CREATE TABLE branch (
+  branch_id INT PRIMARY KEY,
+  branch_name VARCHAR(40),
+  mgr_id INT,
+  mgr_start_date DATE,
+  FOREIGN KEY(mgr_id) REFERENCES employee(emp_id) ON DELETE SET NULL //FK설정. ON DELETE SET NULL, 
+);
+
+ALTER TABLE employee       //branch table만들었으니, 아까 못설정한 FK설정.
+ADD FOREIGN KEY(branch_id)
+REFERENCES branch(branch_id)
+ON DELETE SET NULL;
+
+ALTER TABLE employee
+ADD FOREIGN KEY(super_id)
+REFERENCES employee(emp_id)
+ON DELETE SET NULL;
+
+CREATE TABLE client (
+  client_id INT PRIMARY KEY,
+  client_name VARCHAR(40),
+  branch_id INT,
+  FOREIGN KEY(branch_id) REFERENCES branch(branch_id) ON DELETE SET NULL //테이블 있으니 바로 FK설정
+);
+
+CREATE TABLE works_with (
+  emp_id INT,      //emp_id+client_id = composite primary key
+  client_id INT,
+  total_sales INT,
+  PRIMARY KEY(emp_id, client_id), //composite PK는 이렇게 설정하는구나
+  FOREIGN KEY(emp_id) REFERENCES employee(emp_id) ON DELETE CASCADE, //composite key가 동시에 FK가 될수도 있구나. 
+  FOREIGN KEY(client_id) REFERENCES client(client_id) ON DELETE CASCADE
+);
+
+CREATE TABLE branch_supplier (
+  branch_id INT,
+  supplier_name VARCHAR(40),
+  supply_type VARCHAR(40),
+  PRIMARY KEY(branch_id, supplier_name), //composite key
+  FOREIGN KEY(branch_id) REFERENCES branch(branch_id) ON DELETE CASCADE
+);
+
+
+-- -----------------------------------------------------------------------------
+//Insert
+
+
+-- Corporate
+INSERT INTO employee VALUES(100, 'David', 'Wallace', '1967-11-17', 'M', 250000, NULL, NULL); //employee.branch_id에 null을 일단 넣고,
+
+INSERT INTO branch VALUES(1, 'Corporate', 100, '2006-02-09'); //branch 만든 후,
+
+UPDATE employee //둘을 이어줌.
+SET branch_id = 1
+WHERE emp_id = 100;
+
+INSERT INTO employee VALUES(101, 'Jan', 'Levinson', '1961-05-11', 'F', 110000, 100, 1); //그제서야 branch_id가 1인애들 넣을 수 있음.
+
+
+-- Scranton
+INSERT INTO employee VALUES(102, 'Michael', 'Scott', '1964-03-15', 'M', 75000, 100, NULL);
+
+INSERT INTO branch VALUES(2, 'Scranton', 102, '1992-04-06');
+
+UPDATE employee
+SET branch_id = 2
+WHERE emp_id = 102;
+
+INSERT INTO employee VALUES(103, 'Angela', 'Martin', '1971-06-25', 'F', 63000, 102, 2);
+INSERT INTO employee VALUES(104, 'Kelly', 'Kapoor', '1980-02-05', 'F', 55000, 102, 2);
+INSERT INTO employee VALUES(105, 'Stanley', 'Hudson', '1958-02-19', 'M', 69000, 102, 2);
+
+-- Stamford
+INSERT INTO employee VALUES(106, 'Josh', 'Porter', '1969-09-05', 'M', 78000, 100, NULL);
+
+INSERT INTO branch VALUES(3, 'Stamford', 106, '1998-02-13');
+
+UPDATE employee
+SET branch_id = 3
+WHERE emp_id = 106;
+
+INSERT INTO employee VALUES(107, 'Andy', 'Bernard', '1973-07-22', 'M', 65000, 106, 3);
+INSERT INTO employee VALUES(108, 'Jim', 'Halpert', '1978-10-01', 'M', 71000, 106, 3);
+
+
+-- BRANCH SUPPLIER
+INSERT INTO branch_supplier VALUES(2, 'Hammer Mill', 'Paper');
+INSERT INTO branch_supplier VALUES(2, 'Uni-ball', 'Writing Utensils');
+INSERT INTO branch_supplier VALUES(3, 'Patriot Paper', 'Paper');
+INSERT INTO branch_supplier VALUES(2, 'J.T. Forms & Labels', 'Custom Forms');
+INSERT INTO branch_supplier VALUES(3, 'Uni-ball', 'Writing Utensils');
+INSERT INTO branch_supplier VALUES(3, 'Hammer Mill', 'Paper');
+INSERT INTO branch_supplier VALUES(3, 'Stamford Lables', 'Custom Forms');
+
+-- CLIENT
+INSERT INTO client VALUES(400, 'Dunmore Highschool', 2);
+INSERT INTO client VALUES(401, 'Lackawana Country', 2);
+INSERT INTO client VALUES(402, 'FedEx', 3);
+INSERT INTO client VALUES(403, 'John Daly Law, LLC', 3);
+INSERT INTO client VALUES(404, 'Scranton Whitepages', 2);
+INSERT INTO client VALUES(405, 'Times Newspaper', 3);
+INSERT INTO client VALUES(406, 'FedEx', 2);
+
+-- WORKS_WITH
+INSERT INTO works_with VALUES(105, 400, 55000);
+INSERT INTO works_with VALUES(102, 401, 267000);
+INSERT INTO works_with VALUES(108, 402, 22500);
+INSERT INTO works_with VALUES(107, 403, 5000);
+INSERT INTO works_with VALUES(108, 403, 12000);
+INSERT INTO works_with VALUES(105, 404, 33000);
+INSERT INTO works_with VALUES(107, 405, 26000);
+INSERT INTO works_with VALUES(102, 406, 15000);
+INSERT INTO works_with VALUES(105, 406, 130000);
+
+
+
+
+
+
+---
+More Basic Queries
+
+
+
+//< ORDER BY >
+
+
+
+//Find all employees ORDER BY salary
+
+SELECT * 
+FROM employee 
+ORDER BY salary DESC;
+
+
+
+//Find all employees ORDER BY sex then name
+
+SELECT * 
+FROM employee 
+ORDER BY sex, first_name, last_name
+
+explaination) 1. sex로 정렬 2. F중 first_name 알파벳 순서로 정렬, 3. first_name이 같으면 last_name 알파벳 순서로 정렬
+
+
+
+
+//< LIMIT > 
+
+
+
+//Find the first 5 employees on the table
+
+SELECT * 
+FROM employee 
+LIMIT 5;
+
+
+
+
+
+//< SELECT >
+
+
+
+//Find the first & last name of all employees
+
+SELECT first_name, last_name 
+FROM employee;
+
+
+
+//Change column name. first_name to fore_name
+
+SELECT first_name AS fore_name 
+FROM employee;
+
+
+
+
+
+
+//< DISTINCT >
+
+
+
+//Find all the different gender
+
+SELECT DISTINCT sex 
+FROM employee;
+
+
+
+
+
+
+---
+Functions
+
+
+
+
+//< COUNT >
+
+
+
+//Find the number of employee
+SELECT COUNT(emp_id) 
+FROM employee;
+
+
+
+//Find the number of female employees born after 1970's
+
+SELECT COUNT(emp_id) 
+FROM employees 
+WHERE sex = 'F' AND birth_date >= '1970-01-01';
+
+
+
+
+
+
+//< AVG >
+
+
+
+//Find the average employee salaries of male
+
+SELECT AVG(salary) 
+FROM employee 
+WHERE sex = 'M';
+
+
+
+
+
+//< SUM >
+
+
+
+//Find the total salary of all employee
+
+SELECT SUM(salary) 
+FROM employee;
+
+
+
+
+
+//< GROUP BY >
+
+
+
+//Find out how many males and females there are
+
+SELECT COUNT(sex) 
+FROM employee 
+GROUP BY sex;
+
+
+
+//Find the total sales of each salesman
+
+SELECT SUM(total_sales), emp_id 
+FROM works_with 
+GROUP BY emp_id;
+
+
+
+
+
+
+---
+Wildcard
+
+
+
+//< LIKE >
+
+
+% = any number of characters
+_ = one character
+
+
+
+
+//Find any client's who are an LLC.
+
+SELECT * FROM client 
+WHERE client_name LIKE '%LLC'; //John Daily Law, LLC. % means any number of characters
+
+
+
+
+//Find any branch suppliers who are in the label business
+
+SELECT * 
+FROM branch_supplier 
+WHERE supplier_name LIKE '% Label%';
+
+
+
+
+//Find any employee born in October
+
+SELECT * 
+FROM employee 
+WHERE birth_date LIKE '____-10%';
+
+
+
+
+
+---
+Union
+
+= combines the results of multiple select statements into single column**
+
+
+
+조건
+1) 위에껀 2개, 밑에껀 한개 안됨. 무조건 1:1, 2:2, 3:3, ...
+2) 한 column에 있는애들은 모두 같은 datatype이여야 함.
+
+
+
+
+//Find an list of employee and branch names
+
+SELECT employee.first_name, employee.last_name, branch.branch_name
+FROM employee AND branch
+은 여러개 columns에 나타내는데, 한 column에 나타내고 싶다면,
+
+
+
+SELECT first_name AS Company_Names 
+FROM employee //SELECT first, last 하면 error. 그럴땐 밑에 branch에도 branch_name, 딴거 있어야됨. 그래야 2 column이 완성되기 때문.
+UNION
+SELECT branch_name FROM branch
+UNION
+SELECT client_name from client
+
+
+
+
+
+
+
+---
+JOIN
+
+
+
+combines two or more tables based on related columns between them
+
+
+
+caution**
+when you join two or more tables,
+specify table names by doing,
+employee.emp_id
+
+
+
+
+
+//INNER JOIN : join if they **share the same** column
+
+
+
+//Find all branches and the names of their managers
+
+SELECT employee.emp_id, employee.first_name, branch.branch_name
+FROM employee
+JOIN branch
+ON employee.emp_id = branch.mgr_id; //모든 employee가 select되는게 아니라, 이조건이 해당되는 애들만 불러들임 = 그래서 조건에 맞는 David, Michale, Josh만 딸려옴
+
+
+
+
+
+//LEFT JOIN 
+
+all tables from left table(FROM employee, not branch) will be included,
+and branch table(right table) will be followed.
+
+
+SELECT employee.emp_id, employee.first_name, branch.branch_name
+FROM employee
+LEFT JOIN branch
+ON employee.emp_id = branch.mgr_id;
+
+
+**David, Michael, Josh만 끌려오는게 아니라,
+ON 조건에 안맞는 다른애들도 다 끌려옴. 
+대신 branch_name없는 애들은 모두 NULL값 부여되서 딸려옴.
+
+
+
+
+
+
+//RIGHT JOIN
+
+all tables from right table(branch, not employee) will be included,
+and employee table(left table) will be followed if condition matches.
+
+
+
+SELECT employee.emp_id, employee.first_name, branch.branch_name
+FROM employee
+RIGHT JOIN branch
+ON employee.emp_id = branch.mgr_id; 
+
+
+-- console --
+David,Michael,Josh,Null(for Buffalo) 
+rest of employees are gone!
+
+
+
+
+
+//FULL OUTTER JOIN
+
+grep full left table + right table, no matter if they've met the condition or not
+
+
+
+
+
+
+
+---
+Nested Queries
+
+
+
+//Find names of all employees who have sold over 30,000 to a single client
+
+SELECT employee.first_name, employee.last_name
+FROM employee
+WHERE employee.emp_id IN (	 //=이 아니라 IN쓴다! 여러개니까!
+    SELECT works_with.emp_id 
+    FROM works_with 
+    WHERE works_with.total_sales > 30000
+);
+
+
+
+//Find all clients who are handled by the branch that
+//Michael Scott managers assume you know Michael's ID
+
+SELECT client.client_name
+FROM client
+WHERE client.branch_id = (
+    SELECT branch_id
+    FROM branch
+    WHERE branch.mgr_id = 102
+    LIMIT 1     //Scott이 여러 branch에 manager일수도 있잖아.
+);
+
+
+
+
+
+
+---
+On Delete
+
+employee에 Michael Scott을 지우면,
+branch에 Scott의 매니저번호인 102는 아무짝에도 의미없는 데이터가 됨.
+이걸 어떻게 처리?
+
+
+1) On Delete Set Null
+Michael Scott을 employee에서 지우면, branch에 mgr_id는 NULL이 됨.
+또한 employee에서 Michael Scott의 emp_id를 FK한 super_id가 모두 NULL이 됨.
+
+보통 mgr_id가 FK일때, 그다지 안중요할때 씀.
+
+
+2) On Delete Cascade
+Michael Scott을 employee에서 지우면, branch에 mgr_id 102번이 있는 row
+전체를 지움.
+branch에있는 branch_id가 지워지면, branch supplier에 branch_id가포함된 row전체 지움.
+
+보통 branch_id가 PK고 쥰나 중요해서, PK가 날라가면 PK에 딸려있는게 아무 의미없을때 Delete On Cascade 씀
+
+
+
+
+
+---
+Triggers
+
+
+defines certain action should happens,
+when a certain event occurs.
+
+
+conditions
+you have to do on CLI
+1) cmd : mysql -u root -p
+2) mysql 8.0 command line client
+
+
+use giraffe (name of database)
+
+
+//1)
+
+
+DELIMITER $$     //원래 delimiter은 ;이나, 저뒤에 insert values();에 한번 쓰기 때문에, $$로 임시로 바꾼다.
+CREATE
+	TRIGGER	my_trigger BEFORE INSERT      //before inserting anything to employee table,
+	ON employee
+	FOR EACH ROW BEGIN
+		INSERT INTO trigger_test      //perform this action(insert '!@#$' to trigger_test table with VARCHAR(100)
+		VALUES('added new employee');
+	END$$
+DELIMITER ;   //change delimiter back to semi-colon
+
+
+
+
+
+
+
+//2)
+
+DELIMITER $$
+CREATE
+	TRIGGER my_trigger BEFORE INSERT
+	ON employee
+	FOR EACH ROW BEGIN
+		INSERT INTO trigger_test VALUES(NEW.first_name);
+	END $$
+DELIMITER ;
+
+
+NEW는 employee에 insert하는 객체를 뜻함
+
+
+
+
+
+//3)
+
+DELIMITER $$
+CREATE
+	TRIGGER my_trigger BEFORE INSERT //UPDATE,DELETE도 가능. AFTER도 가능.
+	ON employee
+	FOR EACH ROW BEGIN
+		IF NEW.sex = 'M' THEN
+			INSERT INTO trigger_test
+			VALUES('added male employee');
+		ELSEIF NEW.sex = 'F' THEN
+			INSERT INTO trigger_test
+			VALUES('added female employee');
+		ELSE
+			INSERT INTO trigger_test
+			VALUES('added other employee');
+		END IF;
+	END $$
+DELIMITER ;
+
+
+
+
+DROP TRIGGER my_trigger;
+
+
+
+
+
+---
+ER Diagrams Intro
+
+
+
+
+
+
+Schema: database에 테이블들, 테이블들의 관계, 테이블에 데이터 놓을 때 주의해야할 데이터 타입 등의 집합체
+
+ER Diagrams: schema에 필요한 테이블들의 관계를 그림으로 간단하게 표현한 것
+
+
+ER: entity relations
+
+Entity: an object we want to model & store information about. ex) student
+
+Attributes: specific info about an entity.  ex) grade, name, gpa
+
+Primary Key: an attribute that uniquely identify an entry in the database table
+
+Composite Attribute: ex)name(first_name + last_name)
+
+Multi-valued Attribute: an attribute that can have more than one value. ex)club
+
+Derived Attribute: an attribute that can be derived from the other attributes.   ex)has_honors, derived from gpa
+
+Multiple Entities: student, class entities
+
+Relationships: defines a relationship between two entities
+	1)Partial participation : expressed as single line. ex) student -> Class
+		b/c not all students need to take a class
+	2)Total participation : expressed as double line. ex) student <= Class
+		b/c all the classes need to be taken by at least single student
+		b/c a class with no student can't exist
+	
+	a)Relationship Attribute: ex) grade, student -> class. grade not stored 
+		both in student obj nor class obj. 
+	
+	b)Relationship Cardinality
+		N,M : any number. ex) student M-> class   b/c student can take multiple classes + not all student need to take a class
+		      class N=> student    b/c class can take any number of students + a class needs at least one student.
+		      Therefore, student:class' cardinal relationship is N:M
+		1:1 - a student can take one class, and a class can take only one student.   ex)1대1과외
+		1:N - a customer can buy multiple items, while an item can have only one purchaser. 
+
+
+Weak Entity: an entity that can't be uniquely identified by its attributes alone. ex) exam entity. exam can't exist w/out class entity. 
+	     weak entity 특징 : weak entity MUST have total participation to mother entity. ex) exam => class
+
+Identifying relationship : a relationship that serves to uniquely identify weak entity.
+
+
+
+
+---
+Company Data Storage Requirements
+
+
+
+The company is organized into branches. Each branch has a unique number, a name, and a particular employee who manages it.
+
+The company makes it’s money by selling to clients. Each client has a name and a unique number to identify it.
+
+The foundation of the company is it’s employees. Each employee has a name, birthday, sex, salary and a unique number.
+
+An employee can work for one branch at a time, and each branch will be managed by one of the employees that work there. We’ll also want to keep track of when the current manager started as manager.
+
+An employee can act as a supervisor for other employees at the branch, an employee may also act as the supervisor for employees at other branches. An employee can have at most one supervisor.
+
+A branch may handle a number of clients, with each client having a name and a unique number to identify it. A single client may only be handled by one branch at a time.
+
+Employees can work with clients controlled by their branch to sell them stuff. If nescessary multiple employees can work with the same client. We’ll want to keep track of how many dollars worth of stuff each employee sells to each client they work with.
+
+Many branches will need to work with suppliers to buy inventory. For each supplier we’ll keep track of their name and the type of product they’re selling the branch. A single supplier may supply products to multiple branches.
+
+
+
+
+
+---
+ER Diagram -> Tables & Relations
+
+
+
+
+step1) Mapping of Regular Entity Types.  ex) create branch, employee, client entities with attributes
+
+step2) Mapping of weak entity type. ex) create branch supplier, with PK of composite key(supplier_name + branch_id)
+
+step3) Mapping of Binary 1:1 Relationship types. ex) branch 1=-1 employee. branch가 total participation가지고 있기 때문에, employee의 emp_id(PK)를 FK삼아 branch에 줌. branch엔 employee의 emp_id가 mgr_id라는 새로운 컬럼으로 등장
+
+step4) Mapping of Binary 1:N Relationship types. ex) branch 1-=N client. 1쪽인 branch의 pk를 client의 fk로. 그래서 client에 branch_id라는 새 column생김. 마찬가지로,
+branch 1-=N employee. 에서 1side인 branch의 pk를 employee의 새 컬럼 branch_id만들어서 넣음. 
+
+step5) Mapping of Binary N:M Relationship types. ex) client N=-M employee. N:M은 새 table을 만들어서 client.pk랑 employee.pk 합친 composite key를 pk로 만듬. 이걸 compound key임. 왜냐면 composite key인 2개가 모두 fk이기 때문.
+
+
+
+
+
