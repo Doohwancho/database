@@ -14,7 +14,7 @@ b. rdb modeling tips :white_check_mark:\
 c. 용어집 :white_check_mark:\
 d. entity && attributes :white_check_mark:\
 e. keys :white_check_mark:\
-f. components
+f. components :soon:\
 x. 오리발, 까치발\
 x. keys\
 x. normalization\
@@ -44,7 +44,8 @@ d-1. entity && attributes from book - real mysql :white_check_mark:
 
 e-1. primary key :white_check_mark:
 
-f-1. 구매
+f-1. 구매 :white_check_mark:\
+f-2. 주소 :white_check_mark:
 
 x-1. 오리발 까치발 from book - real mysql
 
