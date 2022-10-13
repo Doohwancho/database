@@ -1,0 +1,401 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": 0,
+    "scrollLeft": -1,
+    "zoomLevel": 1,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": false,
+      "columnPrimaryKey": true,
+      "columnUnique": false,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "MySQL",
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "고객",
+        "comment": "",
+        "columns": [
+          {
+            "name": "ID",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "fdbde892-c026-4043-9edf-07799615a8fd"
+          },
+          {
+            "name": "NAME",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "51220c47-56f4-4894-9431-4dd8d6f56ea1"
+          },
+          {
+            "name": "BIRTH_DATE",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 70.2369384765625,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "6130ad86-9065-452a-afe7-ff010859c232"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 32,
+          "top": 100,
+          "zIndex": 46,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#F44336"
+        },
+        "visible": true,
+        "id": "cae2dfae-5210-4c71-8823-4cc60409e88d"
+      },
+      {
+        "name": "상품",
+        "comment": "",
+        "columns": [
+          {
+            "name": "상품코드",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "343ddf5e-d1a0-4c92-8cc6-81402a3c7d45"
+          },
+          {
+            "name": "상품명",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "f13b68d4-8603-4063-b705-0e3e9c076716"
+          },
+          {
+            "name": "상품가격",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "281e2917-dd08-4880-a9f5-b8eed11f484f"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 673,
+          "top": 105,
+          "zIndex": 60,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#2196F3"
+        },
+        "visible": true,
+        "id": "2d455659-4183-41a9-bef9-4c1b77b05c79"
+      },
+      {
+        "name": "구매",
+        "comment": "",
+        "columns": [
+          {
+            "name": "구매일련번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 69.469970703125,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "0e1601ae-a020-4df7-8561-730806d33a32"
+          },
+          {
+            "name": "ID",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "8d8df06e-63b9-43a4-8b17-7cde1b367b22"
+          },
+          {
+            "name": "상품코드",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "257351db-e9f2-4ac4-b8ed-925a444fb808"
+          },
+          {
+            "name": "구매일시",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "6be200a2-be2a-4f3a-a75a-d0da786fb9a1"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 297,
+          "top": 371,
+          "zIndex": 59,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#A1FF00"
+        },
+        "visible": true,
+        "id": "53d5c433-69f1-4b23-a0db-aa5d33c6531a"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": [
+      {
+        "value": "---\n구매 일련번호가 pk?\n\n고객ID+상품ID를 복합키로 pk설정해서 string based index하는 것 보다, int base가 .compare속도고 빠르고, 같은 고객이 같은 상품 여러번 구매하면 전자 복합키는 유일성 보장이 안되기에, uuid 구매 일련번호가 더 적합",
+        "ui": {
+          "active": true,
+          "left": 722,
+          "top": 383,
+          "zIndex": 64,
+          "width": 127,
+          "height": 100
+        },
+        "id": "ca60e157-6d13-4716-9c67-eae3142d7f4c"
+      }
+    ]
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "cae2dfae-5210-4c71-8823-4cc60409e88d",
+          "columnIds": [
+            "fdbde892-c026-4043-9edf-07799615a8fd"
+          ],
+          "x": 389.2369384765625,
+          "y": 165.25,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "53d5c433-69f1-4b23-a0db-aa5d33c6531a",
+          "columnIds": [
+            "8d8df06e-63b9-43a4-8b17-7cde1b367b22"
+          ],
+          "x": 475.2349853515625,
+          "y": 371,
+          "direction": "top"
+        },
+        "constraintName": "fk_고객_to_구매",
+        "visible": true,
+        "id": "8da0afa5-9bc7-46cc-b425-4a33502b0052"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "2d455659-4183-41a9-bef9-4c1b77b05c79",
+          "columnIds": [
+            "343ddf5e-d1a0-4c92-8cc6-81402a3c7d45"
+          ],
+          "x": 673,
+          "y": 170.25,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "53d5c433-69f1-4b23-a0db-aa5d33c6531a",
+          "columnIds": [
+            "257351db-e9f2-4ac4-b8ed-925a444fb808"
+          ],
+          "x": 653.469970703125,
+          "y": 446.5,
+          "direction": "right"
+        },
+        "constraintName": "fk_상품_to_구매",
+        "visible": true,
+        "id": "ebe79ad0-2b12-4eae-a2cd-85d0c30dc018"
+      }
+    ]
+  }
+}
