@@ -17,7 +17,7 @@ e. keys :white_check_mark:\
 f. components :soon:\
 g. relations a.k.a 오리발, 까치발 :white_check_mark:\
 h. normalization :white_check_mark:\
-x. de-normalization\
+i. de-normalization :white_check_mark\
 x. data type\
 x. cardinality\
 x. get-used-to: employee modeling\
@@ -56,7 +56,9 @@ g-4. 관계 통합 - real mysql :white_check_mark:
 
 h-1. 제1 정규화 :white_check_mark:\
 h-2. 제2 정규화 :white_check_mark:\
-h-3. 제3 정규화 :white_check_mark:\
+h-3. 제3 정규화 :white_check_mark:
+
+i-1. 반정규화 why and use-case :white_check_mark:
 
 x-1. [get-used-to: company rdb modeling](https://www.youtube.com/watch?v=HXV3zeQKqGY) :white_check_mark:\
 x-x. [analyze okky modeling, demo](https://vuerd.github.io/)
