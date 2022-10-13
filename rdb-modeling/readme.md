@@ -19,7 +19,7 @@ g. relations a.k.a 오리발, 까치발 :white_check_mark:\
 h. normalization :white_check_mark:\
 i. de-normalization :white_check_mark:\
 j. data type :white_check_mark:\
-k. get-used-to: employee modeling\
+k. get-used-to :soon:\
 k. constraints\
 x. cardinality\
 x. get-used-to: bbs modeling\
@@ -68,7 +68,8 @@ j-3. column length 선택 :white_check_mark:\
 j-4. character-set like utf-8 :white_check_mark:\
 j-5. null 보단 not null :white_check_mark:
 
-k-1. [get-used-to: 001.employee](https://www.youtube.com/watch?v=HXV3zeQKqGY) :white_check_mark:
+k-1. [employee](https://www.youtube.com/watch?v=HXV3zeQKqGY) :white_check_mark:\
+k-2. [대화방](https://www.youtube.com/watch?v=42LMmwSFGIE) :white_check_mark:
 
 x-x. [analyze okky modeling, demo](https://vuerd.github.io/)
 

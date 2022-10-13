@@ -1,0 +1,699 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": -196,
+    "scrollLeft": -102,
+    "zoomLevel": 1,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": false,
+      "columnPrimaryKey": true,
+      "columnUnique": false,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "MySQL",
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "회원",
+        "comment": "",
+        "columns": [
+          {
+            "name": "회원번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "3f391e92-02d5-4fed-8376-a9ec92cb2b58"
+          },
+          {
+            "name": "이름",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "34db4019-c8ad-4be4-9337-ed9001cc7ac1"
+          },
+          {
+            "name": "이메일",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "6ebbc2fb-5e15-4d49-a265-c5e243da7c17"
+          },
+          {
+            "name": "전화번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "18a0026e-14be-4106-a5e4-466d3ce9a08c"
+          },
+          {
+            "name": "프로필사진",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "83ee91ce-1eff-4e30-afb8-6601dc6f866c"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 52,
+          "top": 174,
+          "zIndex": 63,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#F44336"
+        },
+        "visible": true,
+        "id": "8aeca4b1-fdfe-461c-b8da-dafda0f26d2d"
+      },
+      {
+        "name": "대화방",
+        "comment": "",
+        "columns": [
+          {
+            "name": "대화방번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "73f910c8-9384-44fb-92da-ce3e3e5c89f0"
+          },
+          {
+            "name": "제목",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "fc857e40-756d-4735-b62b-6443ff67941d"
+          },
+          {
+            "name": "내용",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "40363165-42d7-4d9c-a60a-b14999cfb515"
+          },
+          {
+            "name": "수정일시",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "8a1c9d96-d5ea-4be6-abae-98f0e2e6ad0c"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 689,
+          "top": 155,
+          "zIndex": 60,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#2600FF"
+        },
+        "visible": true,
+        "id": "917db26d-5a34-4b1a-a348-72f9fbc8850f"
+      },
+      {
+        "name": "회원대화방",
+        "comment": "M:M관계 해소",
+        "columns": [
+          {
+            "name": "회원번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "0b860843-9b28-4fe8-a3f4-c99d6bd055f3"
+          },
+          {
+            "name": "대화방번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "914fe27e-17c0-4d34-9498-e26cabd1a98e"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 588,
+          "top": 422,
+          "zIndex": 70,
+          "widthName": 60,
+          "widthComment": 74.78694152832031,
+          "color": "#CDDC39"
+        },
+        "visible": true,
+        "id": "d7482317-c83c-49e7-b54d-f8fb18404431"
+      },
+      {
+        "name": "대화",
+        "comment": "",
+        "columns": [
+          {
+            "name": "대화방번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "f8710c10-7a6b-4ee5-b839-7e27716aa830"
+          },
+          {
+            "name": "대화번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "2e01ed08-b7e6-40ee-ab49-46dee21fb323"
+          },
+          {
+            "name": "회원번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "dfb5de99-7265-42b8-a691-acb00805121e"
+          },
+          {
+            "name": "내용",
+            "comment": "원래 이모티콘인지, 사진인지, 텍스트인지, 영상인지 분류해줘야 함",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 120,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "d7445933-ec0e-461d-b5a5-c26076a9df12"
+          },
+          {
+            "name": "등록일시",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "7b37c1a2-5990-4c5b-9a80-254f84df688e"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 582,
+          "top": 647,
+          "zIndex": 104,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#607D8B"
+        },
+        "visible": true,
+        "id": "c6c17109-1ea2-4a3f-a283-72efb100b078"
+      },
+      {
+        "name": "친구",
+        "comment": "셀프 M:M 해소",
+        "columns": [
+          {
+            "name": "회원번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "41cdaf88-37a8-4c56-96d8-372aca9db16a"
+          },
+          {
+            "name": "친구회원번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 69.469970703125,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "1e981bc9-eb87-473b-915e-d39f4c0a81ca"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 41,
+          "top": 497,
+          "zIndex": 78,
+          "widthName": 60,
+          "widthComment": 78.2059326171875,
+          "color": "#FF9800"
+        },
+        "visible": true,
+        "id": "085ffd79-fd4c-4323-8ba7-3245ddc936a3"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": [
+      {
+        "value": "---\nQ. 대화 엔티티의 pk 어떻게 정하지?\n\n\ncase1) problem\n\n대화번호 pk\n회원번호 fk\n대화방번호 fk\n\n\n이러면 모든 회원이, 모든 대화방에, 모든 대화에다가 다 일련번호 붙이는 것. \n\n회원 몇억명 + 인당 수십개 대화 + 엄청난 대화 갯수 -> 숫자가 너무 커짐\n\n\n---\ncase2) solution\n\n\n대화 방에 종속적인 대화번호를 붙이자!\n\n대화방번호 pk\n대화번호 pk(원래 fk였음)\n회원번호 fk\n\n\n\n대화 번호를 대화방 번호에 종속적이게 만들었다.\n이러면 각 대화방마다, 새롭게 1,2,3번 대화번호가 생성된다(auto_increment로 하던 hash쓰던..)\n\n",
+        "ui": {
+          "active": false,
+          "left": 178,
+          "top": 637,
+          "zIndex": 114,
+          "width": 329,
+          "height": 536
+        },
+        "id": "301e5de4-ed4f-446d-ae91-1a126b27c5ba"
+      }
+    ]
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": true,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "8aeca4b1-fdfe-461c-b8da-dafda0f26d2d",
+          "columnIds": [
+            "3f391e92-02d5-4fed-8376-a9ec92cb2b58"
+          ],
+          "x": 399,
+          "y": 259.75,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "d7482317-c83c-49e7-b54d-f8fb18404431",
+          "columnIds": [
+            "0b860843-9b28-4fe8-a3f4-c99d6bd055f3"
+          ],
+          "x": 588,
+          "y": 477,
+          "direction": "left"
+        },
+        "constraintName": "fk_회원_to_회원대화방",
+        "visible": true,
+        "id": "cfade477-df21-4feb-a276-7d111b5d1585"
+      },
+      {
+        "identification": true,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "917db26d-5a34-4b1a-a348-72f9fbc8850f",
+          "columnIds": [
+            "73f910c8-9384-44fb-92da-ce3e3e5c89f0"
+          ],
+          "x": 862.5,
+          "y": 306,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "d7482317-c83c-49e7-b54d-f8fb18404431",
+          "columnIds": [
+            "914fe27e-17c0-4d34-9498-e26cabd1a98e"
+          ],
+          "x": 761.5,
+          "y": 422,
+          "direction": "top"
+        },
+        "constraintName": "fk_대화방_to_회원대화방",
+        "visible": true,
+        "id": "60dcf4b8-174f-4b3d-bf07-fee0ac684d98"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "d7482317-c83c-49e7-b54d-f8fb18404431",
+          "columnIds": [
+            "0b860843-9b28-4fe8-a3f4-c99d6bd055f3",
+            "914fe27e-17c0-4d34-9498-e26cabd1a98e"
+          ],
+          "x": 761.5,
+          "y": 532,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "c6c17109-1ea2-4a3f-a283-72efb100b078",
+          "columnIds": [
+            "dfb5de99-7265-42b8-a691-acb00805121e",
+            "f8710c10-7a6b-4ee5-b839-7e27716aa830"
+          ],
+          "x": 785.5,
+          "y": 647,
+          "direction": "top"
+        },
+        "constraintName": "fk_회원대화방_to_대화",
+        "visible": true,
+        "id": "bd5b6dc7-dd04-4078-9baa-ab5844cb9963"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "8aeca4b1-fdfe-461c-b8da-dafda0f26d2d",
+          "columnIds": [
+            "3f391e92-02d5-4fed-8376-a9ec92cb2b58"
+          ],
+          "x": 138.75,
+          "y": 345.5,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "085ffd79-fd4c-4323-8ba7-3245ddc936a3",
+          "columnIds": [
+            "41cdaf88-37a8-4c56-96d8-372aca9db16a"
+          ],
+          "x": 130.11749267578125,
+          "y": 497,
+          "direction": "top"
+        },
+        "constraintName": "fk_회원_to_친구",
+        "visible": true,
+        "id": "0032c201-f67a-4a75-b930-88e47d4072ce"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "8aeca4b1-fdfe-461c-b8da-dafda0f26d2d",
+          "columnIds": [
+            "3f391e92-02d5-4fed-8376-a9ec92cb2b58"
+          ],
+          "x": 312.25,
+          "y": 345.5,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "085ffd79-fd4c-4323-8ba7-3245ddc936a3",
+          "columnIds": [
+            "1e981bc9-eb87-473b-915e-d39f4c0a81ca"
+          ],
+          "x": 308.35247802734375,
+          "y": 497,
+          "direction": "top"
+        },
+        "constraintName": "fk_회원_to_친구",
+        "visible": true,
+        "id": "0b1dfba6-f3ca-476c-9d2e-a673b1e8eef7"
+      }
+    ]
+  }
+}
