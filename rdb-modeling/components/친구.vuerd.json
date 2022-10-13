@@ -1,0 +1,315 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": 0,
+    "scrollLeft": 0,
+    "zoomLevel": 1,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": false,
+      "columnPrimaryKey": true,
+      "columnUnique": false,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "MySQL",
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "회원",
+        "comment": "",
+        "columns": [
+          {
+            "name": "회원번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "1bae7d21-3bb1-4f2a-aba3-aacaa1a501ef"
+          },
+          {
+            "name": "이름",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "299d3458-b333-4e0b-8132-6605d7539024"
+          },
+          {
+            "name": "이메일",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "a3c2635c-4550-44ad-b01d-62abd482a763"
+          },
+          {
+            "name": "전화번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "b9f2bf8d-774a-4955-a2e2-305b029a08f8"
+          },
+          {
+            "name": "프로필사진",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "5700e01b-0816-4468-8ad1-61cc1a5dae89"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 58,
+          "top": 102,
+          "zIndex": 26,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#F44336"
+        },
+        "visible": true,
+        "id": "a74ced53-df4e-4b6b-a358-bb43b375f7c8"
+      },
+      {
+        "name": "친구",
+        "comment": "",
+        "columns": [
+          {
+            "name": "회원번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "fc211e0c-3d20-4d44-9ade-7e7180e7214f"
+          },
+          {
+            "name": "친구회원번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 69.469970703125,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "74d5a1a5-35cc-4bfb-81f6-cf1507f19f3b"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 561,
+          "top": 132,
+          "zIndex": 32,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#002FFF"
+        },
+        "visible": true,
+        "id": "d96330a4-a317-4546-aa59-2fc7d03d3216"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": [
+      {
+        "value": "---\n친구 엔티티는 신기하게\n\naction entity가 부모의 pk두개를 fk로 가져오는데, pk없고 둘 다 fk네?",
+        "ui": {
+          "active": true,
+          "left": 504,
+          "top": 318,
+          "zIndex": 37,
+          "width": 127,
+          "height": 100
+        },
+        "id": "8b1bff61-aa86-432d-89fb-704989dcc63c"
+      }
+    ]
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "a74ced53-df4e-4b6b-a358-bb43b375f7c8",
+          "columnIds": [
+            "1bae7d21-3bb1-4f2a-aba3-aacaa1a501ef"
+          ],
+          "x": 405,
+          "y": 144.875,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "d96330a4-a317-4546-aa59-2fc7d03d3216",
+          "columnIds": [
+            "fc211e0c-3d20-4d44-9ade-7e7180e7214f"
+          ],
+          "x": 561,
+          "y": 159.5,
+          "direction": "left"
+        },
+        "constraintName": "fk_회원_to_친구",
+        "visible": true,
+        "id": "f34c57c0-22f1-4360-86b2-15c33f6f16b7"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "a74ced53-df4e-4b6b-a358-bb43b375f7c8",
+          "columnIds": [
+            "1bae7d21-3bb1-4f2a-aba3-aacaa1a501ef"
+          ],
+          "x": 405,
+          "y": 230.625,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "d96330a4-a317-4546-aa59-2fc7d03d3216",
+          "columnIds": [
+            "74d5a1a5-35cc-4bfb-81f6-cf1507f19f3b"
+          ],
+          "x": 561,
+          "y": 214.5,
+          "direction": "left"
+        },
+        "constraintName": "fk_회원_to_친구",
+        "visible": true,
+        "id": "b8b81282-9d7b-4c25-b0a2-5bf0d510cc6a"
+      }
+    ]
+  }
+}
