@@ -1,0 +1,543 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": -14,
+    "scrollLeft": 0,
+    "zoomLevel": 1,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": false,
+      "columnPrimaryKey": true,
+      "columnUnique": false,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "MySQL",
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "회원",
+        "comment": "",
+        "columns": [
+          {
+            "name": "성",
+            "comment": "NAME하나로 퉁치는게 좋을까?",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 120,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "962a3f05-a7e8-4dde-867f-b5889d583010"
+          },
+          {
+            "name": "이름",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "2fddd9c1-7ca8-482c-bca3-0358fd7166e2"
+          },
+          {
+            "name": "도",
+            "comment": "ADDRESS 하나로 퉁칠까",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 120,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "5fb2ac73-f940-40bc-aba8-2ab270f563e9"
+          },
+          {
+            "name": "시",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "32adc3d0-1de4-4030-818a-d225864fd822"
+          },
+          {
+            "name": "읍",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "7c2546ae-c91e-46bd-bf2d-a7413ea0b0d0"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 149,
+          "top": 76,
+          "zIndex": 51,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#F44336"
+        },
+        "visible": true,
+        "id": "ac7bca72-04ed-4ba9-9f23-1afaaa795147"
+      },
+      {
+        "name": "고객",
+        "comment": "",
+        "columns": [
+          {
+            "name": "고객아이디",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "f17e3bf7-4246-4128-be20-507614a69d52"
+          },
+          {
+            "name": "고객명",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "195c9be0-0cc3-4315-af24-047b77df5784"
+          },
+          {
+            "name": "고객생년월일",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 69.469970703125,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "311b1912-5c7a-4d6f-8c93-935e8f29276c"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 82,
+          "top": 281,
+          "zIndex": 108,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#0039FF"
+        },
+        "visible": true,
+        "id": "f8f0d609-7ed0-441b-b1c2-9df485c22c63"
+      },
+      {
+        "name": "고객주소",
+        "comment": "",
+        "columns": [
+          {
+            "name": "고객아이디",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "db464aea-5b55-4aff-b987-506b34664baf"
+          },
+          {
+            "name": "주소일련번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 69.469970703125,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "3d3fe500-8e74-488e-8226-75160d6f91a8"
+          },
+          {
+            "name": "우편번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "d89919b9-76d1-462b-ac51-f04d6e9cd7a7"
+          },
+          {
+            "name": "읍면동주소",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "75f3d51c-b60f-4247-bece-cf7c844bb1f6"
+          },
+          {
+            "name": "상세주소",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "8508dedd-749d-495e-845c-e61592156145"
+          },
+          {
+            "name": "대표주소여부",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 69.469970703125,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "166bb14e-e6a0-47f3-a3ea-637f76001826"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 549,
+          "top": 326,
+          "zIndex": 110,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#F600FF"
+        },
+        "visible": true,
+        "id": "e5758025-c9fe-442d-9620-4b8606869d8e"
+      },
+      {
+        "name": "고객로그인이력",
+        "comment": "",
+        "columns": [
+          {
+            "name": "고객아이디",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "d2bac3f4-e3a5-49db-bafd-2ae95a11df1a"
+          },
+          {
+            "name": "로그인일이",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "48263f73-ae86-4ef9-8f34-8b7aee0a96d9"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 146,
+          "top": 516,
+          "zIndex": 109,
+          "widthName": 80.7149658203125,
+          "widthComment": 60,
+          "color": "#FF0068"
+        },
+        "visible": true,
+        "id": "90673694-abac-48da-a049-0410e191956c"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": []
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "f8f0d609-7ed0-441b-b1c2-9df485c22c63",
+          "columnIds": [
+            "f17e3bf7-4246-4128-be20-507614a69d52"
+          ],
+          "x": 438.469970703125,
+          "y": 346.25,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "e5758025-c9fe-442d-9620-4b8606869d8e",
+          "columnIds": [
+            "db464aea-5b55-4aff-b987-506b34664baf"
+          ],
+          "x": 549,
+          "y": 422,
+          "direction": "left"
+        },
+        "constraintName": "fk_고객_to_고객주소",
+        "visible": true,
+        "id": "2edb6dc1-968b-481f-b03b-5300018f04ff"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "f8f0d609-7ed0-441b-b1c2-9df485c22c63",
+          "columnIds": [
+            "f17e3bf7-4246-4128-be20-507614a69d52"
+          ],
+          "x": 260.2349853515625,
+          "y": 411.5,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "90673694-abac-48da-a049-0410e191956c",
+          "columnIds": [
+            "d2bac3f4-e3a5-49db-bafd-2ae95a11df1a"
+          ],
+          "x": 319.5,
+          "y": 516,
+          "direction": "top"
+        },
+        "constraintName": "fk_고객_to_고객로그인이력",
+        "visible": true,
+        "id": "39e6ccff-9ad1-4cdc-9f12-a38f57bd8405"
+      }
+    ]
+  }
+}
