@@ -17,8 +17,8 @@ e. keys :white_check_mark:\
 f. components :soon:\
 g. relations a.k.a 오리발, 까치발 :white_check_mark:\
 h. normalization :white_check_mark:\
-i. de-normalization :white_check_mark\
-x. data type\
+i. de-normalization :white_check_mark:\
+j. data type :white_check_mark:\
 x. cardinality\
 x. get-used-to: employee modeling\
 x. get-used-to: bbs modeling\
@@ -59,6 +59,12 @@ h-2. 제2 정규화 :white_check_mark:\
 h-3. 제3 정규화 :white_check_mark:
 
 i-1. 반정규화 why and use-case :white_check_mark:
+
+j-1. pk 선택 :white_check_mark:\
+j-2. data type 선택 :white_check_mark:\
+j-3. column length 선택 :white_check_mark:\
+j-4. character-set like utf-8 :white_check_mark:\
+j-5. null 보단 not null :white_check_mark:
 
 x-1. [get-used-to: company rdb modeling](https://www.youtube.com/watch?v=HXV3zeQKqGY) :white_check_mark:\
 x-x. [analyze okky modeling, demo](https://vuerd.github.io/)
