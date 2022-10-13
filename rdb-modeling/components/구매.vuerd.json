@@ -120,7 +120,7 @@
           "active": false,
           "left": 32,
           "top": 100,
-          "zIndex": 1,
+          "zIndex": 5,
           "widthName": 60,
           "widthComment": 60,
           "color": "#F44336"
@@ -206,7 +206,7 @@
           "active": false,
           "left": 673,
           "top": 105,
-          "zIndex": 3,
+          "zIndex": 13,
           "widthName": 60,
           "widthComment": 60,
           "color": "#2196F3"
@@ -262,30 +262,7 @@
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "8d8df06e-63b9-43a4-8b17-7cde1b367b22"
-          },
-          {
-            "name": "상품코드",
-            "comment": "",
-            "dataType": "",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": true,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "257351db-e9f2-4ac4-b8ed-925a444fb808"
+            "id": "e4ff37f3-e55c-486f-bc4c-78b9c35fb33c"
           },
           {
             "name": "구매일시",
@@ -309,13 +286,36 @@
               "widthDefault": 60
             },
             "id": "6be200a2-be2a-4f3a-a75a-d0da786fb9a1"
+          },
+          {
+            "name": "상품코드",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "29e48e59-fd5a-42cc-bb1a-2f8aad74ffdc"
           }
         ],
         "ui": {
           "active": false,
-          "left": 297,
+          "left": 319,
           "top": 371,
-          "zIndex": 2,
+          "zIndex": 14,
           "widthName": 60,
           "widthComment": 60,
           "color": "#A1FF00"
@@ -329,12 +329,12 @@
   "memo": {
     "memos": [
       {
-        "value": "---\n구매 일련번호가 pk?\n\n고객ID+상품ID를 복합키로 pk설정해서 string based index하는 것 보다, int base가 .compare속도고 빠르고, 같은 고객이 같은 상품 여러번 구매하면 전자 복합키는 유일성 보장이 안되기에, uuid 구매 일련번호가 더 적합",
+        "value": "---\n구매 일련번호가 pk?\n\n고객ID+상품ID를 복합키로 pk설정해서 string based index하는 것 보다, int base가 .compare속도고 빠르고, 같은 고객이 같은 상품 여러번 구매하면 전자 복합키는 유일성 보장이 안되기에, uuid 구매 일련번호가 더 적합\n\n\n\n---\n고객->구매 relation\n\nzero to many\nwhy?\n한 고객당 구매를 0개부터 n개 할 수 있으니까.\n\n---\n상품->구매 relation\n\nzero to many\nwhy?\n하나의 상품을 안살 수도 있지만,\n동일 상품 여러번 구매 가능하니까.\n\n",
         "ui": {
-          "active": false,
+          "active": true,
           "left": 722,
           "top": 383,
-          "zIndex": 5,
+          "zIndex": 15,
           "width": 318,
           "height": 167
         },
@@ -346,7 +346,7 @@
     "relationships": [
       {
         "identification": false,
-        "relationshipType": "OneN",
+        "relationshipType": "ZeroN",
         "startRelationshipType": "Dash",
         "start": {
           "tableId": "cae2dfae-5210-4c71-8823-4cc60409e88d",
@@ -360,19 +360,19 @@
         "end": {
           "tableId": "53d5c433-69f1-4b23-a0db-aa5d33c6531a",
           "columnIds": [
-            "8d8df06e-63b9-43a4-8b17-7cde1b367b22"
+            "e4ff37f3-e55c-486f-bc4c-78b9c35fb33c"
           ],
-          "x": 475.2349853515625,
+          "x": 408.11749267578125,
           "y": 371,
           "direction": "top"
         },
         "constraintName": "fk_고객_to_구매",
         "visible": true,
-        "id": "8da0afa5-9bc7-46cc-b425-4a33502b0052"
+        "id": "739b0715-626f-4d6c-8e46-76e3ed4b944b"
       },
       {
         "identification": false,
-        "relationshipType": "OneN",
+        "relationshipType": "ZeroN",
         "startRelationshipType": "Dash",
         "start": {
           "tableId": "2d455659-4183-41a9-bef9-4c1b77b05c79",
@@ -386,15 +386,15 @@
         "end": {
           "tableId": "53d5c433-69f1-4b23-a0db-aa5d33c6531a",
           "columnIds": [
-            "257351db-e9f2-4ac4-b8ed-925a444fb808"
+            "29e48e59-fd5a-42cc-bb1a-2f8aad74ffdc"
           ],
-          "x": 653.469970703125,
-          "y": 446.5,
-          "direction": "right"
+          "x": 586.3524780273438,
+          "y": 371,
+          "direction": "top"
         },
         "constraintName": "fk_상품_to_구매",
         "visible": true,
-        "id": "ebe79ad0-2b12-4eae-a2cd-85d0c30dc018"
+        "id": "29c53556-d57f-47e1-8419-d2dfeff86bf2"
       }
     ]
   }

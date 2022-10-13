@@ -4,7 +4,7 @@
     "width": 2000,
     "height": 2000,
     "scrollTop": 0,
-    "scrollLeft": -1,
+    "scrollLeft": 0,
     "zoomLevel": 1,
     "show": {
       "tableComment": true,
@@ -43,11 +43,11 @@
   "table": {
     "tables": [
       {
-        "name": "고객",
+        "name": "학생",
         "comment": "",
         "columns": [
           {
-            "name": "고객아이디",
+            "name": "학생번호",
             "comment": "",
             "dataType": "",
             "default": "",
@@ -55,7 +55,7 @@
               "autoIncrement": false,
               "primaryKey": true,
               "unique": false,
-              "notNull": true
+              "notNull": false
             },
             "ui": {
               "active": false,
@@ -67,73 +67,27 @@
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "89297f6e-4180-4f12-9ee5-aa55d6e1a501"
-          },
-          {
-            "name": "고객명",
-            "comment": "",
-            "dataType": "",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": false
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "28f3a505-68a5-46ab-952b-758c1a2da455"
-          },
-          {
-            "name": "고객생년월일",
-            "comment": "",
-            "dataType": "",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": false
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 69.469970703125,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "7d9cb220-fd84-439f-992d-94dc94deef8c"
+            "id": "223404e2-f297-457b-8400-106c1deac328"
           }
         ],
         "ui": {
           "active": false,
-          "left": 73,
-          "top": 94,
-          "zIndex": 2,
+          "left": 22,
+          "top": 48,
+          "zIndex": 49,
           "widthName": 60,
           "widthComment": 60,
           "color": "#F44336"
         },
         "visible": true,
-        "id": "3a329c1d-d600-4433-918a-ebdad2eb4fe2"
+        "id": "706afd45-ce51-49d8-8388-044a5dd1d481"
       },
       {
-        "name": "고객주소",
+        "name": "과목",
         "comment": "",
         "columns": [
           {
-            "name": "주소일련번호",
+            "name": "과목번호",
             "comment": "",
             "dataType": "",
             "default": "",
@@ -148,15 +102,15 @@
               "pk": true,
               "fk": false,
               "pfk": false,
-              "widthName": 69.469970703125,
+              "widthName": 60,
               "widthComment": 60,
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "9e625a06-e31b-478d-902e-daab8533d914"
+            "id": "cc17eaf1-e0cb-42ff-8b12-15c90b75238f"
           },
           {
-            "name": "고객아이디",
+            "name": "학생번호",
             "comment": "",
             "dataType": "",
             "default": "",
@@ -176,112 +130,163 @@
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "e52b065a-3286-4cec-86cc-d67da2cc5ff1"
-          },
-          {
-            "name": "우편번호",
-            "comment": "",
-            "dataType": "",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": false
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "d5630803-d35a-4789-bf45-c2fa5da004d3"
-          },
-          {
-            "name": "읍면동주소",
-            "comment": "",
-            "dataType": "",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": false
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "696b8200-7e27-4d21-bfba-b7f224e62345"
-          },
-          {
-            "name": "상세주소",
-            "comment": "",
-            "dataType": "",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": false
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "4f80e493-fcbb-4c9b-b606-77acc408ddd9"
-          },
-          {
-            "name": "대표주소여부",
-            "comment": "",
-            "dataType": "",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": false
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 69.469970703125,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "d84c954e-ce01-48b2-84af-400fbe405a89"
+            "id": "d4966538-f0a5-4352-9c9a-ed8f3802a715"
           }
         ],
         "ui": {
           "active": false,
-          "left": 534,
-          "top": 110,
-          "zIndex": 1,
+          "left": 459,
+          "top": 38,
+          "zIndex": 50,
           "widthName": 60,
           "widthComment": 60,
           "color": "#2196F3"
         },
         "visible": true,
-        "id": "0af79843-78a4-4035-8667-ee340b738ff8"
+        "id": "ff329463-9d19-43c0-9f87-c5b9f26a3103"
+      },
+      {
+        "name": "학생",
+        "comment": "",
+        "columns": [
+          {
+            "name": "학생번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "f7629a72-4f03-44e4-b10d-b317ac89ee5b"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 30,
+          "top": 381,
+          "zIndex": 85,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#F44336"
+        },
+        "visible": true,
+        "id": "e0c6f07d-f544-47cc-98da-6602393d39e1"
+      },
+      {
+        "name": "과목",
+        "comment": "",
+        "columns": [
+          {
+            "name": "과목번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "0e92e5de-4faa-4846-bdfd-9a1529411800"
+          }
+        ],
+        "ui": {
+          "active": true,
+          "left": 546,
+          "top": 376,
+          "zIndex": 89,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#2196F3"
+        },
+        "visible": true,
+        "id": "fb71cfde-24a3-4b25-9cf6-f63b0ea05827"
+      },
+      {
+        "name": "수강",
+        "comment": "",
+        "columns": [
+          {
+            "name": "학생번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "4228cf3c-58ce-4cf6-b970-01a20b37e928"
+          },
+          {
+            "name": "과목번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "5105cbf8-79c4-4147-9b34-6cadd633947c"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 262,
+          "top": 587,
+          "zIndex": 88,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#FFEB3B"
+        },
+        "visible": true,
+        "id": "8a003266-dbb6-4454-b4cf-e1cee8e8f35e"
       }
     ],
     "indexes": []
@@ -289,16 +294,16 @@
   "memo": {
     "memos": [
       {
-        "value": "---\n주소 action entity 따로 관리\n\n\n주소 하나로 저 세부사항 다 퉁치기엔, \nattributes는 atomic하게 normalized되어야 하기 때문에, 저렇게 분할 관리.\n\n\n---\n고객->고객주소 relation\n\none to one\n\n왜?\n모든 고객은 사는 곳, 주소가 있으니까\n(그럼 거지는...;;)\n",
+        "value": "case1) m:m\n\n한 학생이 여러 과목 수강 가능하고,\n한 과목을 여러 학생이 수강 가능하니까 m:m관계.\n\n근데 물리모델에서 m:m관계 표기법 없음.\n\n그래서 아래와 같이 치환해줘야 함.\n\n그걸 m:m 해소라고 함.",
         "ui": {
           "active": false,
-          "left": 539,
-          "top": 363,
-          "zIndex": 7,
-          "width": 403,
-          "height": 145
+          "left": 149,
+          "top": 147,
+          "zIndex": 57,
+          "width": 504,
+          "height": 157
         },
-        "id": "1df9adea-1a15-441e-a0fa-d70d9272f16c"
+        "id": "369ca9c0-c194-4fa9-a24a-4caf88326aba"
       }
     ]
   },
@@ -306,29 +311,81 @@
     "relationships": [
       {
         "identification": false,
-        "relationshipType": "OneOnly",
+        "relationshipType": "OneN",
         "startRelationshipType": "Dash",
         "start": {
-          "tableId": "3a329c1d-d600-4433-918a-ebdad2eb4fe2",
+          "tableId": "706afd45-ce51-49d8-8388-044a5dd1d481",
           "columnIds": [
-            "89297f6e-4180-4f12-9ee5-aa55d6e1a501"
+            "223404e2-f297-457b-8400-106c1deac328"
           ],
-          "x": 429.469970703125,
-          "y": 159.25,
+          "x": 369,
+          "y": 92.75,
           "direction": "right"
         },
         "end": {
-          "tableId": "0af79843-78a4-4035-8667-ee340b738ff8",
+          "tableId": "ff329463-9d19-43c0-9f87-c5b9f26a3103",
           "columnIds": [
-            "e52b065a-3286-4cec-86cc-d67da2cc5ff1"
+            "d4966538-f0a5-4352-9c9a-ed8f3802a715"
           ],
-          "x": 534,
-          "y": 206,
+          "x": 459,
+          "y": 93,
           "direction": "left"
         },
-        "constraintName": "fk_고객_to_고객주소",
+        "constraintName": "fk_학생_to_과목",
         "visible": true,
-        "id": "32fa4e23-e5e9-432e-8963-350fa9683ad6"
+        "id": "66dd58c9-3f05-4e4f-a168-988c4c88a3d6"
+      },
+      {
+        "identification": false,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "e0c6f07d-f544-47cc-98da-6602393d39e1",
+          "columnIds": [
+            "f7629a72-4f03-44e4-b10d-b317ac89ee5b"
+          ],
+          "x": 377,
+          "y": 425.75,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "8a003266-dbb6-4454-b4cf-e1cee8e8f35e",
+          "columnIds": [
+            "4228cf3c-58ce-4cf6-b970-01a20b37e928"
+          ],
+          "x": 348.75,
+          "y": 587,
+          "direction": "top"
+        },
+        "constraintName": "fk_학생_to_수강",
+        "visible": true,
+        "id": "4d73f80f-b628-46a3-bd0a-2f75ea77a392"
+      },
+      {
+        "identification": false,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "fb71cfde-24a3-4b25-9cf6-f63b0ea05827",
+          "columnIds": [
+            "0e92e5de-4faa-4846-bdfd-9a1529411800"
+          ],
+          "x": 546,
+          "y": 420.75,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "8a003266-dbb6-4454-b4cf-e1cee8e8f35e",
+          "columnIds": [
+            "5105cbf8-79c4-4147-9b34-6cadd633947c"
+          ],
+          "x": 522.25,
+          "y": 587,
+          "direction": "top"
+        },
+        "constraintName": "fk_과목_to_수강",
+        "visible": true,
+        "id": "a11e42a8-5f43-43e8-a2f7-a922a07d13bc"
       }
     ]
   }

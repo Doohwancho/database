@@ -2,7 +2,7 @@
 ---\
 Objective
 
-modularize Relational Databasae Modeling
+modularize Relational Database Modeling
 
 
 ---\
@@ -15,14 +15,15 @@ c. 용어집 :white_check_mark:\
 d. entity && attributes :white_check_mark:\
 e. keys :white_check_mark:\
 f. components :soon:\
-x. 오리발, 까치발\
-x. keys\
-x. normalization\
+g. relations a.k.a 오리발, 까치발 :white_check_mark:\
+x. data type\
+x. normalization\   
+x. de-normalization\
 x. cardinality\
 x. get-used-to: employee modeling\
 x. get-used-to: bbs modeling\
 x. get-used-to: shoppingmall modeling\
-x. analyze: okky\ 
+x. analyze: okky\
 x. 대용량 트래픽 처리 전용 modeling
 
 
@@ -47,8 +48,12 @@ e-1. primary key :white_check_mark:
 f-1. 구매 :white_check_mark:\
 f-2. 주소 :white_check_mark:
 
-x-1. 오리발 까치발 from book - real mysql
+g-1. relation, 오리발 까치발 from book - real mysql :white_check_mark:\
+g-2. 식별관계(실선) vs 비식별관계(점선) - real mysql :white_check_mark:\
+g-2. 상속이 여러번일 땐 자식 pk는 uuid로 해라 - real mysql :white_check_mark:\
+g-3. m:m 관계 해소 - real mysql :white_check_mark:\
+g-4. 관계 통합 - real mysql :white_check_mark:
 
-x-1. get-used-to: company rdb modeling :white_check_mark:\
+x-1. [get-used-to: company rdb modeling](https://www.youtube.com/watch?v=HXV3zeQKqGY) :white_check_mark:\
 x-x. [analyze okky modeling, demo](https://vuerd.github.io/)
 

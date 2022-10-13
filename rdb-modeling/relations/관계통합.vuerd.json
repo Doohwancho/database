@@ -1,0 +1,513 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": 0,
+    "scrollLeft": -1,
+    "zoomLevel": 1,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": false,
+      "columnPrimaryKey": true,
+      "columnUnique": false,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "MySQL",
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "고객",
+        "comment": "",
+        "columns": [
+          {
+            "name": "고객ID",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "d7a262e3-d614-42d9-887a-61f77db6ea0b"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 0,
+          "top": 72,
+          "zIndex": 38,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#F44336"
+        },
+        "visible": true,
+        "id": "a501fa74-b4b9-4052-80f2-74db988f9d39"
+      },
+      {
+        "name": "보험계약",
+        "comment": "",
+        "columns": [
+          {
+            "name": "계약번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "53b7398a-ac92-44c9-a32a-7e09d499f222"
+          },
+          {
+            "name": "계약고객",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "36e2a5f3-403c-45f2-9b6e-2a6dde3047f7"
+          },
+          {
+            "name": "피보험고객",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "ebfc5f54-93d2-4c5b-80b4-354a46d6448d"
+          },
+          {
+            "name": "수익고객",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "25383446-9d9a-43ae-9ba9-0586efb7c383"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 514,
+          "top": 23,
+          "zIndex": 42,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#3F51B5"
+        },
+        "visible": true,
+        "id": "0d785e32-544d-4d78-af8a-3f608fef37f6"
+      },
+      {
+        "name": "고객",
+        "comment": "",
+        "columns": [
+          {
+            "name": "고객ID",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "76420f9d-5866-4a08-8f3d-ccf4b5f39d4c"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 3,
+          "top": 346,
+          "zIndex": 93,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#F44336"
+        },
+        "visible": true,
+        "id": "5b1f0ec5-e01e-455d-9a7d-b4e850a7b956"
+      },
+      {
+        "name": "보험계약관계자",
+        "comment": "",
+        "columns": [
+          {
+            "name": "고객ID",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "5066ba2a-707c-442b-b7fa-a19f56e85176"
+          },
+          {
+            "name": "계약번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "fefc94be-ff75-417b-bc26-aa15509c412c"
+          },
+          {
+            "name": "관계자구분",
+            "comment": "얘로 구분!",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "55f292cd-0174-48ba-93ca-c87a067e438b"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 302,
+          "top": 475,
+          "zIndex": 94,
+          "widthName": 80.7149658203125,
+          "widthComment": 60,
+          "color": "#CDDC39"
+        },
+        "visible": true,
+        "id": "16b35ca9-9d07-4c10-a9e8-c0498a11f547"
+      },
+      {
+        "name": "보험계약",
+        "comment": "",
+        "columns": [
+          {
+            "name": "계약번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "7ae743a7-638f-419f-89a4-dc7731554f58"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 645,
+          "top": 337,
+          "zIndex": 95,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#3F51B5"
+        },
+        "visible": true,
+        "id": "1041e35f-cd18-464d-8491-3a4c7e8d9899"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": [
+      {
+        "value": "Q. 계약인데 고객을 세부종류로 참조해야 한다면?\n\n그렇다고 테이블을 계약고객, 피보험고객, 수익고객 만들 수도 없잖아?\n\nA. 관계자 구분이라는 attribute 만들어서 얘로 구분하자.\n만약 정규화 이후 계약고객, 피보험고객, 수익고객, 법인고객 등 USER에 여러 비슷한 파생 엔티티가 있으면, 동일 방법으로 합치자.",
+        "ui": {
+          "active": true,
+          "left": 231,
+          "top": 166,
+          "zIndex": 97,
+          "width": 377,
+          "height": 101
+        },
+        "id": "945848c9-a77b-4928-8c1e-52af6d1f0ff2"
+      }
+    ]
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "a501fa74-b4b9-4052-80f2-74db988f9d39",
+          "columnIds": [
+            "d7a262e3-d614-42d9-887a-61f77db6ea0b"
+          ],
+          "x": 347,
+          "y": 86.91666666666667,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "0d785e32-544d-4d78-af8a-3f608fef37f6",
+          "columnIds": [
+            "36e2a5f3-403c-45f2-9b6e-2a6dde3047f7"
+          ],
+          "x": 514,
+          "y": 48.16666666666667,
+          "direction": "left"
+        },
+        "constraintName": "fk_고객_to_보험계약",
+        "visible": true,
+        "id": "35dfa981-79aa-44f1-a617-5851a3dc3007"
+      },
+      {
+        "identification": false,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "a501fa74-b4b9-4052-80f2-74db988f9d39",
+          "columnIds": [
+            "d7a262e3-d614-42d9-887a-61f77db6ea0b"
+          ],
+          "x": 347,
+          "y": 116.75,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "0d785e32-544d-4d78-af8a-3f608fef37f6",
+          "columnIds": [
+            "ebfc5f54-93d2-4c5b-80b4-354a46d6448d"
+          ],
+          "x": 514,
+          "y": 98.5,
+          "direction": "left"
+        },
+        "constraintName": "fk_고객_to_보험계약",
+        "visible": true,
+        "id": "ebd6a871-fe29-4345-aa6c-4733dd381f43"
+      },
+      {
+        "identification": false,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "a501fa74-b4b9-4052-80f2-74db988f9d39",
+          "columnIds": [
+            "d7a262e3-d614-42d9-887a-61f77db6ea0b"
+          ],
+          "x": 347,
+          "y": 146.58333333333334,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "0d785e32-544d-4d78-af8a-3f608fef37f6",
+          "columnIds": [
+            "25383446-9d9a-43ae-9ba9-0586efb7c383"
+          ],
+          "x": 514,
+          "y": 148.83333333333334,
+          "direction": "left"
+        },
+        "constraintName": "fk_고객_to_보험계약",
+        "visible": true,
+        "id": "abd5b813-55aa-4376-9943-f7494e262293"
+      },
+      {
+        "identification": true,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "5b1f0ec5-e01e-455d-9a7d-b4e850a7b956",
+          "columnIds": [
+            "76420f9d-5866-4a08-8f3d-ccf4b5f39d4c"
+          ],
+          "x": 350,
+          "y": 390.75,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "16b35ca9-9d07-4c10-a9e8-c0498a11f547",
+          "columnIds": [
+            "5066ba2a-707c-442b-b7fa-a19f56e85176"
+          ],
+          "x": 475.5,
+          "y": 475,
+          "direction": "top"
+        },
+        "constraintName": "fk_고객_to_보험계약관계자",
+        "visible": true,
+        "id": "b85abdb2-a77c-4b79-9d3d-c765bf5d81a2"
+      },
+      {
+        "identification": true,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "1041e35f-cd18-464d-8491-3a4c7e8d9899",
+          "columnIds": [
+            "7ae743a7-638f-419f-89a4-dc7731554f58"
+          ],
+          "x": 645,
+          "y": 381.75,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "16b35ca9-9d07-4c10-a9e8-c0498a11f547",
+          "columnIds": [
+            "fefc94be-ff75-417b-bc26-aa15509c412c"
+          ],
+          "x": 649,
+          "y": 540.25,
+          "direction": "right"
+        },
+        "constraintName": "fk_보험계약_to_보험계약관계자",
+        "visible": true,
+        "id": "5f900bc6-775e-4f63-8065-423532e074d1"
+      }
+    ]
+  }
+}
