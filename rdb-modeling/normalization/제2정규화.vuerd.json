@@ -1,0 +1,516 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": 0,
+    "scrollLeft": -1,
+    "zoomLevel": 1,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": false,
+      "columnPrimaryKey": true,
+      "columnUnique": false,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "MySQL",
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "회원",
+        "comment": "",
+        "columns": [
+          {
+            "name": "회원번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "751e9833-161a-4fa0-be08-06855b9d7697"
+          },
+          {
+            "name": "자택주소",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "95b1db3f-cba2-40a8-a193-885685e157d9"
+          },
+          {
+            "name": "자택우편번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 69.469970703125,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "09e2201a-4ffd-48fe-a2d3-44926ca71870"
+          },
+          {
+            "name": "회사주소",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "e8f25e97-4095-4c74-b2f5-f799e0142327"
+          },
+          {
+            "name": "회사우편번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 69.469970703125,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "0602b83b-362f-4836-a61f-72d260e69034"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 31,
+          "top": 44,
+          "zIndex": 41,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#F44336"
+        },
+        "visible": true,
+        "id": "daf0f5c3-272e-478e-b392-8b694413eee3"
+      },
+      {
+        "name": "친구",
+        "comment": "",
+        "columns": [
+          {
+            "name": "회원번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "a21fc27a-5044-40cb-a381-5e1cdef5e37d"
+          },
+          {
+            "name": "친구회원번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 69.469970703125,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "6818e0ef-a1c5-4361-b0b9-6adc8e6c0505"
+          },
+          {
+            "name": "친구회원명",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "fdda3238-5230-493c-b9d7-e322e93afb34"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 514,
+          "top": 64,
+          "zIndex": 43,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#2196F3"
+        },
+        "visible": true,
+        "id": "8e743183-1af8-4556-bb96-895509c8d1cf"
+      },
+      {
+        "name": "회원",
+        "comment": "",
+        "columns": [
+          {
+            "name": "회원번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "0cfaecfe-284f-4881-9d25-571cf8649a8e"
+          },
+          {
+            "name": "회원명",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "1d54d094-ab9a-4f80-b718-67be002fa553"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 32,
+          "top": 426,
+          "zIndex": 54,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#F44336"
+        },
+        "visible": true,
+        "id": "9c6e57bf-fb0d-4799-964a-e9b078a5e6e4"
+      },
+      {
+        "name": "친구",
+        "comment": "",
+        "columns": [
+          {
+            "name": "회원번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "77dde908-65ad-4433-a663-0cf63cf8c12f"
+          },
+          {
+            "name": "회원번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "f9872fe5-eb53-4348-971a-28841177dc53"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 537,
+          "top": 422,
+          "zIndex": 57,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#2196F3"
+        },
+        "visible": true,
+        "id": "b0057489-4a40-4b4d-b054-83d4c20d6409"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": [
+      {
+        "value": "---\n제2정규형이란?\n\n해당 entity에 종속된 모든 attributes는 모든 pk에 종속되어야 함.\n\n친구회원명은 친구회원번호에만 종속관계를 가지고, 나머지 pk인 회원번호와 종속관계가 없다.\n\n모든 pk에 종속되지 않은 attribute는 부모한테 보내라.\n",
+        "ui": {
+          "active": false,
+          "left": 31,
+          "top": 241,
+          "zIndex": 34,
+          "width": 615,
+          "height": 110
+        },
+        "id": "8f968dc1-c54e-406b-92d0-071cc910ceac"
+      }
+    ]
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": true,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "daf0f5c3-272e-478e-b392-8b694413eee3",
+          "columnIds": [
+            "751e9833-161a-4fa0-be08-06855b9d7697"
+          ],
+          "x": 387.469970703125,
+          "y": 86.875,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "8e743183-1af8-4556-bb96-895509c8d1cf",
+          "columnIds": [
+            "a21fc27a-5044-40cb-a381-5e1cdef5e37d"
+          ],
+          "x": 514,
+          "y": 96.625,
+          "direction": "left"
+        },
+        "constraintName": "fk_회원_to_친구",
+        "visible": true,
+        "id": "8c63d6f7-25f4-4bdf-bb98-de59518a7a02"
+      },
+      {
+        "identification": true,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "daf0f5c3-272e-478e-b392-8b694413eee3",
+          "columnIds": [
+            "751e9833-161a-4fa0-be08-06855b9d7697"
+          ],
+          "x": 387.469970703125,
+          "y": 172.625,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "8e743183-1af8-4556-bb96-895509c8d1cf",
+          "columnIds": [
+            "6818e0ef-a1c5-4361-b0b9-6adc8e6c0505"
+          ],
+          "x": 514,
+          "y": 161.875,
+          "direction": "left"
+        },
+        "constraintName": "fk_회원_to_친구",
+        "visible": true,
+        "id": "b268eccb-5fa8-4543-a382-fde1d009c5e9"
+      },
+      {
+        "identification": true,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "9c6e57bf-fb0d-4799-964a-e9b078a5e6e4",
+          "columnIds": [
+            "0cfaecfe-284f-4881-9d25-571cf8649a8e"
+          ],
+          "x": 379,
+          "y": 453.5,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "b0057489-4a40-4b4d-b054-83d4c20d6409",
+          "columnIds": [
+            "77dde908-65ad-4433-a663-0cf63cf8c12f"
+          ],
+          "x": 537,
+          "y": 449.5,
+          "direction": "left"
+        },
+        "constraintName": "fk_회원_to_친구",
+        "visible": true,
+        "id": "36b6df97-5516-4e91-b97f-561b0e4bdf09"
+      },
+      {
+        "identification": true,
+        "relationshipType": "ZeroN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "9c6e57bf-fb0d-4799-964a-e9b078a5e6e4",
+          "columnIds": [
+            "0cfaecfe-284f-4881-9d25-571cf8649a8e"
+          ],
+          "x": 379,
+          "y": 508.5,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "b0057489-4a40-4b4d-b054-83d4c20d6409",
+          "columnIds": [
+            "f9872fe5-eb53-4348-971a-28841177dc53"
+          ],
+          "x": 537,
+          "y": 504.5,
+          "direction": "left"
+        },
+        "constraintName": "fk_회원_to_친구",
+        "visible": true,
+        "id": "77c28bd5-e90d-4bf1-9131-261af6b1295b"
+      }
+    ]
+  }
+}

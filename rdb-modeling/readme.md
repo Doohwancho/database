@@ -16,9 +16,9 @@ d. entity && attributes :white_check_mark:\
 e. keys :white_check_mark:\
 f. components :soon:\
 g. relations a.k.a 오리발, 까치발 :white_check_mark:\
-x. data type\
-x. normalization\   
+h. normalization :white_check_mark:\
 x. de-normalization\
+x. data type\
 x. cardinality\
 x. get-used-to: employee modeling\
 x. get-used-to: bbs modeling\
@@ -53,6 +53,10 @@ g-2. 식별관계(실선) vs 비식별관계(점선) - real mysql :white_check_m
 g-2. 상속이 여러번일 땐 자식 pk는 uuid로 해라 - real mysql :white_check_mark:\
 g-3. m:m 관계 해소 - real mysql :white_check_mark:\
 g-4. 관계 통합 - real mysql :white_check_mark:
+
+h-1. 제1 정규화 :white_check_mark:\
+h-2. 제2 정규화 :white_check_mark:\
+h-3. 제3 정규화 :white_check_mark:\
 
 x-1. [get-used-to: company rdb modeling](https://www.youtube.com/watch?v=HXV3zeQKqGY) :white_check_mark:\
 x-x. [analyze okky modeling, demo](https://vuerd.github.io/)
