@@ -1,10 +1,10 @@
 {
   "canvas": {
     "version": "2.2.11",
-    "width": 3000,
-    "height": 3000,
-    "scrollTop": -31,
-    "scrollLeft": -10,
+    "width": 3500,
+    "height": 3500,
+    "scrollTop": -39,
+    "scrollLeft": -33,
     "zoomLevel": 1,
     "show": {
       "tableComment": true,
@@ -68,6 +68,52 @@
               "widthDefault": 60
             },
             "id": "f5b8b86f-6389-4953-b9b4-49a93e1f9315"
+          },
+          {
+            "name": "SUPER_ID",
+            "comment": "상사용. 자기참조.",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 90.00993347167969,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "c5975a6b-b3e3-4f97-8c95-6734d3c1e609"
+          },
+          {
+            "name": "BRANCH_ID",
+            "comment": "",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 65.93392944335938,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "62f0cbe8-6f77-48fa-8779-9f3d24453645"
           },
           {
             "name": "CREATED_AT",
@@ -229,59 +275,13 @@
               "widthDefault": 60
             },
             "id": "cf243e40-2b7b-48a1-ae13-57287242c745"
-          },
-          {
-            "name": "SUPER_ID",
-            "comment": "",
-            "dataType": "INT",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": false
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "e980eab7-69ec-43c7-aced-ac0ce5b57eed"
-          },
-          {
-            "name": "BRANCH_ID",
-            "comment": "",
-            "dataType": "INT",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": false
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 65.93392944335938,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "ec4de0fb-b76a-4d0a-a53d-471622c59626"
           }
         ],
         "ui": {
-          "active": true,
+          "active": false,
           "left": 50.6666,
           "top": 91.222,
-          "zIndex": 8,
+          "zIndex": 58,
           "widthName": 63.67195129394531,
           "widthComment": 60,
           "color": "#F44336"
@@ -317,6 +317,29 @@
             "id": "b961645a-e07c-4130-b1e3-5d2a50e507bc"
           },
           {
+            "name": "MANAGER_ID",
+            "comment": "EMPLOYEE.EMP_ID",
+            "dataType": "INT",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 75.81391906738281,
+              "widthComment": 107.48190307617188,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "2e751389-6aeb-49e9-8654-ec1556f22e12"
+          },
+          {
             "name": "BRANCH_NAME",
             "comment": "",
             "dataType": "VARCHAR(40)",
@@ -338,29 +361,6 @@
               "widthDefault": 60
             },
             "id": "2f4dd277-30d4-4f6f-910e-253f7ede3ef0"
-          },
-          {
-            "name": "MGR_ID",
-            "comment": "",
-            "dataType": "INT",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": false
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "f43546b6-024e-498f-b8e9-0c7aabca648d"
           },
           {
             "name": "MGR_START_DATE",
@@ -388,9 +388,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 541.2219,
-          "top": 371.3333,
-          "zIndex": 3,
+          "left": 626.2219,
+          "top": 323.3333,
+          "zIndex": 62,
           "widthName": 60,
           "widthComment": 60,
           "color": "#FF9700"
@@ -426,29 +426,6 @@
             "id": "0a587571-55e4-4f21-8b9e-845034ae6d90"
           },
           {
-            "name": "CLIENT_NAME",
-            "comment": "",
-            "dataType": "VARCHAR(40)",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": false
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": false,
-              "pfk": false,
-              "widthName": 80.61090087890625,
-              "widthComment": 60,
-              "widthDataType": 79.40190124511719,
-              "widthDefault": 60
-            },
-            "id": "cbc3bae3-d546-447f-9330-403cdbc62aa2"
-          },
-          {
             "name": "BRANCH_ID",
             "comment": "",
             "dataType": "INT",
@@ -470,13 +447,36 @@
               "widthDefault": 60
             },
             "id": "bb1a5820-bc86-447f-8a42-916f3bea514b"
+          },
+          {
+            "name": "CLIENT_NAME",
+            "comment": "",
+            "dataType": "VARCHAR(40)",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 80.61090087890625,
+              "widthComment": 60,
+              "widthDataType": 79.40190124511719,
+              "widthDefault": 60
+            },
+            "id": "cbc3bae3-d546-447f-9330-403cdbc62aa2"
           }
         ],
         "ui": {
           "active": false,
           "left": 331.2225,
           "top": 630.5549,
-          "zIndex": 5,
+          "zIndex": 16,
           "widthName": 60,
           "widthComment": 60,
           "color": "#D9FF00"
@@ -486,7 +486,7 @@
       },
       {
         "name": "WORKS_WITH",
-        "comment": "",
+        "comment": "M:M관계 해소",
         "columns": [
           {
             "name": "EMP_ID",
@@ -562,9 +562,9 @@
           "active": false,
           "left": 75.8889,
           "top": 476.6663,
-          "zIndex": 4,
+          "zIndex": 69,
           "widthName": 78.21891784667969,
-          "widthComment": 60,
+          "widthComment": 74.78694152832031,
           "color": "#00FF13"
         },
         "visible": true,
@@ -646,9 +646,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 503.4442,
-          "top": 96.3331,
-          "zIndex": 7,
+          "left": 542.4442,
+          "top": 88.3331,
+          "zIndex": 61,
           "widthName": 108.13188171386719,
           "widthComment": 60,
           "color": "#0042FF"
@@ -668,20 +668,33 @@
     ]
   },
   "memo": {
-    "memos": []
+    "memos": [
+      {
+        "value": "BRANCH_SUPPLIER와 BRANCH는 사실 m:m관계라 해소해야한다. ",
+        "ui": {
+          "active": false,
+          "left": 926,
+          "top": 228,
+          "zIndex": 74,
+          "width": 127,
+          "height": 100
+        },
+        "id": "bf0b4d40-5b2f-4f66-a208-f07c7822ffba"
+      }
+    ]
   },
   "relationship": {
     "relationships": [
       {
         "identification": true,
-        "relationshipType": "ZeroOne",
+        "relationshipType": "OneN",
         "startRelationshipType": "Dash",
         "start": {
           "tableId": "f59ae59f-1d4b-4cf9-8d8a-53c48b63eb06",
           "columnIds": [
             "f5b8b86f-6389-4953-b9b4-49a93e1f9315"
           ],
-          "x": 241.13752437744142,
+          "x": 256.14249111328127,
           "y": 365.222,
           "direction": "bottom"
         },
@@ -700,7 +713,7 @@
       },
       {
         "identification": true,
-        "relationshipType": "ZeroOne",
+        "relationshipType": "OneN",
         "startRelationshipType": "Dash",
         "start": {
           "tableId": "7d7e2528-a5da-4e22-84bf-894445175a5f",
@@ -726,15 +739,15 @@
       },
       {
         "identification": true,
-        "relationshipType": "ZeroOne",
+        "relationshipType": "OneN",
         "startRelationshipType": "Dash",
         "start": {
           "tableId": "f0f3c267-e534-4209-8124-26627df982fd",
           "columnIds": [
             "b961645a-e07c-4130-b1e3-5d2a50e507bc"
           ],
-          "x": 745.3233022827148,
-          "y": 371.3333,
+          "x": 854.0642538208008,
+          "y": 323.3333,
           "direction": "top"
         },
         "end": {
@@ -742,8 +755,8 @@
           "columnIds": [
             "70e4259d-8518-4247-bdfc-d31241e28aac"
           ],
-          "x": 703.8471006958008,
-          "y": 226.8331,
+          "x": 742.8471006958008,
+          "y": 218.8331,
           "direction": "bottom"
         },
         "constraintName": "fk_branch_to_branch_supplier",
@@ -752,29 +765,107 @@
       },
       {
         "identification": false,
-        "relationshipType": "ZeroOne",
+        "relationshipType": "OneN",
         "startRelationshipType": "Dash",
         "start": {
           "tableId": "f0f3c267-e534-4209-8124-26627df982fd",
           "columnIds": [
             "b961645a-e07c-4130-b1e3-5d2a50e507bc"
           ],
-          "x": 745.3233022827148,
-          "y": 522.3333,
-          "direction": "bottom"
+          "x": 626.2219,
+          "y": 449.16663333333327,
+          "direction": "left"
         },
         "end": {
           "tableId": "7d7e2528-a5da-4e22-84bf-894445175a5f",
           "columnIds": [
             "bb1a5820-bc86-447f-8a42-916f3bea514b"
           ],
-          "x": 718.2353021240235,
-          "y": 695.8049,
-          "direction": "right"
+          "x": 524.7289010620118,
+          "y": 630.5549,
+          "direction": "top"
         },
         "constraintName": "fk_branch_to_client",
         "visible": true,
         "id": "50fe9941-8f8a-4d7a-b4cf-89da735a03a0"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneOnly",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "f59ae59f-1d4b-4cf9-8d8a-53c48b63eb06",
+          "columnIds": [
+            "f5b8b86f-6389-4953-b9b4-49a93e1f9315"
+          ],
+          "x": 461.6183822265625,
+          "y": 228.22199999999998,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "f0f3c267-e534-4209-8124-26627df982fd",
+          "columnIds": [
+            "2e751389-6aeb-49e9-8654-ec1556f22e12"
+          ],
+          "x": 626.2219,
+          "y": 398.83329999999995,
+          "direction": "left"
+        },
+        "constraintName": "fk_employee_to_branch",
+        "visible": true,
+        "id": "02a8b3ff-4d56-4d93-8cec-11be466aaa7f"
+      },
+      {
+        "identification": false,
+        "relationshipType": "ZeroOne",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "f59ae59f-1d4b-4cf9-8d8a-53c48b63eb06",
+          "columnIds": [
+            "f5b8b86f-6389-4953-b9b4-49a93e1f9315"
+          ],
+          "x": 441.6183822265625,
+          "y": 91.222,
+          "direction": "top"
+        },
+        "end": {
+          "tableId": "f59ae59f-1d4b-4cf9-8d8a-53c48b63eb06",
+          "columnIds": [
+            "c5975a6b-b3e3-4f97-8c95-6734d3c1e609"
+          ],
+          "x": 461.6183822265625,
+          "y": 136.88866666666667,
+          "direction": "right"
+        },
+        "constraintName": "fk_employee_to_employee",
+        "visible": true,
+        "id": "e65990f2-b7e0-4c6f-a3e1-cc2cb745f451"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "f0f3c267-e534-4209-8124-26627df982fd",
+          "columnIds": [
+            "b961645a-e07c-4130-b1e3-5d2a50e507bc"
+          ],
+          "x": 626.2219,
+          "y": 348.49996666666664,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "f59ae59f-1d4b-4cf9-8d8a-53c48b63eb06",
+          "columnIds": [
+            "62f0cbe8-6f77-48fa-8779-9f3d24453645"
+          ],
+          "x": 461.6183822265625,
+          "y": 319.5553333333333,
+          "direction": "right"
+        },
+        "constraintName": "fk_branch_to_employee",
+        "visible": true,
+        "id": "a2ebbb5d-d1d4-43c1-91a2-a7686b03671b"
       }
     ]
   }
