@@ -50,7 +50,8 @@ f-4. [사원-자격증](https://www.youtube.com/watch?v=ga69WBO9Gy0&list=PL9hiYw
 f-5. [환자-질병](https://www.youtube.com/watch?v=ga69WBO9Gy0&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=11&ab_channel=Jacob%27sLecture) :white_check_mark:\
 f-6. [업체-상품](https://www.youtube.com/watch?v=ga69WBO9Gy0&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=11&ab_channel=Jacob%27sLecture) :white_check_mark:\
 f-7. [회원-주문-주문내역-상품](https://www.youtube.com/watch?v=ga69WBO9Gy0&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=11&ab_channel=Jacob%27sLecture) :white_check_mark:\
-f-8. [전공-학생-학생의수강과목-과목](https://www.youtube.com/watch?v=ga69WBO9Gy0&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=11&ab_channel=Jacob%27sLecture) :white_check_mark:
+f-8. [전공-학생-학생의수강과목-과목](https://www.youtube.com/watch?v=ga69WBO9Gy0&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=11&ab_channel=Jacob%27sLecture) :white_check_mark:\
+f-9. [이력서-가족사항-학력](https://www.youtube.com/watch?v=jxEYZwhS1gU&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=14&ab_channel=Jacob%27sLecture) :white_check_mark:
 
 g-1. relation, 오리발 까치발 from book - real mysql :white_check_mark:\
 g-2. 식별관계(실선) vs 비식별관계(점선) - real mysql :white_check_mark:\
