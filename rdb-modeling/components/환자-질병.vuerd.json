@@ -120,7 +120,7 @@
           "active": false,
           "left": 68,
           "top": 112,
-          "zIndex": 6,
+          "zIndex": 1,
           "widthName": 60,
           "widthComment": 60,
           "color": "#F44336"
@@ -206,7 +206,7 @@
           "active": false,
           "left": 545,
           "top": 127,
-          "zIndex": 8,
+          "zIndex": 2,
           "widthName": 60,
           "widthComment": 60,
           "color": "#2196F3"
@@ -269,7 +269,7 @@
           "active": false,
           "left": 311,
           "top": 277,
-          "zIndex": 15,
+          "zIndex": 3,
           "widthName": 60,
           "widthComment": 60,
           "color": "#CDDC39"
@@ -283,12 +283,12 @@
   "memo": {
     "memos": [
       {
-        "value": "takeaway1)\n\n한 환자가 여러 질병 걸릴 수도 있으니까, 또한 한 질병에 여러 환자가 종속될 수 있으니까, M:M관계.\n\ntakeaway2)\ncomposite key(환자번호, 질병코드)\n왜?\n\n각 환자당 어떤 질병 있는지 join해서 안보고 이 테이블 직접 참조해서 쓰겠다는 말 같음. ",
+        "value": "takeaway1)\n\n한 환자가 여러 질병 걸릴 수도 있으니까, 또한 한 질병에 여러 환자가 종속될 수 있으니까, M:M관계.\n\ntakeaway2)\ncomposite key(환자번호, 질병코드)\n왜?\n\n'어떤 환자가 어떤 질병에 걸렸다'라는 정보를 나타내는 테이블로써 환자_질병 엔티티를 쓰겠다는 것.\n환자 엔티티와 질병 엔티티를 fk join으로 잇는 용도가 아니라.\n\n\n",
         "ui": {
           "active": true,
           "left": 21,
           "top": 406,
-          "zIndex": 21,
+          "zIndex": 7,
           "width": 328,
           "height": 201
         },

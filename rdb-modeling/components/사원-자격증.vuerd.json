@@ -3,7 +3,7 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": 0,
+    "scrollTop": -2,
     "scrollLeft": 0,
     "zoomLevel": 1,
     "show": {
@@ -335,7 +335,7 @@
           }
         ],
         "ui": {
-          "active": true,
+          "active": false,
           "left": 373,
           "top": 298,
           "zIndex": 39,

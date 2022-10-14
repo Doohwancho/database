@@ -45,11 +45,12 @@ d-1. entity && attributes from book - real mysql :white_check_mark:
 
 e-1. primary key :white_check_mark:
 
-f-1. 구매 :white_check_mark:\
-f-2. 주소 :white_check_mark:\
-f-3. 친구 :white_check_mark:\
-f-4. [사원자격증](https://www.youtube.com/watch?v=ga69WBO9Gy0&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=11&ab_channel=Jacob%27sLecture) :white_check_mark:\
-f-5. [환자](https://www.youtube.com/watch?v=ga69WBO9Gy0&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=11&ab_channel=Jacob%27sLecture) :white_check_mark:
+f-1. 고객-구매-상품 :white_check_mark:\
+f-2. 고객-주소 :white_check_mark:\
+f-3. 회원-친구 :white_check_mark:\
+f-4. [사원-자격증](https://www.youtube.com/watch?v=ga69WBO9Gy0&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=11&ab_channel=Jacob%27sLecture) :white_check_mark:\
+f-5. [환자-질병](https://www.youtube.com/watch?v=ga69WBO9Gy0&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=11&ab_channel=Jacob%27sLecture) :white_check_mark:\
+f-6. [업체-상품](https://www.youtube.com/watch?v=ga69WBO9Gy0&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=11&ab_channel=Jacob%27sLecture) :white_check_mark:
 
 g-1. relation, 오리발 까치발 from book - real mysql :white_check_mark:\
 g-2. 식별관계(실선) vs 비식별관계(점선) - real mysql :white_check_mark:\
