@@ -55,8 +55,8 @@ f-10. [공급자-견적서-견적서품목-품목](https://www.youtube.com/watch
 f-11. [employee](https://www.youtube.com/watch?v=HXV3zeQKqGY) :white_check_mark:\
 f-12. [대화방](https://www.youtube.com/watch?v=42LMmwSFGIE) :white_check_mark:\
 f-13. [영화](https://www.youtube.com/watch?v=bBLD07ayLqA&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=18&ab_channel=Jacob%27sLecture) :white_check_mark:\
-f-14. [강의개설과 수강신청](https://www.youtube.com/watch?v=Qs_cC6lvx2s&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=20&ab_channel=Jacob%27sLecture) :white_check_mark:
-
+f-14. [강의개설과 수강신청](https://www.youtube.com/watch?v=Qs_cC6lvx2s&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=20&ab_channel=Jacob%27sLecture) :white_check_mark:\
+f-15. [학습과 출석](https://www.youtube.com/watch?v=Qs_cC6lvx2s&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=20&ab_channel=Jacob%27sLecture) :white_check_mark:
 
 g-1. relation, 오리발 까치발 from book - real mysql :white_check_mark:\
 g-2. 식별관계(실선) vs 비식별관계(점선) - real mysql :white_check_mark:\
