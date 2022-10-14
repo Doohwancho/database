@@ -19,10 +19,8 @@ g. relations a.k.a 오리발, 까치발 :white_check_mark:\
 h. normalization :white_check_mark:\
 i. de-normalization :white_check_mark:\
 j. data type :white_check_mark:\
-k. get-used-to :soon:\
-k. constraints\
-x. get-used-to: bbs modeling\
-x. get-used-to: shoppingmall modeling\
+k. examples :soon:\
+x. constraints\
 x. analyze: okky\
 x. 대용량 트래픽 처리 전용 modeling
 
@@ -50,7 +48,8 @@ f-2. 고객-주소 :white_check_mark:\
 f-3. 회원-친구 :white_check_mark:\
 f-4. [사원-자격증](https://www.youtube.com/watch?v=ga69WBO9Gy0&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=11&ab_channel=Jacob%27sLecture) :white_check_mark:\
 f-5. [환자-질병](https://www.youtube.com/watch?v=ga69WBO9Gy0&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=11&ab_channel=Jacob%27sLecture) :white_check_mark:\
-f-6. [업체-상품](https://www.youtube.com/watch?v=ga69WBO9Gy0&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=11&ab_channel=Jacob%27sLecture) :white_check_mark:
+f-6. [업체-상품](https://www.youtube.com/watch?v=ga69WBO9Gy0&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=11&ab_channel=Jacob%27sLecture) :white_check_mark:\
+f-7. [회원-주문-주문내역-상품](https://www.youtube.com/watch?v=ga69WBO9Gy0&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=11&ab_channel=Jacob%27sLecture) :white_check_mark:
 
 g-1. relation, 오리발 까치발 from book - real mysql :white_check_mark:\
 g-2. 식별관계(실선) vs 비식별관계(점선) - real mysql :white_check_mark:\
