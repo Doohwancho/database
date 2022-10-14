@@ -4,7 +4,7 @@
     "width": 2000,
     "height": 2000,
     "scrollTop": 0,
-    "scrollLeft": -1,
+    "scrollLeft": 0,
     "zoomLevel": 1,
     "show": {
       "tableComment": true,
@@ -97,7 +97,7 @@
           "active": false,
           "left": 0,
           "top": 103,
-          "zIndex": 24,
+          "zIndex": 1,
           "widthName": 60,
           "widthComment": 60,
           "color": "#F44336"
@@ -183,7 +183,7 @@
           "active": false,
           "left": 299,
           "top": 227,
-          "zIndex": 35,
+          "zIndex": 4,
           "widthName": 60,
           "widthComment": 60,
           "color": "#9C27B0"
@@ -246,7 +246,7 @@
           "active": false,
           "left": 647,
           "top": 417,
-          "zIndex": 33,
+          "zIndex": 2,
           "widthName": 84.13395690917969,
           "widthComment": 60,
           "color": "#2196F3"
@@ -332,7 +332,7 @@
           "active": false,
           "left": 887,
           "top": 143,
-          "zIndex": 34,
+          "zIndex": 3,
           "widthName": 60,
           "widthComment": 60,
           "color": "#FFEB3B"
@@ -348,10 +348,10 @@
       {
         "value": "---\ntakeaway1) 전공-학생\n\n전공 한개(부모)에 여러 학생(자식)이 종속되니까, 1:M\n\n---\ntakeaway2) 학생-과목\n\n학생-과목은 M:M관계. \n한 학생이 여러 과목 들을 수도 있지만,\n한 과목을 여러 학생이 들을 수도 있으니까.\nM:M관계는 학생의 수강과목이라는 entity로 resolve\n\n이 떄, PK(과목코드,학번)인 이유는, \n이 테이블 자체적으로 쓸 수 있어서 그런 듯. 어느 과목에 학번 몇 붙어있으면 COUNT()도 가능하잖어~",
         "ui": {
-          "active": true,
+          "active": false,
           "left": 29,
           "top": 419,
-          "zIndex": 44,
+          "zIndex": 5,
           "width": 520,
           "height": 255
         },
