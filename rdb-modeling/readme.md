@@ -21,7 +21,6 @@ i. de-normalization :white_check_mark:\
 j. data type :white_check_mark:\
 k. get-used-to :soon:\
 k. constraints\
-x. cardinality\
 x. get-used-to: bbs modeling\
 x. get-used-to: shoppingmall modeling\
 x. analyze: okky\
@@ -54,7 +53,8 @@ g-1. relation, 오리발 까치발 from book - real mysql :white_check_mark:\
 g-2. 식별관계(실선) vs 비식별관계(점선) - real mysql :white_check_mark:\
 g-2. 상속이 여러번일 땐 자식 pk는 uuid로 해라 - real mysql :white_check_mark:\
 g-3. m:m 관계 해소 - real mysql :white_check_mark:\
-g-4. 관계 통합 - real mysql :white_check_mark:
+g-4. 관계 통합 - real mysql :white_check_mark:\
+g-5. [cardinality: 1:M 관계, M:N 관계 구분](https://www.youtube.com/watch?v=Yquru9V8HJ8&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=9&ab_channel=Jacob%27sLecture) :white_check_mark:
 
 h-1. 제1 정규화 :white_check_mark:\
 h-2. 제2 정규화 :white_check_mark:\
