@@ -1,0 +1,756 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": -162,
+    "scrollLeft": 0,
+    "zoomLevel": 1,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": false,
+      "columnPrimaryKey": true,
+      "columnUnique": false,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "MySQL",
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "학생",
+        "comment": "",
+        "columns": [
+          {
+            "name": "학번",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "b0184e1b-37ea-421c-948b-d323524ccb73"
+          },
+          {
+            "name": "이름",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "f4d5ec7a-2f06-49cd-b71b-fb5a28951207"
+          },
+          {
+            "name": "학과",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "6fe8609b-7830-4b8e-9080-9180cf3b5318"
+          }
+        ],
+        "ui": {
+          "active": true,
+          "left": 16,
+          "top": 232,
+          "zIndex": 105,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "1949b021-1cc2-414b-88f9-737e8d863cfe"
+      },
+      {
+        "name": "과목",
+        "comment": "",
+        "columns": [
+          {
+            "name": "과목코드",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "0598eed3-7ae2-4548-b588-005356407936"
+          },
+          {
+            "name": "과목명",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "5a918c2f-02e0-40e4-93e2-4900b0b21410"
+          },
+          {
+            "name": "학점",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "9f3bbd34-caa0-4ef9-b889-8efa1ac4dac1"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 916,
+          "top": 606,
+          "zIndex": 96,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "166306b1-6ea2-420f-8863-4560a3655f28"
+      },
+      {
+        "name": "학기",
+        "comment": "",
+        "columns": [
+          {
+            "name": "학기번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "2918eaf7-7d4e-467f-b1c6-dabfeecf09a9"
+          },
+          {
+            "name": "년도",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "f50ac4c1-f302-4013-a744-c0c752990fb2"
+          },
+          {
+            "name": "학기",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "0dc411b5-440b-4013-b98f-872048f77a78"
+          },
+          {
+            "name": "기간",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "b14cdfde-ff2b-42cd-8edd-feb179f5f947"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 952,
+          "top": 807,
+          "zIndex": 94,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "56c91b25-ede5-417c-a344-df993c3bd2f7"
+      },
+      {
+        "name": "개설과목",
+        "comment": "과목-학기 M:M",
+        "columns": [
+          {
+            "name": "학기번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "6bca12c3-475e-4e53-8619-60526e2636b5"
+          },
+          {
+            "name": "과목코드",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "dea4f6f5-677f-41e5-ae49-c622bf33456b"
+          },
+          {
+            "name": "교수",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "eca9e7ce-b2d5-45bb-8be7-bcb4c8ed3f3d"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 477,
+          "top": 707,
+          "zIndex": 93,
+          "widthName": 60,
+          "widthComment": 80.40293884277344
+        },
+        "visible": true,
+        "id": "305d3ebc-a184-4e2f-a55e-ca3a5cece18a"
+      },
+      {
+        "name": "강의실",
+        "comment": "",
+        "columns": [
+          {
+            "name": "강의실번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "fcff17a4-f430-4747-aefe-95584279d799"
+          },
+          {
+            "name": "학기번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "365ec255-d535-44ee-9bfd-0b70cad2883d"
+          },
+          {
+            "name": "과목코드",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "5b47107c-4a63-41a5-bcb2-4bb607e801be"
+          },
+          {
+            "name": "강의실이름",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "f473abb0-a51c-47bb-990d-4c76866a2916"
+          },
+          {
+            "name": "반",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "db16b1ae-d2f0-4dfb-8421-989222ff5eb4"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 16,
+          "top": 682,
+          "zIndex": 92,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "81b1bec6-4fd4-4f0b-bcaa-d7c651e28002"
+      },
+      {
+        "name": "수강",
+        "comment": "M:M resolve",
+        "columns": [
+          {
+            "name": "학번",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "149bf095-9a77-4eb2-b035-1c29f418b4a4"
+          },
+          {
+            "name": "강의실번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "8eda9f3a-06e5-416a-8f82-cae04fe6c069"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 16,
+          "top": 466,
+          "zIndex": 104,
+          "widthName": 60,
+          "widthComment": 68.98890686035156
+        },
+        "visible": true,
+        "id": "eed84be0-163f-463f-8a68-9bbc9845e7fd"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": [
+      {
+        "value": "Q1. 학생-과목 M:M관계 아님?\n\n그래서 학생_과목 엔티티에 PK(학번, 과목코드) 아님?\n\n응 아니야~\n과목에 학기가 있잖아..\n그리고 각 과목당 1반,2반,3반 해서 강의실이 여러개 생성되잖아. \n\n학기가 달라졌을 때, 담당교수 달라질 수도 있으니까, 교수도 과목에서 빠져야해.\n\n\nQ2. 과목-학기 엔티티\n\n\n같은 과목도 여러 학기에 걸쳐서 개설되기도 함. \n한 학기에 여러 과목이 개설되니까,\nM:M관계\n그리고 해당 학기:과목에 교수가 바뀔 수도 있으니까, 교수도 여기 들어가야 함.\n\nQ3. 학생이 수강신청하려면, 해설과목이랑 연결해야하나?\n\n아님. 일단 개설 과목이 되면, 해당 과목에 강의실이 여러개 배치되니까, 1:M으로 강의실 테이블 만들고,\n학생은 해당 강의실에 수강 등록 하는 것임.\n\n학생-강의실 M:M관계는 수강 엔티티로 resolve하고",
+        "ui": {
+          "active": false,
+          "left": 57,
+          "top": 24,
+          "zIndex": 102,
+          "width": 403,
+          "height": 127
+        },
+        "id": "ac421ec8-bd8b-4cea-87c2-5b6b06873d46"
+      }
+    ]
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": true,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "56c91b25-ede5-417c-a344-df993c3bd2f7",
+          "columnIds": [
+            "2918eaf7-7d4e-467f-b1c6-dabfeecf09a9"
+          ],
+          "x": 952,
+          "y": 882.5,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "305d3ebc-a184-4e2f-a55e-ca3a5cece18a",
+          "columnIds": [
+            "6bca12c3-475e-4e53-8619-60526e2636b5"
+          ],
+          "x": 824,
+          "y": 804.875,
+          "direction": "right"
+        },
+        "constraintName": "fk_학기_to_개설과목",
+        "visible": true,
+        "id": "998013bd-4635-40c8-872e-fcb3ee9c932e"
+      },
+      {
+        "identification": true,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "166306b1-6ea2-420f-8863-4560a3655f28",
+          "columnIds": [
+            "0598eed3-7ae2-4548-b588-005356407936"
+          ],
+          "x": 916,
+          "y": 671.25,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "305d3ebc-a184-4e2f-a55e-ca3a5cece18a",
+          "columnIds": [
+            "dea4f6f5-677f-41e5-ae49-c622bf33456b"
+          ],
+          "x": 824,
+          "y": 739.625,
+          "direction": "right"
+        },
+        "constraintName": "fk_과목_to_개설과목",
+        "visible": true,
+        "id": "3526ba19-1ef2-499d-b578-45782805273c"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "305d3ebc-a184-4e2f-a55e-ca3a5cece18a",
+          "columnIds": [
+            "6bca12c3-475e-4e53-8619-60526e2636b5",
+            "dea4f6f5-677f-41e5-ae49-c622bf33456b"
+          ],
+          "x": 477,
+          "y": 772.25,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "81b1bec6-4fd4-4f0b-bcaa-d7c651e28002",
+          "columnIds": [
+            "365ec255-d535-44ee-9bfd-0b70cad2883d",
+            "5b47107c-4a63-41a5-bcb2-4bb607e801be"
+          ],
+          "x": 363,
+          "y": 767.75,
+          "direction": "right"
+        },
+        "constraintName": "fk_개설과목_to_강의실",
+        "visible": true,
+        "id": "9efd07c0-65d2-40ab-858f-05935b85f8fc"
+      },
+      {
+        "identification": true,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "1949b021-1cc2-414b-88f9-737e8d863cfe",
+          "columnIds": [
+            "b0184e1b-37ea-421c-948b-d323524ccb73"
+          ],
+          "x": 189.5,
+          "y": 362.5,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "eed84be0-163f-463f-8a68-9bbc9845e7fd",
+          "columnIds": [
+            "149bf095-9a77-4eb2-b035-1c29f418b4a4"
+          ],
+          "x": 189.5,
+          "y": 466,
+          "direction": "top"
+        },
+        "constraintName": "fk_학생_to_수강",
+        "visible": true,
+        "id": "02c89c6b-cfff-484f-be5a-cf8dea2a5a96"
+      },
+      {
+        "identification": true,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "81b1bec6-4fd4-4f0b-bcaa-d7c651e28002",
+          "columnIds": [
+            "fcff17a4-f430-4747-aefe-95584279d799"
+          ],
+          "x": 189.5,
+          "y": 682,
+          "direction": "top"
+        },
+        "end": {
+          "tableId": "eed84be0-163f-463f-8a68-9bbc9845e7fd",
+          "columnIds": [
+            "8eda9f3a-06e5-416a-8f82-cae04fe6c069"
+          ],
+          "x": 189.5,
+          "y": 576,
+          "direction": "bottom"
+        },
+        "constraintName": "fk_강의실_to_수강",
+        "visible": true,
+        "id": "47fd10da-f2c7-4ff6-bd3a-b3e33ef0c4ab"
+      }
+    ]
+  }
+}
