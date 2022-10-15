@@ -16,8 +16,9 @@ C. Nosql\
 D. Nosql Modeling\
 E. GraphQL\
 F. Redia\
-G. Kafka\
-H. Elastic Search
+G. MemCached\
+H. Kafka\
+I. Elastic Search
 
 
 ---\
