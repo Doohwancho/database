@@ -1,0 +1,34 @@
+
+---
+연습사이트
+https://sqltest.net/
+
+sql script 
+
+
+CREATE TABLE mysql_test_a ( 
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY, 
+    firstname VARCHAR(30) NOT NULL, 
+    lastname VARCHAR(30) NOT NULL,  
+    email VARCHAR(50), 
+    reg_date TIMESTAMP,
+    salary INT
+); 
+
+INSERT INTO `mysql_test_a` (`id`, `firstname`, `lastname`, `email`, `reg_date`, `salary`) VALUES ('1', 'John', 'Doe', 'john.doe@sqltest.net', CURRENT_TIMESTAMP, '100'); 
+INSERT INTO `mysql_test_a` (`id`, `firstname`, `lastname`, `email`, `reg_date`, `salary`) VALUES ('2', 'Peter', 'second', 'john.doe@sqltest.net', CURRENT_TIMESTAMP, '130'); 
+INSERT INTO `mysql_test_a` (`id`, `firstname`, `lastname`, `email`, `reg_date`, `salary`) VALUES ('3', 'Mike', 'third', 'john.doe@sqltest.net', CURRENT_TIMESTAMP, '130'); 
+INSERT INTO `mysql_test_a` (`id`, `firstname`, `lastname`, `email`, `reg_date`, `salary`) VALUES ('4', 'John', 'fourth', 'john.doe@sqltest.net', CURRENT_TIMESTAMP, '88'); 
+INSERT INTO `mysql_test_a` (`id`, `firstname`, `lastname`, `email`, `reg_date`, `salary`) VALUES ('5', 'John', 'fifth', 'john.doe@sqltest.net', CURRENT_TIMESTAMP,'10'); 
+
+---
+ORDER BY
+
+
+select * from mysql_test_a order by salary;
+
+salary 조건으로 order한 후, 그 다음 동일 salary안에서 또 order by 가능.
+
+select * from mysql_test_a order by salary DESC, id DESC;
+
+

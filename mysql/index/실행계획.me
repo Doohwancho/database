@@ -12,7 +12,8 @@
 4. fulltext 
     where절에 fulltext key 이용할 때 쓰이는 실행계획
 5. range 
-    인덱스를 범위스캔할 때 쓰이는 실행계획 
+    인덱스를 범위스캔할 때 쓰이는 실행계획.
+    ex. first_name이 인덱스일 때, select * from employees where first_name >= 'A' and first_name <= 'B'; 
 6. all 
     테이블 풀 스캔임. 앵간하면 피해. 근데 인덱스 잘못 설정하거나, 검색 범위가 전체 데이터의 양의 대략 20%인가? 넘어가면 full scan이 더 빠름. 근데 얘는 인덱스 커버리지가 50%나 되니까 사용 안함.
     예를들어, gender이 enum('m','f')인 경우, 인덱스가 어짜피 원본 데이터 1/2이고 그거 다 보고 기존 데이터 반틈 참조할 바에야, 원본데이터 full-scan이 더 빠름.

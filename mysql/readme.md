@@ -13,8 +13,7 @@ concepts
 a. index :white_check_mark:\
 b: 실행계획 :soon:\
 c. JOIN :soon:\
-x. query\
-x. ORDER BY\
+d. ORDER BY :white_check_mark:\
 x. GROUP BY\
 x. 성능측정\
 x. transaction(ACID)\
