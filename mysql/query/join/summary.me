@@ -1,0 +1,55 @@
+
+
+---
+inner join
+
+select A.video_name, A.category, B.cast_member
+from netflix as A, netflix_cast as B
+where A.video_name = B.video_name
+
+
+
+기억할 점
+1. inner join은 양쪽 모두에 있는 컬럼으로 조인한다. (주로 fk관계일듯?)
+2. inner join은 교집합이라 두 엔티티에서 where절에 안걸린 row들은 버려짐 -> null이 없다. 
+3. 1:M이나 M:1 관계 join하면, 중복 내용 컬럼들을 가진 로우들이 보임. 
+
+
+---
+inner join 실행 메커니즘 예상
+
+select A.video_name, A.category, B.cast_member
+from netflix as A, netflix_cast as B
+where A.video_name = B.video_name
+
+이걸 기준으로 생각하면,
+
+1. from절에서 두 테이블을 인지함.
+2. where절에서 두 테이블의 video_name을 기준으로 비교연산을 해서 두 테이블에 다 등장하는 video_name의 리스트를 뺌
+3. A,B 엔티티에서 2번에서 뺀 video_name에 해당되는 애들 빼고 다 날림
+4. A랑 B 합치는데, 이 때, select문의 조건에 해당하는 컬럼만 합침. 
+
+
+
+
+
+---
+join시 실행계획
+
+
+Q. 1:M 관계에서, M쪽 테이블 쿼리 후, 부모 테이블에 조인거는게 나을까? 아니면, 부모 테이블 쿼리 후, 자식 M테이블 조인거는데 나을까?
+
+A. 자식 M 테이블 쿼리 후, 부모테이블 조인이 더 낫다.
+왜?
+M쪽이 데이터 수가 더 많으니까, 
+
+보통 부모/자식이나 1:M 기준 보다는, 큰쪽 테이블에서 작은쪽 테이블로 조인을 거는게 일반적이다.
+왜냐하면, 일반 select query에서 엔티티 훓는 속도보다 join이 더 느린데,
+큰 테이블에서 빠르게 훑으면서 느린 join은 개체수가 적은 테이블(usually 부모)에 거는게 더 빠르다.
+
+
+example)
+Q. development 팀을 거쳐간 사원 목록을 찾고싶다. how?
+
+A. dept-emp.vuerd.json 참조
+
