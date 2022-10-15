@@ -12,10 +12,10 @@ concepts
 
 a. index :white_check_mark:\
 b: 실행계획 :soon:\
+c. JOIN :soon:\
 x. query\
 x. ORDER BY\
 x. GROUP BY\
-x. JOIN(left, right, union)\
 x. 성능측정\
 x. transaction(ACID)\
 x. database constraints\
@@ -32,3 +32,5 @@ a-1. [what is index?, index 고려 query법, 손익분기점](https://www.youtub
 a-2. [최적화와 인덱스](https://www.youtube.com/watch?v=eDeVwJEwYAs&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=31&ab_channel=Jacob%27sLecture)
 
 b-1. [실행계획 맛보기](https://www.youtube.com/watch?v=_oRsPUqyr10&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=32&ab_channel=Jacob%27sLecture)
+
+c-1. [join 맛보기](https://www.youtube.com/watch?v=_oRsPUqyr10&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=32&ab_channel=Jacob%27sLecture)
