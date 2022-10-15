@@ -34,6 +34,36 @@ where A.video_name = B.video_name
 
 
 ---
+outerjoin1: left outer join
+
+전제조건이, A,B 집합이 겹칠 때, A의 모든 데이터(where 조건에 포함 안되는 애들 모두)가 출력된다는 전제 하에 조인되는 방식
+
+
+left outer join A,B 하면,
+where절에 A,B 둘다 해당되는 row들 중에,
+select에서 특정 column 뽑아서 추릴거아냐?
+
+inner join은 이쯤에서 끝나는데,
+A에서 조건에 안걸린 남은 애들 붙이는건 기본이고, 
+left outer join은 select에 특정 column이 custom-made라 기존 A컬럼에 없다? -> 몽땅 null로 찍어서 붙임.
+
+나머지 outer join은 이하동문.
+
+
+---
+outerjoin2: right outer join
+
+전제조건이, A,B 집합이 겹칠 때, B의 모든 데이터(where 조건에 포함 안되는 애들 모두)가 출력된다는 전제 하에 조인되는 방식
+
+
+
+---
+outerjoin3: full outer join
+
+전제조건이, A,B 집합이 겹칠 때, A+B의 모든 데이터(where 조건에 포함 안되는 애들 모두)가 출력된다는 전제 하에 조인되는 방식
+
+
+---
 join시 실행계획
 
 
