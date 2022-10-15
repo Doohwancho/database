@@ -14,7 +14,7 @@ a. index :white_check_mark:\
 b: 실행계획 :soon:\
 c. JOIN :soon:\
 d. ORDER BY :white_check_mark:\
-x. GROUP BY\
+e. GROUP BY :white_check_mark:\
 x. 성능측정\
 x. transaction(ACID)\
 x. database constraints\
@@ -33,3 +33,7 @@ a-2. [최적화와 인덱스](https://www.youtube.com/watch?v=eDeVwJEwYAs&list=P
 b-1. [실행계획 맛보기](https://www.youtube.com/watch?v=_oRsPUqyr10&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=32&ab_channel=Jacob%27sLecture)
 
 c-1. [join 맛보기](https://www.youtube.com/watch?v=_oRsPUqyr10&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=32&ab_channel=Jacob%27sLecture)
+
+d-1. [order by 정미나](https://www.youtube.com/watch?v=5YGGWn_SqoA&list=PLyQR2NzLKOCa5UujnJIFR7wOVOD0lS6EB&index=12&ab_channel=SQL%EC%A0%84%EB%AC%B8%EA%B0%80%EC%A0%95%EB%AF%B8%EB%82%98)
+
+e-1. [group by 정미나](https://www.youtube.com/watch?v=ZnAHcKZqaEQ&list=PLyQR2NzLKOCa5UujnJIFR7wOVOD0lS6EB&index=13&ab_channel=SQL%EC%A0%84%EB%AC%B8%EA%B0%80%EC%A0%95%EB%AF%B8%EB%82%98)
