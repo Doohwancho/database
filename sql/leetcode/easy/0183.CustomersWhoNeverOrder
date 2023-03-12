@@ -1,0 +1,176 @@
+---
+trial01
+
+
+# Write your MySQL query statement below
+SELECT name
+FROM Customers
+JOIN Customers.id = Orders.customerId
+WHERE Orders.id <> NULL;
+
+
+
+---
+trial02
+
+join은 붙었는데, 결과가 안나옴.
+
+
+# Write your MySQL query statement below
+SELECT name
+FROM Customers
+JOIN Orders
+ON Customers.id = Orders.customerId
+WHERE Orders.id <> NULL;
+
+
+
+
+---
+trial03
+
+
+제품을 '산 고객'이 아니라, '안산 고객'을 출력해야 한다.
+
+# Write your MySQL query statement below
+SELECT name
+FROM Customers
+JOIN Orders
+ON Customers.id = Orders.customerId;
+
+
+
+---
+trial03
+
+
+//outer join을 사용해봄.
+//근데 결국 customId column을 날려야 되니까, select에 못쓰고, 그러면 where절에도 못쓰지 않나? 쓸 수 있나?
+//되네?
+//근데 WHERE customerId = NULL 이 왜 안되는거지?
+
+
+
+# Write your MySQL query statement below
+SELECT name as Customers, customerId
+FROM Customers
+LEFT OUTER JOIN Orders
+ON Customers.id = Orders.customerId
+WHERE customerId = NULL;
+
+
+Input
+Customers =
+| id | name  |
+| -- | ----- |
+| 1  | Joe   |
+| 2  | Henry |
+| 3  | Sam   |
+| 4  | Max   |
+Orders =
+| id | customerId |
+| -- | ---------- |
+| 1  | 3          |
+| 2  | 1          |
+Output
+| Customers | customerId |
+| --------- | ---------- |
+Expected
+| Customers |
+| --------- |
+| Henry     |
+| Max       |
+
+
+
+---
+solution1
+
+
+outer join을 활용한 방식. (LEFT OUTER JOIN에서 OUTER생략 가능. LEFT JOIN으로.)
+sql은 WHERE column == NULL;은 안먹는데, WHERE column IS NULL; 은 먹네?
+
+outer join써서 그런가 51.4% 뜸. 더 괜찮은 방식이 있을텐데..
+
+
+실행순서
+
+1. FROM Customers로 Customers 테이블을 선택합니다.
+2. LEFT OUTER JOIN Orders로 Customers 테이블과 Orders 테이블을 왼쪽 외부 조인합니다.
+3. ON Customers.id = Orders.customerId로 Customers 테이블과 Orders 테이블을 연결합니다.
+4. WHERE customerId IS NULL으로 customerId가 NULL인 레코드만 선택합니다.
+5. SELECT name as Customers로 name 컬럼을 선택하고 alias를 Customers로 정의합니다.
+
+
+아무래도 outer merge하는 과정에서 리소스 낭비가 있네.
+
+
+
+# Write your MySQL query statement below
+SELECT name as Customers
+FROM Customers
+LEFT OUTER JOIN Orders
+ON Customers.id = Orders.customerId
+WHERE customerId IS NULL;
+
+
+
+
+
+---
+solution 2 by kent-huang
+
+
+NOT EXISTS & SELECT 1 & subquery  사용한 방식
+
+
+takeaways
+1. The SELECT 1 part is used to check if there is a matching row in the Orders table with the customerId in the Customers table.
+2. () is 'sub query'
+
+아, subquery의 where절에 조건이, boolean으로 T/F된게 SELECT 1로 받아서,
+그걸 main query에 WHERE NOT EXISTS 로 받는거구나
+
+
+52.4% 뜸. outer join과 별 차이 없네? 성능적으로
+
+
+실행순서
+1. SELECT name as Customers를 Customers 테이블에서 가져온다.
+2. WHERE NOT EXISTS 구문을 사용해 Orders 테이블에서 A.id와 B.customerId가 동일한 행이 없을 때를 검색한다.
+
+
+
+
+# Write your MySQL query statement below
+SELECT name as Customers
+FROM Customers A
+WHERE NOT EXISTS
+(SELECT 1
+FROM Orders B
+WHERE A.id = B.customerId)
+
+
+
+---
+solution3 by kent-huang
+
+
+IN & subquery  사용한 방식.
+
+
+
+실행순서
+1. Orders 테이블에 있는 customerId를 추출한다.
+2. 추출한 customerId와 Customers 테이블의 id를 비교하여 다른 값을 찾는다.
+3. 다른 값을 찾은 Customers 테이블의 name을 추출한다.
+
+
+
+
+# Write your MySQL query statement below
+SELECT name as Customers
+FROM Customers A
+WHERE A.id NOT IN
+(SELECT customerId
+FROM Orders)
