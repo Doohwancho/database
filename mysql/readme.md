@@ -1,13 +1,14 @@
 ---\
 Objective
 
+
 modularize mysql concepts
 
 
 
 
 ---\
-concepts 
+concepts
 
 
 a. index :white_check_mark:\
@@ -15,6 +16,7 @@ b: 실행계획 :soon:\
 c. JOIN :soon:\
 d. ORDER BY :white_check_mark:\
 e. GROUP BY :white_check_mark:\
+x. ANSI SQL\
 x. 성능측정\
 x. transaction(ACID)\
 x. database constraints\

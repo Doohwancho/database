@@ -51,7 +51,7 @@ f-6. [업체-상품](https://www.youtube.com/watch?v=ga69WBO9Gy0&list=PL9hiYwOHV
 f-7. [회원-주문-주문내역-상품](https://www.youtube.com/watch?v=ga69WBO9Gy0&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=11&ab_channel=Jacob%27sLecture) :white_check_mark:\
 f-8. [전공-학생-학생의수강과목-과목](https://www.youtube.com/watch?v=ga69WBO9Gy0&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=11&ab_channel=Jacob%27sLecture) :white_check_mark:\
 f-9. [이력서-가족사항-학력](https://www.youtube.com/watch?v=jxEYZwhS1gU&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=14&ab_channel=Jacob%27sLecture) :white_check_mark:\
-f-10. [공급자-견적서-견적서품목-품목](https://www.youtube.com/watch?v=jxEYZwhS1gU&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=14&ab_channel=Jacob%27sLecture) :white_check:mark:\
+f-10. [공급자-견적서-견적서품목-품목](https://www.youtube.com/watch?v=jxEYZwhS1gU&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=14&ab_channel=Jacob%27sLecture) :white_check_mark:\
 f-11. [employee](https://www.youtube.com/watch?v=HXV3zeQKqGY) :white_check_mark:\
 f-12. [대화방](https://www.youtube.com/watch?v=42LMmwSFGIE) :white_check_mark:\
 f-13. [영화](https://www.youtube.com/watch?v=bBLD07ayLqA&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=18&ab_channel=Jacob%27sLecture) :white_check_mark:\
