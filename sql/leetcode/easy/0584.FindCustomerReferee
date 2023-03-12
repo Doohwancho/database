@@ -1,0 +1,42 @@
+//Trial01
+
+# Write your MySQL query statement below
+SELECT name
+FROM Customer
+WHERE referee_id != 2;
+
+
+
+Input
+
+Customer =
+| id | name | referee_id |
+| -- | ---- | ---------- |
+| 1  | Will | null       |
+| 2  | Jane | null       |
+| 3  | Alex | 2          |
+| 4  | Bill | null       |
+| 5  | Zack | 1          |
+| 6  | Mark | 2          |
+
+Output
+| name |
+| ---- |
+| Zack |
+
+
+Q. 왜 결과값에서 null값이 제외되는거지?
+
+
+
+
+//solution1 by utkarshaggarwal74
+
+//1. COALESCE는 null값을 0으로 치환해준다고 한다.
+//2. sql에서 <>는 != 와 같다.
+
+
+# Write your MySQL query statement below
+SELECT name
+FROM Customer
+WHERE COALESCE(referee_id,0) <> 2;
