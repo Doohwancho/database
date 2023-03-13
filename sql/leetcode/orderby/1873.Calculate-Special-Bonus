@@ -1,0 +1,81 @@
+
+//trial01
+
+
+# Write your MySQL query statement below
+SELECT employee_id, (salary) as bonus
+FROM Employees
+WHERE
+    employee_id % 2 <> 0 AND
+    name NOT LIKE 'M%';
+
+
+Input
+Employees =
+| employee_id | name    | salary |
+| ----------- | ------- | ------ |
+| 2           | Meir    | 3000   |
+| 3           | Michael | 3800   |
+| 7           | Addilyn | 7400   |
+| 8           | Juan    | 6100   |
+| 9           | Kannon  | 7700   |
+Output
+| employee_id | bonus |
+| ----------- | ----- |
+| 7           | 7400  |
+| 9           | 7700  |
+Expected
+| employee_id | bonus |
+| ----------- | ----- |
+| 2           | 0     |
+| 3           | 0     |
+| 7           | 7400  |
+| 8           | 0     |
+| 9           | 7700  |
+
+
+
+아.. 어떻게 하면 새로운 column 추가시키지?
+조건문 어떻게 걸지?
+
+
+
+//solutions by AasthaChaudhary
+
+
+//solution1
+
+select employee_id , salary * ( employee_id%2 ) * ( name not like 'M%') as bonus
+from employees
+order by employee_id;
+
+
+천잰가? ㅋㅋ
+
+신박하게 푸네
+
+
+조건문을 SELECT 안에다 곱셈으로 적용할 수도 있구나
+
+
+
+//solution2
+
+# Write your MySQL query statement below
+SELECT employee_id,
+CASE
+    WHEN employee_id % 2 <> 0 AND name NOT LIKE 'M%'
+    THEN salary
+    ELSE 0
+END
+AS bonus
+FROM Employees
+ORDER BY employee_id;
+
+
+if-else가 sql에서는 case-end문 안에서 WHEN-THEN-ELSE 쓰네?
+
+그리고 if else문을 where절에 넣는게 아니라 select절에 넣네?
+
+
+
