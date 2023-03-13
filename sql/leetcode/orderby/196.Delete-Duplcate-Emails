@@ -1,0 +1,23 @@
+//trial01
+
+DELETE
+FROM Person
+WHERE id NOT IN
+  (SELECT MIN(id)
+   FROM Person
+  );
+
+
+You can't specify target table 'Person' for update in FROM clause
+
+
+
+//solution by XZAD_12
+
+
+DELETE p1
+FROM Person p1, Person p2
+WHERE
+    p1.id > p2.id AND
+    p1.email = p2.email
+
