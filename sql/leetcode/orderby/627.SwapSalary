@@ -1,0 +1,37 @@
+
+//solution1
+
+//update 문에서 SET-END, WHEN-THEN-ELSE 쓰기
+
+# Write your MySQL query statement below
+UPDATE Salary
+    SET sex =
+	(CASE
+        WHEN sex = 'm'
+        THEN 'f'
+        ELSE 'm'
+    END)
+ORDER BY id;
+
+
+
+//solution2 by abosen
+
+
+sql에 CASE문만 있는게 아니라 IF문도 있구나.
+CASE문의 축약형인듯?
+
+
+UPDATE salary SET sex = IF(sex='m','f','m');
+
+
+//solution3 by schedutron
+
+replace()를 활용한 방법
+
+
+UPDATE salary SET sex = REPLACE ('fm', sex, '');
+
+
+
+
