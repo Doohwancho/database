@@ -1,0 +1,74 @@
+
+//solution1 by code77777
+
+GROUP_CONCAT을 사용한 방법.
+
+
+select
+    sell_date,
+    COUNT(DISTINCT product) as num_sold,
+     GROUP_CONCAT(DISTINCT product) as products
+from Activities
+group by sell_date;
+
+
+
+//step1) group by?
+
+SELECT sell_date, product
+FROM Activities
+GROUP BY sell_date
+
+
+Input
+Activities =
+| sell_date  | product    |
+| ---------- | ---------- |
+| 2020-05-30 | Headphone  |
+| 2020-06-01 | Pencil     |
+| 2020-06-02 | Mask       |
+| 2020-05-30 | Basketball |
+| 2020-06-01 | Bible      |
+| 2020-06-02 | Mask       |...
+View all
+Output
+| sell_date  | product   |
+| ---------- | --------- |
+| 2020-05-30 | Headphone |
+| 2020-06-01 | Pencil    |
+| 2020-06-02 | Mask      |
+
+
+
+날짜 별로 묶이는데, 겹치는 row들은 버려지네?
+
+
+//step2) GROUP_CONCAT
+
+
+SELECT sell_date, GROUP_CONCAT(product)
+FROM Activities
+GROUP BY sell_date
+
+
+Input
+Activities =
+| sell_date  | product    |
+| ---------- | ---------- |
+| 2020-05-30 | Headphone  |
+| 2020-06-01 | Pencil     |
+| 2020-06-02 | Mask       |
+| 2020-05-30 | Basketball |
+| 2020-06-01 | Bible      |
+| 2020-06-02 | Mask       |...
+View all
+Output
+| sell_date  | GROUP_CONCAT(product)        |
+| ---------- | ---------------------------- |
+| 2020-05-30 | Headphone,Basketball,T-Shirt |
+| 2020-06-01 | Pencil,Bible                 |
+| 2020-06-02 | Mask,Mask                    |
+
+
+
+step1에서 겹쳤던 row들이 GROUP_CONCAT을 쓰니까, 합쳐졌네?
