@@ -27,4 +27,5 @@ a-1. select\
 a-2. order by\
 a-3. string\
 a-4. group by\
-a-5. union
+a-5. union\
+a-6. date
