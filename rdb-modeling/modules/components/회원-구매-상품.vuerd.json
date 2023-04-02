@@ -120,7 +120,7 @@
           "active": false,
           "left": 32,
           "top": 100,
-          "zIndex": 5,
+          "zIndex": 1,
           "widthName": 60,
           "widthComment": 60,
           "color": "#F44336"
@@ -206,7 +206,7 @@
           "active": false,
           "left": 673,
           "top": 105,
-          "zIndex": 13,
+          "zIndex": 2,
           "widthName": 60,
           "widthComment": 60,
           "color": "#2196F3"
@@ -315,7 +315,7 @@
           "active": false,
           "left": 319,
           "top": 371,
-          "zIndex": 14,
+          "zIndex": 3,
           "widthName": 60,
           "widthComment": 60,
           "color": "#A1FF00"
@@ -331,10 +331,10 @@
       {
         "value": "---\n구매 일련번호가 pk?\n\n고객ID+상품ID를 복합키로 pk설정해서 string based index하는 것 보다, int base가 .compare속도고 빠르고, 같은 고객이 같은 상품 여러번 구매하면 전자 복합키는 유일성 보장이 안되기에, uuid 구매 일련번호가 더 적합\n\n\n\n---\n고객->구매 relation\n\nzero to many\nwhy?\n한 고객당 구매를 0개부터 n개 할 수 있으니까.\n\n---\n상품->구매 relation\n\nzero to many\nwhy?\n하나의 상품을 안살 수도 있지만,\n동일 상품 여러번 구매 가능하니까.\n\n",
         "ui": {
-          "active": true,
+          "active": false,
           "left": 722,
           "top": 383,
-          "zIndex": 15,
+          "zIndex": 4,
           "width": 318,
           "height": 167
         },

@@ -9,16 +9,16 @@ modularize Relational Database Modeling
 Concepts 
 
 
-a. erd :white_check_mark:\
-b. rdb modeling tips :white_check_mark:\
-c. 용어집 :white_check_mark:\
-d. entity && attributes :white_check_mark:\
-e. keys :white_check_mark:\
-f. components :soon:\
-g. relations a.k.a 오리발, 까치발 :white_check_mark:\
-h. normalization :white_check_mark:\
-i. de-normalization :white_check_mark:\
-j. data type :white_check_mark:\
+a. erd\
+b. rdb modeling tips\
+c. vocabs & terms\
+d. entity && attributes\
+e. keys\
+f. components \
+g. relations a.k.a 오리발, 까치발\
+h. normalization\
+i. de-normalization\
+j. data type\
 x. constraints\
 x. analyze open source's rdb modeling\
 x. 대용량 트래픽 처리 전용 modeling
@@ -57,7 +57,8 @@ f-12. [대화방](https://www.youtube.com/watch?v=42LMmwSFGIE) :white_check_mark
 f-13. [영화](https://www.youtube.com/watch?v=bBLD07ayLqA&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=18&ab_channel=Jacob%27sLecture) :white_check_mark:\
 f-14. [강의개설과 수강신청](https://www.youtube.com/watch?v=Qs_cC6lvx2s&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=20&ab_channel=Jacob%27sLecture) :white_check_mark:\
 f-15. [학습과 출석](https://www.youtube.com/watch?v=Qs_cC6lvx2s&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=20&ab_channel=Jacob%27sLecture) :white_check_mark:\
-f-16. [교보문고](https://www.youtube.com/watch?v=_TaygcntsJQ&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=21&ab_channel=Jacob%27sLecture) :white_check_mark:
+f-16. [교보문고](https://www.youtube.com/watch?v=_TaygcntsJQ&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=21&ab_channel=Jacob%27sLecture) :white_check_mark:\
+f-17. [ecommerce](https://www.youtube.com/watch?v=1HamqOuv2Cw&ab_channel=DatabaseStar) :white_check_mark:
 
 
 g-1. relation, 오리발 까치발 from book - real mysql :white_check_mark:\
