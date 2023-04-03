@@ -143,7 +143,7 @@
           "active": false,
           "left": 29,
           "top": 29,
-          "zIndex": 31,
+          "zIndex": 1,
           "widthName": 60,
           "widthComment": 60,
           "color": "hsl(4,90%,58%)"
@@ -252,7 +252,7 @@
           "active": false,
           "left": 219,
           "top": 187,
-          "zIndex": 32,
+          "zIndex": 2,
           "widthName": 60,
           "widthComment": 60,
           "color": "#9C27B0"
@@ -361,7 +361,7 @@
           "active": false,
           "left": 472,
           "top": 305,
-          "zIndex": 33,
+          "zIndex": 3,
           "widthName": 73.83796691894531,
           "widthComment": 60,
           "color": "#CDDC39"
@@ -516,7 +516,7 @@
           "active": false,
           "left": 623,
           "top": 35,
-          "zIndex": 34,
+          "zIndex": 4,
           "widthName": 60,
           "widthComment": 60,
           "color": "#2196F3"
@@ -532,10 +532,10 @@
       {
         "value": "takeaway1) 주문내역, 주문내역_상품 엔티티 정규화로 분리\n\n주문내역만 회원을 WHERE써서 가져오고,\n거기에서 필요한 주문 일시, 주문 금액을 쓰네.\n\n근데 주문내역_상품 엔티티에선, 어떤 주문번호에 어떤 상품이 엮여있는지 복합키로 되어있네.",
         "ui": {
-          "active": true,
+          "active": false,
           "left": 36,
           "top": 443,
-          "zIndex": 41,
+          "zIndex": 5,
           "width": 433,
           "height": 168
         },
