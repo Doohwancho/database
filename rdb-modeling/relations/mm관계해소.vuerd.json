@@ -74,7 +74,7 @@
           "active": false,
           "left": 22,
           "top": 48,
-          "zIndex": 49,
+          "zIndex": 1,
           "widthName": 60,
           "widthComment": 60,
           "color": "#F44336"
@@ -137,7 +137,7 @@
           "active": false,
           "left": 459,
           "top": 38,
-          "zIndex": 50,
+          "zIndex": 2,
           "widthName": 60,
           "widthComment": 60,
           "color": "#2196F3"
@@ -177,7 +177,7 @@
           "active": false,
           "left": 30,
           "top": 381,
-          "zIndex": 85,
+          "zIndex": 4,
           "widthName": 60,
           "widthComment": 60,
           "color": "#F44336"
@@ -214,10 +214,10 @@
           }
         ],
         "ui": {
-          "active": true,
+          "active": false,
           "left": 546,
           "top": 376,
-          "zIndex": 89,
+          "zIndex": 6,
           "widthName": 60,
           "widthComment": 60,
           "color": "#2196F3"
@@ -280,7 +280,7 @@
           "active": false,
           "left": 262,
           "top": 587,
-          "zIndex": 88,
+          "zIndex": 5,
           "widthName": 60,
           "widthComment": 60,
           "color": "#FFEB3B"
@@ -299,7 +299,7 @@
           "active": false,
           "left": 149,
           "top": 147,
-          "zIndex": 57,
+          "zIndex": 3,
           "width": 504,
           "height": 157
         },

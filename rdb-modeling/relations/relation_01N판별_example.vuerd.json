@@ -3,7 +3,7 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -224,
+    "scrollTop": -40,
     "scrollLeft": 0,
     "zoomLevel": 1,
     "show": {
@@ -260,12 +260,12 @@
   "memo": {
     "memos": [
       {
-        "value": "1:M인지 해깔릴 땐, 테이블을 직접 만들어보자.\n\n---\nA. 제품\n\nTV - 가전 - 1C\n냉장고 - 가전 - 2D\nMP3 - 미디어 - 4F\n\n---\nB. 제조업체\n\n삼성 - 서울\nLG - 강릉\n대우 - 전주\n\n---\nC. 제품_제조업체\n\nTV - 대우\nTV - 현대\nMP3 - 삼성\n세탁기 - 삼성",
+        "value": "M:N인지, 1:M인지 해깔릴 땐, 테이블을 직접 만들어보자.\n\n---\nA. 제품\n\nTV - 가전 - 1C\n냉장고 - 가전 - 2D\nMP3 - 미디어 - 4F\n\n---\nB. 제조업체\n\n삼성 - 서울\nLG - 강릉\n대우 - 전주\n\n---\nC. 제품_제조업체\n\nTV - 대우\nTV - 현대\nMP3 - 삼성\n세탁기 - 삼성",
         "ui": {
-          "active": false,
+          "active": true,
           "left": 37,
           "top": 377,
-          "zIndex": 4,
+          "zIndex": 7,
           "width": 261,
           "height": 362
         },

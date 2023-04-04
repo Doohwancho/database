@@ -1,0 +1,85 @@
+---
+Goal
+
+
+scalable ecommerce erd
+
+
+a. user
+If you want your customers to have a persistent profile, then you need to build some way for them to log in to your application. Moving forward with more real-world requirements, you also want to keep track of their login attempt history and password history.
+
+You also want to consider whether your customers are part of a large organization. If so, how would they like to handle password resets? Do they need single sign-on or OAuth support?
+
+
+b. Addresses
+Did you notice there’s no address tied to a customer in any of the data models shown so far? It might be your first inclination to include a customer’s address as part of those models. However, most customers will have multiple addresses and multiple kinds of addresses, like billing and shipping. B2B retailers might also have to consider multiple delivery locations based on the number of warehouses and offices they support.
+
+What happens if the billing and shipping addresses are different? You’ll need to do more than just add extra columns to the Customer table. So how does storing a billing address affect the scalability of your application?
+
+If you were to split the payment and shipping areas into separate (micro)services that each have its own database, then putting billing and payment addresses into the Customer area would lead to having “chatty” services.
+
+To avoid this issue, you’re better off putting the addresses within the appropriate area/service that requires them. This, however, makes your data model becomes more complex.
+
+One way to avoid much of this complexity is to consider an order management system (OMS). With this software, you can integrate the OMS into your data model without spending months of engineering time.
+
+
+c. Pricing
+Similar to the considerations with a customer’s billing and shipping addresses, this would lead to cross-boundary/service communication if we left the price in the core Product table. Therefore, you want to store product prices under the data stores that the sales department owns. There are many different kinds of “prices” that haven’t been taken into consideration, including:
+1. Price (cost) when purchasing stock from vendors
+2. Customer sale price
+3. Discounted sale prices
+4. Manufacturer’s suggested retail price
+
+
+d. order
+Notice that each row in the ShoppingCartItem table contains the “captured” price of the product. When the customer puts an item into their shopping cart should the price at that moment be “locked-in”? If so, for how long?
+
+The same question applies to an unpaid order. If a customer has ordered a discounted item, should they be able to keep the promise of that discounted price forever until they pay? Or does it expire? Other questions to consider for an orders data model include:
+
+1. Are you tracking analytics on orders?
+2. What happens if a customer returns a defective item?
+3. Should you handle shipping within the same data model or have a dedicated shipping context/schema?
+
+
+Some things to take note of in this more complex orders model:
+
+1. ShoppingCartItem now supports an expiration date for a locked-in price.
+2. ShoppingCartHistory tracks when items are added or removed.
+3. An order item may be returned (this still does not handle cases where 1 out of X items of the same product are returned).
+4. An order may have multiple shipments (e.g., how Amazon will sometimes split an order up into multiple packages/shipments).
+
+
+
+
+---
+requirements
+
+
+1. user
+    1. persistent user profile 
+2. product 
+    1. Tracking pricing history so site administrators can analyze trends in product pricing
+    2. Supporting related products to display on a product’s page
+    3. Incorporating product vendors so customers can view all products sold by an individual vendor/company
+3. pricing
+    1. Price (cost) when purchasing stock from vendors
+    2. Customer sale price
+    3. Discounted sale prices
+    4. Manufacturer’s suggested retail price
+4. order
+    1. ShoppingCartItem now supports an expiration date for a locked-in price.
+    2. ShoppingCartHistory tracks when items are added or removed.
+    3. An order item may be returned (this still does not handle cases where 1 out of X items of the same product are returned).
+    4. An order may have multiple shipments (e.g., how Amazon will sometimes split an order up into multiple packages/shipments).
+
+
+---
+more features to add
+
+
+Coupon codes
+Taxes
+Third-party integrations with OAuth providers, other retailers, or partners
+Shipment tracking notifications
+
+etc
