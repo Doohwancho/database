@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -114,
-    "scrollLeft": -12,
+    "scrollTop": -224,
+    "scrollLeft": 0,
     "zoomLevel": 1,
     "show": {
       "tableComment": true,
@@ -120,7 +120,7 @@
           "active": false,
           "left": 43,
           "top": 86,
-          "zIndex": 20,
+          "zIndex": 1,
           "widthName": 60,
           "widthComment": 60,
           "color": "#F44336"
@@ -183,7 +183,7 @@
           "active": false,
           "left": 550,
           "top": 84,
-          "zIndex": 22,
+          "zIndex": 2,
           "widthName": 60,
           "widthComment": 60,
           "color": "#0039FF"
@@ -246,7 +246,7 @@
           "active": false,
           "left": 291,
           "top": 249,
-          "zIndex": 25,
+          "zIndex": 3,
           "widthName": 73.83796691894531,
           "widthComment": 76.51593017578125,
           "color": "#CDDC39"
@@ -265,7 +265,7 @@
           "active": false,
           "left": 37,
           "top": 377,
-          "zIndex": 47,
+          "zIndex": 4,
           "width": 261,
           "height": 362
         },
@@ -277,7 +277,7 @@
           "active": false,
           "left": 341,
           "top": 383,
-          "zIndex": 55,
+          "zIndex": 5,
           "width": 432,
           "height": 101
         },
@@ -286,10 +286,10 @@
       {
         "value": "example2)\n\n학생 - 수강과목도 이와 같은 논리로 M:N 관계다.\n\n학생이 여러 과목 신청할 수 있고,\n한 과목에 여러 학생이 들을 수 있으니까.\n\n\n그럼 학생-전공은?\n\n하나의 전공에 여러명의 학생이 선택할 수 있음.\n근데 하나의 학생이 여러 전공 선택 못함.\n따라서 M:1 관계다.\n\n1이 포함하는 부모 역할, M이 소속되는 자식 역할.\n고로, pk도 부모 pk를 자식이 fk로 가져감.\n",
         "ui": {
-          "active": true,
+          "active": false,
           "left": 342,
           "top": 541,
-          "zIndex": 70,
+          "zIndex": 6,
           "width": 674,
           "height": 260
         },
