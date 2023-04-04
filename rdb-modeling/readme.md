@@ -59,7 +59,8 @@ f-14. [강의개설과 수강신청](https://www.youtube.com/watch?v=Qs_cC6lvx2s
 f-15. [학습과 출석](https://www.youtube.com/watch?v=Qs_cC6lvx2s&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=20&ab_channel=Jacob%27sLecture) :white_check_mark:\
 f-16. [교보문고](https://www.youtube.com/watch?v=_TaygcntsJQ&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=21&ab_channel=Jacob%27sLecture) :white_check_mark:\
 f-17. [ecommerce by database star](https://www.youtube.com/watch?v=1HamqOuv2Cw&ab_channel=DatabaseStar) :white_check_mark:\
-f-18. [ecommerce of gmarket](https://www.slideshare.net/HanSungKim4/db-project-gmarket) :white_check_mark:
+f-18. [ecommerce of gmarket](https://www.slideshare.net/HanSungKim4/db-project-gmarket) :white_check_mark:\
+f-19. [sample ecommerce erd from erdcloud](https://www.erdcloud.com/d/hz4NGJK8vb2H9G3jB) :white_check_mark:
 
 
 g-1. relation, 오리발 까치발 from book - real mysql :white_check_mark:\
