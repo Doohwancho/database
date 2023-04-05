@@ -20,8 +20,6 @@ h. normalization\
 i. de-normalization\
 j. data type\
 x. constraints\
-x. analyze open source's rdb modeling\
-x. 대용량 트래픽 처리 전용 modeling
 
 
 
@@ -61,7 +59,8 @@ f-16. [교보문고](https://www.youtube.com/watch?v=_TaygcntsJQ&list=PL9hiYwOHV
 f-17. [ecommerce by database star](https://www.youtube.com/watch?v=1HamqOuv2Cw&ab_channel=DatabaseStar) :white_check_mark:\
 f-18. [ecommerce of gmarket](https://www.slideshare.net/HanSungKim4/db-project-gmarket) :white_check_mark:\
 f-19. [sample ecommerce erd from erdcloud](https://www.erdcloud.com/d/hz4NGJK8vb2H9G3jB) :white_check_mark:\
-f-20. [Building a Scalable E-Commerce Data Model](https://fabric.inc/blog/ecommerce-data-model/) :white_check_mark:
+f-20. [Building a Scalable E-Commerce Data Model](https://fabric.inc/blog/ecommerce-data-model/) :white_check_mark:\
+f-21. [f-lab, online marketplace](https://github.com/f-lab-edu/online-marketplace) :white_check_mark:
 
 
 g-1. relation, 오리발 까치발 from book - real mysql :white_check_mark:\
@@ -82,6 +81,11 @@ j-2. data type 선택 :white_check_mark:\
 j-3. column length 선택 :white_check_mark:\
 j-4. character-set like utf-8 :white_check_mark:\
 j-5. null 보단 not null :white_check_mark:
+
+
+
+---\
+More
 
 
 x-x. [analyze okky modeling, demo](https://vuerd.github.io/)
