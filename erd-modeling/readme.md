@@ -20,6 +20,8 @@ h. normalization\
 i. de-normalization\
 j. data type\
 x. constraints\
+z. erd-modeling-tips
+
 
 
 
@@ -82,6 +84,16 @@ j-2. data type 선택 :white_check_mark:\
 j-3. column length 선택 :white_check_mark:\
 j-4. character-set like utf-8 :white_check_mark:\
 j-5. null 보단 not null :white_check_mark:
+
+
+z-1. erd 그리기 전, 기존 존재하던 앱/서비스의 erd 선행분석하기 :white_check_mark:
+z-2. 해당 도메인에 관련 법 확인하기 :white_check_mark:
+z-3. ERD 작성 전에는 시스템에서 제공할 기능이나 시나리오를 먼저 작성하기 :white_check_mark:
+z-4. 정규화 & 반정규화 해서 테이블 수 많아지는거 문제 안됨
+z-etc
+z-1. erd를 보고 전체 로직이 보여야 한다. :white_check_mark:
+z-2. 마음의 relation :white_check_mark:
+z-3. 엔코아 사장, 부사장은 디비의 신이다. :white_check_mark:
 
 
 
