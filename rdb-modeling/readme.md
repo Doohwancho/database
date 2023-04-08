@@ -60,7 +60,8 @@ f-17. [ecommerce by database star](https://www.youtube.com/watch?v=1HamqOuv2Cw&a
 f-18. [ecommerce of gmarket](https://www.slideshare.net/HanSungKim4/db-project-gmarket) :white_check_mark:\
 f-19. [sample ecommerce erd from erdcloud](https://www.erdcloud.com/d/hz4NGJK8vb2H9G3jB) :white_check_mark:\
 f-20. [Building a Scalable E-Commerce Data Model](https://fabric.inc/blog/ecommerce-data-model/) :white_check_mark:\
-f-21. [f-lab, online marketplace](https://github.com/f-lab-edu/online-marketplace) :white_check_mark:
+f-21. [f-lab, online marketplace](https://github.com/f-lab-edu/online-marketplace) :white_check_mark:\
+f-22. 상품주문 구현방법론 비교 :white_check_mark:
 
 
 g-1. relation, 오리발 까치발 from book - real mysql :white_check_mark:\

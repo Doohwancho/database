@@ -1,0 +1,1239 @@
+{
+  "canvas": {
+    "version": "2.2.11",
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": -207,
+    "scrollLeft": -60,
+    "zoomLevel": 0.8,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": false,
+      "columnPrimaryKey": true,
+      "columnUnique": false,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "MySQL",
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "highlightTheme": "VS2015",
+    "bracketType": "none",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "relationshipOptimization": false,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    },
+    "pluginSerializationMap": {}
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "회원",
+        "comment": "",
+        "columns": [
+          {
+            "name": "회원번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "e3a2ef69-5004-4de0-9c30-8d3da587059b"
+          },
+          {
+            "name": "이름",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "9bbb9073-42e7-4347-b2a1-d381954c6c82"
+          },
+          {
+            "name": "이메일",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "91a77c85-4b4b-43ee-8387-e739681e6c97"
+          },
+          {
+            "name": "전화번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "663b1a89-3814-4618-8f53-5160ce50adb1"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 23,
+          "top": 550,
+          "zIndex": 3,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "6f13c14a-07a8-416c-a585-9d98b4d783cd"
+      },
+      {
+        "name": "책",
+        "comment": "",
+        "columns": [
+          {
+            "name": "책번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "888ab082-b1e3-430e-bf21-412f6a6bf559"
+          },
+          {
+            "name": "제목",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "9042a432-7259-418b-bf13-2c9829ffcbcd"
+          },
+          {
+            "name": "부제",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "ddac3e50-a192-40ef-a22a-047754bbfe8e"
+          },
+          {
+            "name": "저자",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "3b001872-bee5-44b6-879b-dddd97d05776"
+          },
+          {
+            "name": "옮김",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "17512cfc-cb8d-4e2b-8019-4220d28c7a3a"
+          },
+          {
+            "name": "출판사",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "e744d42d-18f1-4c52-83ac-88aa578ae932"
+          },
+          {
+            "name": "출간일",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "7f51d753-2c18-46c9-91ea-50bc82de9e36"
+          },
+          {
+            "name": "리뷰점수",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "bffd7fab-fe7a-4f65-affc-36b68b1f22f4"
+          },
+          {
+            "name": "정가",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "3e68e410-3002-4efc-8cec-7a022e4ff791"
+          },
+          {
+            "name": "할인가",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "28ca0318-4e06-48ba-9fb3-b9c0fa037a9f"
+          },
+          {
+            "name": "할인율",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "244adc79-0348-486d-8737-523f55bf7d32"
+          },
+          {
+            "name": "판매가",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "6c354ad8-063c-475b-a9f4-22b484748206"
+          },
+          {
+            "name": "적립금",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "7d9199ea-e6ed-4dc1-a412-1b231f4614c4"
+          },
+          {
+            "name": "적립율",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "df442dac-1582-42aa-bee4-9e14c7f8b71b"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 1133,
+          "top": 232.75,
+          "zIndex": 7,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "380d439d-ddd0-4b56-9ec8-dc9f6345d03a"
+      },
+      {
+        "name": "주문",
+        "comment": "",
+        "columns": [
+          {
+            "name": "주문번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "f9358b08-09ae-4a4e-94c3-c9cdc8648d58"
+          },
+          {
+            "name": "회원번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "bbcb3079-959c-40e2-81ca-b4c9acf9798b"
+          },
+          {
+            "name": "주문금액",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "d05f2821-31cc-434f-aff3-08586967c783"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 19.75,
+          "top": 299,
+          "zIndex": 5,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "ba5d765a-23e6-4724-867e-7377f8ad951f"
+      },
+      {
+        "name": "주문_책",
+        "comment": "",
+        "columns": [
+          {
+            "name": "주문번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "011d51c7-158e-4dbd-9033-6af8db52b0ac"
+          },
+          {
+            "name": "책번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "fab247d2-7131-45cb-9819-2e0d4f72b573"
+          },
+          {
+            "name": "금액",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "1813d750-a30a-464b-8358-63e04d7a1974"
+          },
+          {
+            "name": "수량",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "a44aaaf9-1669-4173-b5ca-23737a491635"
+          },
+          {
+            "name": "주문상태",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "1122c2dc-619f-4917-a1fe-f7c078075a48"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 567.25,
+          "top": 254.75,
+          "zIndex": 6,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "9173ea00-5175-4712-a936-d238c54930af"
+      },
+      {
+        "name": "장바구니",
+        "comment": "",
+        "columns": [
+          {
+            "name": "회원번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "6b518bd0-7efc-415a-adc9-a8358923b965"
+          },
+          {
+            "name": "책번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "f8bb98b7-dd81-4f86-b7ad-a2be7a492bb7"
+          },
+          {
+            "name": "수량",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "6afb5874-0c5e-4437-a883-164d36b848b5"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 635,
+          "top": 549,
+          "zIndex": 2,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "e505121e-6c31-4521-91cf-98ba7d898b05"
+      },
+      {
+        "name": "보관함",
+        "comment": "",
+        "columns": [
+          {
+            "name": "회원번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "5b41be63-8ba7-4ce3-baea-71c96f82f3b2"
+          },
+          {
+            "name": "책번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "bdf683c5-be63-49be-a9f4-38d317aa5b12"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 525.25,
+          "top": 827.25,
+          "zIndex": 8,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "7a8f79eb-db6f-4ad2-be83-81515c873d67"
+      },
+      {
+        "name": "배송지",
+        "comment": "",
+        "columns": [
+          {
+            "name": "배송지번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "eaaf8ea6-fb2b-412f-b4ab-d2ec36cedabf"
+          },
+          {
+            "name": "회원번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "727b1181-92a5-4bb8-854b-0c24071614d9"
+          },
+          {
+            "name": "구분",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "fa142eeb-b611-44fc-bb60-7b0242667b27"
+          },
+          {
+            "name": "이름",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "ade69ecd-0840-4733-a436-76872600e36f"
+          },
+          {
+            "name": "주소",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "098f8d1d-f893-4386-8ec3-33cb8c751eaf"
+          },
+          {
+            "name": "전화번호",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "1724de07-e6ca-48d8-9fd6-ba6caeaadc41"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 25,
+          "top": 819,
+          "zIndex": 4,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "visible": true,
+        "id": "0c12d765-50e3-4762-8a3a-0579c07155e8"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": [
+      {
+        "value": "Q1. how to start modeling?\n\n일단 교보문고 들어가서, 사이트의 뼈대를 보고, 데이터베이스 모델링 설계 분석 시작.\n\n핵심은 \n1. 회원이 있고, \n2. 책이 있고 \n3. 주문하는 것. \n\n이 3가지. 이 3가지 틀을 잡고 시작하면 된다.\n\n\nQ2. 책 엔티티\n\n정가에서 할인가, 할인율 계산해서 판매가 책정도 가능. 계산 생략하고 속도 얻고싶으면 반정규화해서 판매가 attribute 별도 생성하는거고.\n\nQ3. 주문_책에서 금액 attribute\n\n책에 판매가 attribute 쓰면 되는데, 왜 또 만듬?\n책 할인율이 실시간으로 변하니까, 현재 할인율이 적용된 책 가격이랑, 과거에 주문했을 때 당시 가격이랑 다를 수 있다.\n\nQ4. 장바구니에서 상품정보, 판매가가 왜 안들어감?\n상품 엔티티에 이미 있으니까, join해서 끌어씀.\n장바구니엔 수량만 있으면 됨. \n\n\nQ5. 보관함(관심상품)\n",
+        "ui": {
+          "active": false,
+          "left": 31,
+          "top": 33,
+          "zIndex": 1,
+          "width": 278,
+          "height": 100
+        },
+        "id": "14c1eaca-8770-4f05-8cf9-81c6732ea86a"
+      }
+    ]
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "6f13c14a-07a8-416c-a585-9d98b4d783cd",
+          "columnIds": [
+            "e3a2ef69-5004-4de0-9c30-8d3da587059b"
+          ],
+          "x": 196.5,
+          "y": 550,
+          "direction": "top"
+        },
+        "end": {
+          "tableId": "ba5d765a-23e6-4724-867e-7377f8ad951f",
+          "columnIds": [
+            "bbcb3079-959c-40e2-81ca-b4c9acf9798b"
+          ],
+          "x": 193.25,
+          "y": 429.5,
+          "direction": "bottom"
+        },
+        "constraintName": "fk_회원_to_주문",
+        "visible": true,
+        "id": "d33484bd-584d-4bea-abaf-d6530c33c13c"
+      },
+      {
+        "identification": true,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "ba5d765a-23e6-4724-867e-7377f8ad951f",
+          "columnIds": [
+            "f9358b08-09ae-4a4e-94c3-c9cdc8648d58"
+          ],
+          "x": 366.75,
+          "y": 364.25,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "9173ea00-5175-4712-a936-d238c54930af",
+          "columnIds": [
+            "011d51c7-158e-4dbd-9033-6af8db52b0ac"
+          ],
+          "x": 567.25,
+          "y": 340.5,
+          "direction": "left"
+        },
+        "constraintName": "fk_주문_to_주문_책",
+        "visible": true,
+        "id": "c5d36a88-c7eb-4198-846f-8e34c6a96efe"
+      },
+      {
+        "identification": true,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "380d439d-ddd0-4b56-9ec8-dc9f6345d03a",
+          "columnIds": [
+            "888ab082-b1e3-430e-bf21-412f6a6bf559"
+          ],
+          "x": 1133,
+          "y": 321.75,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "9173ea00-5175-4712-a936-d238c54930af",
+          "columnIds": [
+            "fab247d2-7131-45cb-9819-2e0d4f72b573"
+          ],
+          "x": 914.25,
+          "y": 340.5,
+          "direction": "right"
+        },
+        "constraintName": "fk_책_to_주문_책",
+        "visible": true,
+        "id": "908bf732-ec86-4599-a131-f96dd16a52c2"
+      },
+      {
+        "identification": true,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "6f13c14a-07a8-416c-a585-9d98b4d783cd",
+          "columnIds": [
+            "e3a2ef69-5004-4de0-9c30-8d3da587059b"
+          ],
+          "x": 370,
+          "y": 587.75,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "e505121e-6c31-4521-91cf-98ba7d898b05",
+          "columnIds": [
+            "6b518bd0-7efc-415a-adc9-a8358923b965"
+          ],
+          "x": 635,
+          "y": 614.25,
+          "direction": "left"
+        },
+        "constraintName": "fk_회원_to_장바구니",
+        "visible": true,
+        "id": "6260d0e9-3ae8-4e55-872b-8f93e563428b"
+      },
+      {
+        "identification": true,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "380d439d-ddd0-4b56-9ec8-dc9f6345d03a",
+          "columnIds": [
+            "888ab082-b1e3-430e-bf21-412f6a6bf559"
+          ],
+          "x": 1133,
+          "y": 499.75,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "e505121e-6c31-4521-91cf-98ba7d898b05",
+          "columnIds": [
+            "f8bb98b7-dd81-4f86-b7ad-a2be7a492bb7"
+          ],
+          "x": 982,
+          "y": 614.25,
+          "direction": "right"
+        },
+        "constraintName": "fk_책_to_장바구니",
+        "visible": true,
+        "id": "72d8f7a1-73f0-4fb1-ae08-75efe1428f60"
+      },
+      {
+        "identification": true,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "6f13c14a-07a8-416c-a585-9d98b4d783cd",
+          "columnIds": [
+            "e3a2ef69-5004-4de0-9c30-8d3da587059b"
+          ],
+          "x": 370,
+          "y": 663.25,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "7a8f79eb-db6f-4ad2-be83-81515c873d67",
+          "columnIds": [
+            "5b41be63-8ba7-4ce3-baea-71c96f82f3b2"
+          ],
+          "x": 525.25,
+          "y": 882.25,
+          "direction": "left"
+        },
+        "constraintName": "fk_회원_to_보관함",
+        "visible": true,
+        "id": "2b4d8aea-fa49-47c1-98af-ea2b7e8cae2f"
+      },
+      {
+        "identification": true,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "380d439d-ddd0-4b56-9ec8-dc9f6345d03a",
+          "columnIds": [
+            "888ab082-b1e3-430e-bf21-412f6a6bf559"
+          ],
+          "x": 1306.5,
+          "y": 588.75,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "7a8f79eb-db6f-4ad2-be83-81515c873d67",
+          "columnIds": [
+            "bdf683c5-be63-49be-a9f4-38d317aa5b12"
+          ],
+          "x": 872.25,
+          "y": 882.25,
+          "direction": "right"
+        },
+        "constraintName": "fk_책_to_보관함",
+        "visible": true,
+        "id": "4b00de5f-5b06-4926-b0c3-f7036c58b535"
+      },
+      {
+        "identification": false,
+        "relationshipType": "OneN",
+        "startRelationshipType": "Dash",
+        "start": {
+          "tableId": "6f13c14a-07a8-416c-a585-9d98b4d783cd",
+          "columnIds": [
+            "e3a2ef69-5004-4de0-9c30-8d3da587059b"
+          ],
+          "x": 196.5,
+          "y": 701,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "0c12d765-50e3-4762-8a3a-0579c07155e8",
+          "columnIds": [
+            "727b1181-92a5-4bb8-854b-0c24071614d9"
+          ],
+          "x": 198.5,
+          "y": 819,
+          "direction": "top"
+        },
+        "constraintName": "fk_회원_to_배송지",
+        "visible": true,
+        "id": "ed9830cb-d561-4aef-8028-8b472199da27"
+      }
+    ]
+  }
+}
