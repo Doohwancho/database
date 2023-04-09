@@ -3,9 +3,9 @@
     "version": "2.2.11",
     "width": 2000,
     "height": 2000,
-    "scrollTop": -83,
-    "scrollLeft": -214,
-    "zoomLevel": 0.9,
+    "scrollTop": -208,
+    "scrollLeft": -217,
+    "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
       "columnComment": true,
@@ -189,7 +189,7 @@
           "active": false,
           "left": 195.889,
           "top": 344.4446,
-          "zIndex": 30,
+          "zIndex": 4,
           "widthName": 60,
           "widthComment": 60
         },
@@ -274,7 +274,7 @@
           "active": false,
           "left": 407.9999,
           "top": 86.889,
-          "zIndex": 31,
+          "zIndex": 5,
           "widthName": 60,
           "widthComment": 60
         },
@@ -359,7 +359,7 @@
           "active": false,
           "left": 687,
           "top": 305,
-          "zIndex": 4,
+          "zIndex": 2,
           "widthName": 60,
           "widthComment": 60
         },
@@ -444,7 +444,7 @@
           "active": false,
           "left": 702,
           "top": 517,
-          "zIndex": 3,
+          "zIndex": 1,
           "widthName": 89.13880920410156,
           "widthComment": 60
         },
@@ -552,7 +552,7 @@
           "active": false,
           "left": 208.5553,
           "top": 667.3326,
-          "zIndex": 29,
+          "zIndex": 3,
           "widthName": 73.82490539550781,
           "widthComment": 60
         },
@@ -637,7 +637,7 @@
           "active": false,
           "left": 695.6667,
           "top": 788.7774,
-          "zIndex": 36,
+          "zIndex": 8,
           "widthName": 136.52374267578125,
           "widthComment": 60
         },
@@ -791,7 +791,7 @@
           "active": false,
           "left": 1223.4458,
           "top": 507.8882,
-          "zIndex": 37,
+          "zIndex": 9,
           "widthName": 60,
           "widthComment": 60
         },
@@ -876,7 +876,7 @@
           "active": false,
           "left": 1223.9991,
           "top": 768.8877,
-          "zIndex": 35,
+          "zIndex": 7,
           "widthName": 60.33091735839844,
           "widthComment": 60
         },
@@ -892,9 +892,9 @@
         "value": "Q. update는 row단위로 lock 거는데, insert나 delete는 table 단위로 lock 걸지 않나? (이건 그냥 추측임) 만약 그렇다면, 테이블 하나에 모든 상품 때려박는게 상품별로 테이블 다 쪼개놓는 것 보다 안좋지 않나?\n\n단일 테이블에 상품 등록/삭제시 걸리는 락 떄문에 query 성능 떨어질 수 있으니까?",
         "ui": {
           "active": false,
-          "left": 1127.8888888888912,
-          "top": 315.66666666666777,
-          "zIndex": 39,
+          "left": 1119.0000000000025,
+          "top": 286.7777777777794,
+          "zIndex": 14,
           "width": 337,
           "height": 105
         },
@@ -906,7 +906,7 @@
           "active": false,
           "left": 897.3333333333333,
           "top": 53.33333333333332,
-          "zIndex": 32,
+          "zIndex": 6,
           "width": 158,
           "height": 100
         },
@@ -916,13 +916,25 @@
         "value": "pros\n\n정규화가 잘 되있어서 아름다움\n\n\ncons\n1. 개발 상품 페이지 쿼리할 떄 subquery & join 겁나 많이 해야 해서 느림. \n\n2. 주문목록 query할 때도 join 8 subquery 많이 해야 해서 느림.\n\n3. 상품 등록/업데이트/삭제 시, product/product_item/category/option/option_variation/product_option_variation 이 6개 테이블에 트랜잭션/lock 걸릴텐데, 너무 느릴 것 같음.",
         "ui": {
           "active": false,
-          "left": 1115.1111111111106,
-          "top": 38.88888888888869,
-          "zIndex": 41,
+          "left": 1119.555555555555,
+          "top": 16.666666666666462,
+          "zIndex": 12,
           "width": 405,
           "height": 217
         },
         "id": "ac7108ae-2db4-4b78-b0d5-36c3d5f5fe18"
+      },
+      {
+        "value": "solution. \ncase3 >> case1,2\n\nwhy?\n\n---\n1. 확장성 우선\n\n비정규화는 일종의 최적화이고 되돌리기 힘든 과정임, 서비스 초기 단계라면 구현된 기능 자체가 수정&삭제가 빈번한데 이렁 경우 정규화된 구조를 사용하여 기능의 수정&삭제같은 유지보수를 저렴한 비용으로 유연하게 할 수 있도록 하는 것이 맞음 서비스가 더 커진다 해도 캐싱, 인덱싱, 분산처리(가용영역 추가, 비쌈)같은 테크닉을 쓸 수 있고\n\n나중에 서비스가 커져서 비정규화나 MSA같이 RDBMS가 보장해주는 것 일부를 포기하고 더 최적화를 해야할 경우가 오면 이때 해당 프로젝트 진행하면됨(비용 장난아님)\n\n결론: 정규화하고 최적화는 나중에 병목이 생기면 그 때 반정규화 하라.\n\n\n---\n2. 의외로 간단한 쿼리에 join 여러번하는건 보통 걱정 안한다더라. 캐싱 때문.\n\n\n간단한 쿼리의 조인 속도는 보통 걱정 안함. \n조회수 순, 추천제품 순으로 캐싱해버리니까 걱정하던거의 1000배는 빨라짐.\n확장성이 우선임.\n",
+        "ui": {
+          "active": true,
+          "left": 1358.0277777777778,
+          "top": 390.08333333333337,
+          "zIndex": 39,
+          "width": 608,
+          "height": 299
+        },
+        "id": "9b8083f1-0ee6-4515-ab03-0132ae182193"
       }
     ]
   },

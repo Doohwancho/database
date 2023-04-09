@@ -389,7 +389,7 @@
           "active": false,
           "left": 82,
           "top": 315.5,
-          "zIndex": 4,
+          "zIndex": 2,
           "widthName": 60,
           "widthComment": 60
         },
@@ -658,7 +658,7 @@
           "active": false,
           "left": 512,
           "top": 313.75,
-          "zIndex": 5,
+          "zIndex": 3,
           "widthName": 60,
           "widthComment": 60
         },
@@ -904,7 +904,7 @@
           "active": false,
           "left": 946.25,
           "top": 319.5,
-          "zIndex": 6,
+          "zIndex": 4,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1058,7 +1058,7 @@
           "active": false,
           "left": 531.5,
           "top": 962.25,
-          "zIndex": 8,
+          "zIndex": 6,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1189,7 +1189,7 @@
           "active": false,
           "left": 534,
           "top": 713.5,
-          "zIndex": 7,
+          "zIndex": 5,
           "widthName": 60.33091735839844,
           "widthComment": 60
         },
@@ -1207,21 +1207,21 @@
           "active": false,
           "left": 1335,
           "top": 156,
-          "zIndex": 15,
+          "zIndex": 7,
           "width": 164,
           "height": 100
         },
         "id": "d63c1f07-6f05-4f22-b160-0965fa58c799"
       },
       {
-        "value": "pros\n이 방법을 쓰면, 개발 상품 페이지 쿼리는 빠른데, \n\n\ncons\n\n주문목록 query하려면, \n1. null check 먼저 하고,\n2. 해당 아이템의 fk 가지고 아이템 찾는 식일텐데, \n\n테이블에 null값 들어가는게 마음에 안듬. \n뭔가 null 처리 잘못되면 서버 터질거 같고,\nnull checking 하려고 서비스단에 exception handling 해야할 것 같음.\n(코드상 깔끔하지 못함)\n\n\n또한, 상품 종류가 100가지라 상품 테이블이 100가지면, order_item가 받는 상품들의 fk가 100개+가 될텐데, 필드값이 100개인 테이블 개오버인 것 같다.",
+        "value": "pros\n이 방법을 쓰면, 개발 상품 페이지 쿼리는 빠른데, \n\n\ncons\n\n---\na. 주문목록 query하려면, \n1. null check 먼저 하고,\n2. 해당 아이템의 fk 가지고 아이템 찾는 식일텐데, \n\n테이블에 null값 들어가는게 마음에 안듬. \n뭔가 null 처리 잘못되면 서버 터질거 같고,\nnull checking 하려고 서비스단에 exception handling 해야할 것 같음.\n(코드상 깔끔하지 못함)\n\n\n---\nb. 또한, 상품 종류가 100가지라 상품 테이블이 100가지면, order_item가 받는 상품들의 fk가 100개+가 될텐데, 필드값이 100개인 테이블 개오버인 것 같다.",
         "ui": {
           "active": false,
           "left": 1332.5,
           "top": 333.5,
-          "zIndex": 31,
-          "width": 399,
-          "height": 295
+          "zIndex": 13,
+          "width": 464,
+          "height": 328
         },
         "id": "98a33b66-cead-4e86-8992-4a4ec04d4181"
       }
