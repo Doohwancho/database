@@ -2,9 +2,7 @@
 Objective
 
 
-modularize mysql concepts
-
-
+write least io query
 
 
 ---\
@@ -12,14 +10,11 @@ concepts
 
 
 a. setup sample database\
-b. index\
-c: 실행계획\
-d. JOIN
+b: 실행계획\
+c. index\
+d. join\
+e. sort
 
-x. database constraints\
-x. database administration\
-x. locking\
-x. query-optimization
 
 
 ---\
@@ -28,10 +23,10 @@ Todos
 
 a-1. [sample database - northwind 예제 for mysql](https://www.geeksengine.com/database/sample/what-is-northwind-database.php)
 
-b-1. [what is index?, index 고려 query법, 손익분기점](https://www.youtube.com/watch?v=uO8tL0okg7Q&ab_channel=SQL%EC%A0%84%EB%AC%B8%EA%B0%80%EC%A0%95%EB%AF%B8%EB%82%98) \
-b-2. [최적화와 인덱스](https://www.youtube.com/watch?v=eDeVwJEwYAs&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=31&ab_channel=Jacob%27sLecture)
+b-1. [실행계획 맛보기](https://www.youtube.com/watch?v=_oRsPUqyr10&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=32&ab_channel=Jacob%27sLecture)
 
-c-1. [실행계획 맛보기](https://www.youtube.com/watch?v=_oRsPUqyr10&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=32&ab_channel=Jacob%27sLecture)
+c-1. [what is index?, index 고려 query법, 손익분기점](https://www.youtube.com/watch?v=uO8tL0okg7Q&ab_channel=SQL%EC%A0%84%EB%AC%B8%EA%B0%80%EC%A0%95%EB%AF%B8%EB%82%98) \
+c-2. [최적화와 인덱스](https://www.youtube.com/watch?v=eDeVwJEwYAs&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=31&ab_channel=Jacob%27sLecture)
 
 d-1. [join 맛보기](https://www.youtube.com/watch?v=_oRsPUqyr10&list=PL9hiYwOHVUQduJN7Pf_kOR8htpJU7K1H8&index=32&ab_channel=Jacob%27sLecture) \
 d-2. [inner join](https://www.youtube.com/watch?v=D81QWILZTTE&list=PLyQR2NzLKOCa5UujnJIFR7wOVOD0lS6EB&index=14&ab_channel=SQL%EC%A0%84%EB%AC%B8%EA%B0%80%EC%A0%95%EB%AF%B8%EB%82%98) \

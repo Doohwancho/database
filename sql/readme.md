@@ -2,21 +2,17 @@
 Goal
 
 
-1. familarize with sql
-2. sql tuning
-
+write least io sql
 
 
 ---\
-platform
+Platforms
 
 
-a. leetcode\
-b. programmers\
-c. hackerrank\
-d. slqd\
-e. sqlp
-
+a. leetcode
+b. programmers
+c. hackerrank
+d. sqld
 
 
 ---\

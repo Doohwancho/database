@@ -2,7 +2,9 @@
 ---\
 Objective
 
-modularize Relational Database Modeling
+
+1. modularize Relational Database Modeling
+2. 
 
 
 ---\
