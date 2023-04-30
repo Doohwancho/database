@@ -97,7 +97,9 @@ SQL문을 수행하기 위해 접근하는 데이터의 모든 행 수
 
 
 ## A.6. filtered
-최종 결과물 대비 몇%나 건졌는지 표현해주는 컬럼인듯?
+검색한 rows 대비 실제로 우리가 찾던 row가 몇%인지 말해줌.
+
+filtered를 보고, type에 인덱스 타거나 full scan 등 중 어느게 더 효과적인지 알 수 있다.
 
 
 ## A.6. extra
@@ -132,7 +134,8 @@ problem: 특정 카테고리 이름(ex. 'Action') 에 속하는 film 검색
 ## case1) using subquery twice
 
 ```sql
-SELECT *
+EXPLAIN
+SELECT SQL_NO_CACHE *
 FROM film
 WHERE film.film_id IN (
 	SELECT film_category.film_id
@@ -146,13 +149,25 @@ WHERE film.film_id IN (
 ```
 ![](images/2023-04-29-20-56-28.png)
 
-1. category 테이블을 subquery로 full scan을 한 듯? 여기서 16 rows를 스캔했고
-2. film_category.id를 step1과 비교해서 얻은 row수가 총 64개라 저리 되있는거고
-3. 마지막에 rows수가 1인데, 최종 row수도 64니까, 얘도 64가 되어야하지 않나? 아마 여기서 말하는 rows는 찾기 위해 io한 수만을 나타내는데, 마지막 1은 정말 맞나 첫번쨰 row만 본거같은데 아닌가?
+1. category 테이블을 subquery로 full scan을 한 듯? 왜 full scan 했는가? category.name을 인덱스 안걸어줬거든.
+2. 아무리 full scan이어도 16개 rows밖에 안했는데, 성능이 10배가 차이나는게 놀날 노짜네. extra보면 using where 썼다고 보임.
+3. film_category.id를 step1과 비교해서 얻은 row수가 총 64개라 저리 되있는거고. filtered는 여기서 쿼리한거 100%다 가져다 썼다는 거니까, 야물딱지게 검색했다는 뜻이군. (index/full scan 따지는건 다른 얘기겠지만..)
+4. film_category의 type이 ref로 되있는데, ref는 where절에 인덱스 있으면 타는 애. extra 컬럼 보면, using where, using index라고 나온다. film_category 테이블의 category_id를 인덱스 걸어줬기 때문.
+5. WHERE절에 IN을 쓴건, 내부적으로 INNER JOIN으로 처리된 듯 하다. 아래와 같은 sql을 써도 실행계획 보면 결과값이 똑같다.
 
-
-- 성능이 구린 이유는 category subquery가 ALL(full scan)이어서 인 듯?
-- ref, eq_ref는 join할 때 쓰인거니까, 이 쿼리는 인덱스 탔다고 볼 수 없을 듯.
+```
+SELECT *
+FROM film AS f
+INNER JOIN (
+	SELECT film_category.film_id
+	FROM film_category
+	WHERE film_category.category_id = (
+		SELECT category_id
+		FROM category
+		WHERE category.name = 'Action')
+	) AS fc
+ON f.film_id = fc.film_id;
+```
 
 
 ![](images/2023-04-29-21-11-30.png)
@@ -164,25 +179,53 @@ WHERE film.film_id IN (
 4. nested loop은 join을 나타낸다.
 5. 빨간색일 수록 성능이 안좋고, 초록색일 수록 성능이 좋다.
 
+생각
+1. 역시 full scan에 빨간불이 들어왔다. 근데 cost는 1.85밖에 안된다. cost는 io쪽 보다는 cpu쪽 비용인 듯 하다.
+2. film_category와 category 테이블 full scan한걸 where절로 필터링 하는데, 이 때, category_id가 인덱스되있어서 얘를 기준으로 찾고, film_category 테이블의 category_id(FK)는 pk가 아니라 'non-unique key' lookup 이라고 나와있다.
+3. film 테이블과 film_category 테이블을 INNER JOIN하는데, 인덱스 걸린 행을 연결짓기 때문에(film_id) 인덱스를 타고 조인함 -> hash match에 최적화 되어있어서 빠름. join시 N개의 행을 잇는데, hash match가 O(1)이니까, 결국 O(N)인 것.
+4. film table에서 primary key인 (film_id)를 써서 lookup 으로 1 row를 봐서 잘 이어졌나 validation check함.
+
+![](images/2023-04-30-03-10-42.png)
+
+- 오 lock걸린 시간도 나오네?
+- rows examined: 16은 db io가 아니라, join후에 이게 정말 맞게 join됬는지 확인하기 위해 16개의 rows를 봤다는거 아닐까?
+- 근데 case2보다 rows examined가 훨씬 적은 이유는(거의 1/10), film_category 테이블과 film테이블 조인할 때, 한쪽은 pk이고, 다른쪽이 pk가 아닌 인덱스 조인하는데, 후자쪽 테이블이 맞는지 검증하는데 16개를 쓴거고, case2의 경우, 일단 join도 두번하는데, join시 중간에 pk가 아닌 인덱스로 조인하는 film_category가 껴있어서 rows_examined가 저리 많은게 아닐까?
+- timing: 752um
+	- case2보다 약 1.7배 빠른 이유는, subquery는 join을 한번하는데, case2는 join을 2번해서 그런가?
+
+
+
 
 ## case2) using join
 
 ```sql
-SELECT f.*
+EXPLAIN
+SELECT SQL_NO_CACHE f.*
 FROM film f
 	JOIN film_category fc ON f.film_id = fc.film_id
 	JOIN category c ON fc.category_id = c.category_id
 WHERE c.name = 'Action';
 ```
 
-![](images/2023-04-29-20-55-56.png)
+![](images/2023-04-30-03-20-12.png)
+
+1. index사용하는 primary, subquery에서 다 simple로 바뀌었다 -> 성능향상
+2. 뭐야 category table에서 fullscan하는건 똑같네?
+
 ![](images/2023-04-29-21-10-58.png)
 
-- case2) JOIN이 case1) subquery보다 latency 10배차이나는데?
 - cost
-	- join 사용한 방식이 subquery 사용한 방식보다 io도 적고, 빠른것도 약 10배 빠른데, cost가 더 높다. cpu 연산 비용인가? cost가 높다고 항상 쿼리가 느린건 아닌 듯 하다.
-- join 2번하는데도 subquery의 full scan보다 빠르네?
-	- join 여러번 해도 성능상 크게 걱정말라는게 사실이네?
-	- join은 cpu 부하를 늘리지만, latency 측면에서는 빠른듯? cost가 subquery 대비 높은것도 join 2번해서인듯?
+	- case2는 join을 2번해서 그런가 cost가 47로, case1대비 18더 높다.
+	- case1은 subquery의 결과를 where절에서 = 연산하고, case2는 join하고의 차이인데, join은 n^2라고 쳐. equal 연산은 저거보다 빠르니까 적게나온거아냐?
+	- 아 case1에서 category 테이블을 subquery한건 O(N)인데, 그걸 where절로 받는 컬럼이 인덱스 걸려있어서 O(1)이니까, O(N)이기 때문에 case2보다 빠른거구나
+- 100 rows?
+	- 16+62 = 78 rows여야 하는데, 22는 어디서 나왔지?
+	- join하고 난 다음에, 이게 join이 잘 됬나 확인하는걸 22rows io로 한게 아닐까?
+	- 첫번째 join은 보면 non-unique key lookup이라고 되있는데, pk가 아닌 컬럼의 인덱스를 기준으로 조인하는건, pk가 아니다보니 unique하지 않으니까, join한걸 확인하는 추가작업비용이 더 드는거고,
+	- 두번째 join은 film 테이블의 pk로 join하니까, unique한게 보장되니까 O(1*N)으로 빠르게 조인하고 딱 한 row만 검증하는식이 아닐까?
 
+![](images/2023-04-30-03-18-30.png)
 
+1257um
+
+아무래도 join을 두번하다 보니까, case1에 비해 cost도 많이 나오고 latency도 느리다.
