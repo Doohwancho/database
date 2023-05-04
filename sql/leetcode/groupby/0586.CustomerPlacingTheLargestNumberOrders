@@ -1,0 +1,36 @@
+---
+solution1
+
+818ms
+
+
+select customer_number
+from Orders
+group by customer_number
+order by count(customer_number) desc
+limit 1
+
+
+
+---
+solution2 by WilliamStaudenmeier
+
+
+WITH subquery AS (
+    SELECT
+        customer_number
+        , COUNT(*) counts
+    FROM Orders
+        GROUP BY customer_number)
+
+SELECT
+    customer_number
+FROM subquery
+    ORDER BY counts DESC
+LIMIT 1
+
+
+
+with subquery as () 방식으로 쓸 수도 있구나?
+
+변수마냥 ㄷ서브쿼리를 분리할 수 있네?

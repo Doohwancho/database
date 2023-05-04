@@ -33,7 +33,7 @@ concept
 >>step2. 집합
 >>>d. JOIN
 >>>>d-1. inner join\
->>>>d-2. outer join
+>>>>d-2. outer join :white_check_mark:
 
 >>>e. Set Operatiors
 >>>>e-1. UNION\
@@ -51,8 +51,8 @@ concept
 >>g. CASE
 
 >step4. sort
->>h. GROUP BY
->>>h-1. HAVING
+>>h. GROUP BY :white_check_mark:
+>>>h-1. HAVING :white_check_mark:
 
 >>i. ORDER BY
 

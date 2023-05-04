@@ -1,0 +1,14 @@
+---
+solution1. left outer join
+
+1779ms
+
+select a.name, b.bonus
+from Employee as a
+left outer join
+Bonus as b
+on a.empId = b.empId
+where b.bonus IS NULL OR b.bonus < 1000
+
+
+

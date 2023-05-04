@@ -1,0 +1,67 @@
+---
+solution1. left outer join
+
+853ms
+
+
+select distinct a.email
+from Person as a
+left outer join Person as b
+on a.email = b.email
+where a.id != b.id
+
+
+id로 조인 안하고 email로 조인하면, duplicate rows가 생긴다.
+여기서 아이디 다른거 필터링 하고, 중복 필터링 하면 답이 나온다.
+
+
+---
+solution2. group by - by ansh_kumar_04
+
+598ms
+
+
+select email as Email
+from (select count(email) as emailCount, email from person group by email) as b
+where b.emailCount > 1
+
+
+group by를 이용한 방법. email로 그룹바이 하면,
+
+```sql
+select count(email) as emailCount, email
+from person
+group by email
+```
+
+```
+Input
+Person =
+| id | email   |
+| -- | ------- |
+| 1  | a@b.com |
+| 2  | c@d.com |
+| 3  | a@b.com |
+
+Output
+| emailCount | email   |
+| ---------- | ------- |
+| 2          | a@b.com |
+| 1          | c@d.com |
+```
+
+이렇게 나오는걸 이용한 방법
+
+
+---
+solution3. group by  + having - by priyanka8d19
+
+808ms
+
+select email as Email
+from Person
+group by email
+having count(email) > 1
+
+
+성능을 떠나서 제일 elegant하다. 출제자의 의도에 가장 맞는 방식

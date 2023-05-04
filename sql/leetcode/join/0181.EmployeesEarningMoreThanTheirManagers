@@ -1,0 +1,35 @@
+solution1 - outer join
+737ms
+
+SELECT a.name as Employee
+FROM Employee as a
+LEFT JOIN Employee as b ON a.managerId = b.id
+WHERE a.salary > b.salary
+
+
+
+solution2 - inner join
+680ms
+
+SELECT a.name as Employee
+FROM Employee as a
+INNER JOIN Employee as b ON a.managerId = b.id
+WHERE a.salary > b.salary
+
+
+
+trial - 아 FROM table A, table B 해도 inner join 되는구나?
+SELECT *
+FROM Employee e1, Employee e2
+WHERE e1.managerId = e2.id AND e1.salary > e2.salary;
+
+
+solution3 - subquery
+1102 ms - 아무래도 subquery가 join보단 느리지.
+게다가 null check까지 해줘야 하니까 더 느리네.
+
+select name as Employee
+from Employee e
+where salary > (select salary from Employee where id=e.managerId)
+and e.managerId IS NOT NULL
+
