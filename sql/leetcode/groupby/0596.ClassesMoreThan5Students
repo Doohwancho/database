@@ -1,0 +1,9 @@
+//solution1
+
+534ms
+
+# Write your MySQL query statement below
+select class
+from Courses as c
+group by class
+having count(class) > 4

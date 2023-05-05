@@ -1,0 +1,87 @@
+//trial01
+
+select if(num is NULL, "null", num) as num
+from MyNumbers
+group by num
+having count(num) = 1
+order by num desc
+limit 1
+
+
+
+왜 안되는거지?
+
+Output
+| num |
+| --- |
+| 6   |
+Expected
+| num |
+| --- |
+| 6   |
+
+
+맞는데 왜 틀리데?
+
+
+Output
+| num |
+| --- |
+Expected
+| num  |
+| ---- |
+| null |
+
+
+"null" 이라 명시했는데, 왜 안나오지? num is NULL이라는 조건이 아닌건가? EMPTY인건가?
+
+
+//trial02
+
+select coalesce(
+  (select num
+  from MyNumbers
+  group by num
+  having count(num) = 1
+  order by num desc
+  limit 1
+  )
+  , "null") as num
+
+
+Output
+| num |
+| --- |
+| 6   |
+Expected
+| num |
+| --- |
+| 6   |
+
+
+Output
+| num  |
+| ---- |
+| null |
+Expected
+| num  |
+| ---- |
+| null |
+
+
+
+//solution1
+
+817ms
+
+
+# Write your MySQL query statement below
+select max(num) as num
+from (
+  select num, count(num) as count_num
+  from MyNumbers
+  group by num
+) as subquery
+where subquery.count_num = 1
+
+

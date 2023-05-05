@@ -22,7 +22,8 @@ concept
 >step5. SELECT
 >>a-1. DISTINCT\
 >>a-2. ANY\
->>a-3. ALL
+>>a-3. ALL\
+>>a-4. IF
 
 >step5. modify-data
 >>b. INSERT\
