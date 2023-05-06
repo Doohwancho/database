@@ -77,7 +77,7 @@ concept
 >>>l-2. nullif()\
 >>>l-3. is (not) null
 
->>m. date
+>>m. date :white_check_mark:
 >>>m-1. to_days()\
 >>>m-2. adddate()\
 >>>m-3. now()

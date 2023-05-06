@@ -1,0 +1,58 @@
+//trial01
+
+select product_id, product_name
+from product
+where product_id NOT IN (
+    select product_id
+    from sales as s
+    where sale_date not between '2019-01-01' and '2019-03-31'
+)
+
+
+이 방식의 문제점은 Product에 product_id 6이 있는데, 얘가 Sales에 안꼈기 때문에, where절에거 걸러지지 않고 그대로 나옴.
+
+//solution1
+
+2290ms
+
+select main.product_id, main.product_name
+from product as main
+where product_id NOT IN (
+select p.product_id
+    from sales as s
+        right join product as p
+        on s.product_id = p.product_id
+    where sale_date IS NULL OR (sale_date not between '2019-01-01' and '2019-03-31')
+)
+
+풀긴 했는데, not 쓰지 말라고 한거같은데 안티패턴이라고
+
+아 근데 test case 예제 보니까, 년도가 2019년 말고도 다른 연도도 많아서
+between '2019-04-01' and '2019-12-31' 할라고 해도 안되네?
+
+
+//solution2 by GANJINAVEEN
+
+
+select product_id,product_name
+from product natural join sales
+group by product_id
+having min(sale_date)>='2019-01-01' and max(sale_date)<='2019-03-31'
+
+
+아 groupby로 묶고 min(), max() 하면 되는구나.
+그리고 date도 min, max 함수에 인자로 넣을 수 가 있네?
+
+
+
+//solution3
+
+solution2's natural join -> inner join
+
+select p.product_id, p.product_name
+from product as p inner join sales as s on p.product_id = s.product_id
+group by p.product_id
+having min(sale_date)>='2019-01-01' and max(sale_date)<='2019-03-31'
+
+
+natural join같이 예측하기 어려운 것 보다, explicit한 inner join 쓰는게 더 안정적.
