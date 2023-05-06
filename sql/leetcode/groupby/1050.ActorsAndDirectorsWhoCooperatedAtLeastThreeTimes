@@ -1,0 +1,37 @@
+//solution1
+
+709ms
+
+# Write your MySQL query statement below
+select subQuery.actor_id, subQuery.director_id
+from (
+  select actor_id, director_id, concat(concat(actor_id,'+'), director_id) as identifier
+  from ActorDirector
+  group by identifier
+  having count(identifier) > 2
+) as subQuery
+
+
+일단 통과는 했는데, concat를 2번 남발한 시점에서 뭔가 잘못된거같은데..
+
+
+//solution2
+
+
+726ms
+
+# Write your MySQL query statement below
+select actor_id,director_id
+from ActorDirector
+group by actor_id,director_id
+having count(*)>=3;
+
+아 여기서 count(*)에 *가 timestamp는 포함 안하고 groupby에 있는 애들만 포함이구나
+
+select actor_id,director_id
+from ActorDirector
+group by actor_id,director_id
+having count(actor_id, director_id)>=3;
+
+하면 안되던데, 저렇게 해야하는 거였군
+
