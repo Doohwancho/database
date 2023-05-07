@@ -1,0 +1,14 @@
+//solution1
+
+1485ms, 38.68%
+
+select p.product_id, round(sum(p.price * u.units) / sum(u.units), 2) as average_price
+from Prices as p
+    inner join UnitsSold as u
+    on p.product_id = u.product_id
+where u.purchase_date between p.start_date and p.end_date
+group by p.product_id
+
+
+join걸 때, where절은, join의 조건이 되고,
+join이후에 group by + having으로 한번 더 필터링 해주는 식이구만

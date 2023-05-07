@@ -1,0 +1,74 @@
+//trial01
+
+select s.student_id, s.student_name, e.subject_name, count(s.student_id) as attended_exams
+from Students as s
+    join Examinations as e on s.student_id = e.student_id
+    left join Subjects as b on e.subject_name = b.subject_name
+group by subject_name, student_id
+order by student_id asc, subject_name asc
+
+
+문제가 join할 때, Examinations 테이블에 없는게 null로 잡혀야 하는데, left outer join 써도 안잡힘.
+
+왤까?
+
+
+
+//solution1 by krex0r
+
+1892ms, 25.24%
+
+SELECT
+    Students.student_id,
+    Students.student_name,
+    Subjects.subject_name,
+    COUNT(Examinations.subject_name) AS attended_exams
+FROM Students
+JOIN Subjects
+LEFT JOIN Examinations
+ON Students.student_id = Examinations.student_id
+AND Subjects.subject_name = Examinations.subject_name
+GROUP BY Students.student_id, Subjects.subject_name
+
+
+
+case1)
+
+from a
+join b on a.id = b.id
+left join c on b.id = c.id
+
+얘랑,
+
+case2)
+
+from a
+join b
+left join c
+on a.id = b.id and b.id = c.id
+
+얘랑 다르네? 왜지?
+
+case1은 a,b 조인이 끝난 후에 c를 조인하는거고,
+case2는 a,b,c를 동시에 조인하는거라서 다른건가?
+
+
+
+cross join
+
+select *
+from Students as s
+    cross join Subjects
+
+이렇게 하면, 모든 subject에 대해 student를 붙임. 예를들어,
+
+| student_id | student_name | subject_name |
+| ---------- | ------------ | ------------ |
+| 2          | Bob          | Math         |
+| 2          | Bob          | Physics      |
+| 2          | Bob          | Programming  |
+
+이렇게 나옴. 이 상태에서, Examinations 테이블을 left outer join하는데, 이 때, 조건을 student_id가 맞고 subject_name 까지 맞게끔 하는 것
+
+
+
