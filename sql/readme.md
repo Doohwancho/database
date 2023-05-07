@@ -23,7 +23,7 @@ concept
 >>a-1. DISTINCT\
 >>a-2. ANY\
 >>a-3. ALL\
->>a-4. IF
+>>a-4. IF :white_check_mark:
 
 >step5. modify-data
 >>b. INSERT\

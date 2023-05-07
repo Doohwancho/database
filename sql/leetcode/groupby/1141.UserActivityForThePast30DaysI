@@ -1,0 +1,18 @@
+//solution1 by speedychital
+
+836ms, 66.77%
+
+select activity_date as day, count(DISTINCT user_id) as active_users
+from Activity
+WHERE (activity_date > "2019-06-27" AND activity_date <= "2019-07-27")
+GROUP BY activity_date
+
+
+아니 왜
+
+select activity_date, DISTINCT user_id
+from activity
+
+는 안되는겨?
+
+
