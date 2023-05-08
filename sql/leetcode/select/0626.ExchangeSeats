@@ -1,0 +1,87 @@
+//trial01
+
+select a.id,
+    (case a.id
+        when a.id % 2 = 1 and b.id is null then a.student
+        when a.id % 2 = 1 then b.student
+        else c.student
+    end) as student
+from Seat as a
+    left join Seat as b on (a.id+1 = b.id)
+    left join Seat as c on (a.id = c.id+1)
+
+
+왜 안되는겨?
+
+| id | student |
+| -- | ------- |
+| 1 | Doris |
+| 2 | Abbot |
+| 3 | Doris |
+| 4 | Emerson |
+| 5 | Green |
+
+
+
+3번, 5번에 문제있음.
+
+
+//trial02
+
+select a.id,
+    if(b.id IS NULL, a.student,
+        (case a.id
+            when a.id % 2 = 1 then b.student
+            else c.student
+        end)
+    ) as student
+from Seat as a
+    left join Seat as b on (a.id+1 = b.id)
+    left join Seat as c on (a.id = c.id+1)
+
+| id | student |
+| -- | ------- |
+| 1  | Doris   |
+| 2  | Abbot   |
+| 3  | Doris   |
+| 4  | Emerson |
+| 5  | Jeames  |
+
+
+
+마지막 열은 고쳤는데, 1번이 아닌 홀수열은 안고쳐졌다. 왤까..
+왜 첫번째 놈만 when을 타는데, 3번째 놈은 when을 안탈까?
+
+아 설마 % 연산은 씹히는데 a.id는 1이라서 true로 인식한거 아냐?
+
+
+//trial03
+
+# Write your MySQL query statement below
+select a.id,
+    if(b.id IS NULL, a.student,
+        if(a.id % 2 = 1, b.student, c.student)
+    ) as student
+from Seat as a
+    left join Seat as b on (a.id+1 = b.id)
+    left join Seat as c on (a.id = c.id+1)
+
+
+//solution1
+
+583ms, 55.44%
+
+# Write your MySQL query statement below
+select a.id,
+    if(b.id IS NULL, if(a.id % 2 = 1, a.student, c.student),
+        if(a.id % 2 = 1, b.student, c.student)
+    ) as student
+from Seat as a
+    left join Seat as b on (a.id+1 = b.id)
+    left join Seat as c on (a.id = c.id+1)
+
+
+
+새로운 깨달음: case when에서, 숫자 연산 불가능하다. 무조건 string match만 가능하다.
+
+

@@ -19,7 +19,7 @@ FROM { table_source }
 concept
 
 
->step5. SELECT
+>step5. a. SELECT
 >>a-1. DISTINCT :white_check_mark:\
 >>a-2. ANY\
 >>a-3. ALL\

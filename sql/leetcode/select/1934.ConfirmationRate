@@ -1,0 +1,13 @@
+//solution1
+
+1028ms, 98.11%
+
+# Write your MySQL query statement below
+select a.user_id, coalesce(b.confirmation_rate, 0) as confirmation_rate
+from Signups as a
+left join
+  (select user_id, round((count(if(action = 'confirmed', 1, null)) / count(action)),2) as confirmation_rate
+  from Confirmations as c
+  group by user_id) as b
+on a.user_id = b.user_id
+
