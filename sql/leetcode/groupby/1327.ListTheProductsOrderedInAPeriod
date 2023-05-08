@@ -1,0 +1,49 @@
+//solution1
+
+1505ms, 18.13%
+
+select p.product_name, o.unit
+from products as p
+    join (
+        select product_id, order_date, sum(unit) as unit
+        from orders as o
+        # where order_date between '2020-02-01' and '2020-02-28'
+        where order_date >= '2020-02-01' and order_date < '2020-03-01'
+        group by product_id
+        having unit >= 100
+    ) as o on p.product_id = o.product_id
+
+
+Q1. order_date between 쓴거랑 아래꺼랑 같지 않나? 왜 안되지?
+
+아 2월 29일 4년에 한번씩 있는거 빼먹어서 통과못한거였음.
+
+
+Q2. where절 필터, having절 필터 차이점?
+
+만약에 where절에서 date 필터링 안하고 having에서 필터링 했다면,
+select p.product_name, o.unit
+from products as p
+    join (
+        select product_id, order_date, sum(unit) as unit
+        from orders as o
+        # where order_date between '2020-02-01' and '2020-02-29'
+        group by product_id
+        having order_date between '2020-02-01' and '2020-02-29' and unit >= 100
+    ) as o on p.product_id = o.product_id
+
+
+아웃풋이 아래와 같이 나옴.
+
+| product_name       | unit |
+| ------------------ | ---- |
+| Leetcode Solutions | 130  |
+| Leetcode Kit       | 150  |
+
+
+Leetcode Kit이 100이 되어야 하는데 150인 상태.
+왜?
+
+where은 group by로 묶기 전에 빼는거고, having은 group by 묶은 후에 빼는건데,
+date의 경우는, group by product_id로 묶이기 전에 날짜를 거르는거고,
+unit의 경우는 해당 product_id들의 unit의 총합(group by로 묶고 난 이후)이 100이 넘는걸 필터링 하는거니까, group by 이후에 필터링 하는거고

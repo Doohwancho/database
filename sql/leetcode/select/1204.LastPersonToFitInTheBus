@@ -1,0 +1,25 @@
+//trial01
+
+
+select person_name, if(turn > 1, weight + (select weight from Queue as b where b.turn = a.turn-1), weight) as weight
+from Queue as a
+order by turn
+
+
+누적으로 더하는걸 어케하지? reduce()같은게 mysql에 있나?
+
+
+//solution1 by RamenNoddle
+
+over()
+
+with CTE as (select person_name, sum(weight) over(order by turn) as totalweight
+from Queue
+order by turn asc)
+
+select person_name from CTE
+where totalweight<=1000
+order by totalweight desc limit 1
+
+
+누적으로 더하는걸 처리하는 over()이라는 함수가 mysql에 있었다..

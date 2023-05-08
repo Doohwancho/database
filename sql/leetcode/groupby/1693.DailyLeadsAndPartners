@@ -1,0 +1,16 @@
+//trial01
+
+select date_id, make_name, count(distinct lead_id) as unique_leads, count (distinct partner_id) as unique_partners
+from DailySales
+group by date_id, make_name
+
+
+//solution1
+
+# select *
+select date_id, make_name, count(distinct lead_id) as unique_leads, count(distinct partner_id) as unique_partners
+from DailySales
+group by date_id, make_name
+
+
+count () 띄어서 에러난거였음 -_-;;

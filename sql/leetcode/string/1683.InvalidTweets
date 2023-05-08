@@ -1,0 +1,8 @@
+//solution1
+
+1035ms, 84.3%
+
+# Write your MySQL query statement below
+select tweet_id
+from Tweets
+where length(content) > 15

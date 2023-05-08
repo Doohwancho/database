@@ -1,0 +1,9 @@
+//solution1
+
+1925ms, 87.99%
+
+# Write your MySQL query statement below
+select u.unique_id, e.name
+from Employees as e
+    left join EmployeeUNI as u
+    on e.id = u.id

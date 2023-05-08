@@ -1,0 +1,16 @@
+//solution1
+
+999ms, 51.47%
+
+# Write your MySQL query statement below
+
+select a.teacher_id, count(a.cnt) as cnt
+from(
+  select teacher_id, count(distinct subject_id) as cnt
+  from Teacher as t
+  group by teacher_id, subject_id
+) as a
+group by a.teacher_id
+
+
+

@@ -1,0 +1,17 @@
+//solution1
+
+373ms, 80%
+
+# Write your MySQL query statement below
+select machine_id, round(avg(a.time_diff), 3) as processing_time
+from(
+  select machine_id, process_id, max(timestamp) - min(timestamp) as time_diff
+  from activity as a
+  group by machine_id, process_id
+) as a
+group by a.machine_id
+
+
+group by 의 정수를 느낄 수 있는 문제였다!
+
+

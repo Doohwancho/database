@@ -1,0 +1,39 @@
+//trial01
+
+
+select r.contest_id, count(if(r.user_id = u.user_id, 1, 0)) / count(*) as percentage
+from register as r
+    cross join users as u
+group by contest_id
+order by percentage as desc, contest_id asc
+
+
+
+join 방식이 아닌가벼~
+
+
+//trial02
+
+# Write your MySQL query statement below
+select r.contest_id, round((count(*) / (select count(*) from users), 2) as percentage
+from Register as r
+group by contest_id
+order by percentage desc, r.user_id asc
+
+
+from절에서 에러난다는데 왜 그런거지?
+
+
+//solution1
+
+1629ms, 81.97%
+
+select r.contest_id,
+    round(count(r.user_id) * 100 / (select count(*) from users), 2) as percentage
+from Register as r
+group by contest_id
+order by percentage desc, contest_id asc
+
+
+
+쉽게 풀 수 있는 문제를 꼬아서 생각했었다..

@@ -1,0 +1,14 @@
+//solution1
+
+945ms, 57.59%
+
+# Write your MySQL query statement below
+select stock_name, sum(if(a.operation = 'Buy', -1 * earn, earn)) as capital_gain_loss
+from(
+  select stock_name, operation, sum(price) as earn
+  from Stocks as s
+  group by stock_name, operation
+) as a
+group by stock_name
+
+

@@ -1,0 +1,84 @@
+//trial01
+
+# Write your MySQL query statement below
+select employee_id,
+  coalesce(if(primary_flag = 'Y', department_id, null), max(department_id)) as department_id, primary_flag
+from Employee as e
+group by employee_id
+
+
+
+
+
+//solution1 by mjfun82
+
+1009ms, 59.85%
+
+
+select employee_id,
+  coalesce(max(case when primary_flag = 'Y' then department_id else null end), max(department_id)) as department_id
+from Employee as e
+group by employee_id
+
+
+내 방법이랑 solution1이랑 차이점은, if문 앞에 max()가 있냐 없냐의 차이인데,
+이게 왜 문제지?
+
+
+아 if() 문 돌리면, 가장 마지막 row 기준으로 출력하는구나.
+그래서 가장 마지막 줄의 결과값이 null이면 null 출력하는게 문제인데,
+여기에 max()를 씌우면, null값 중에 제일 높은 숫자가 있으면 걔를 뽑는거구나
+
+
+
+//trial02
+
+select employee_id, department_id
+from Employee
+where primary_flag = 'Y'
+union
+select employee_id, department_id
+from Employee
+group by employee_id
+order by employee_id
+
+
+
+
+| employee_id | department_id |
+| ----------- | ------------- |
+| 1           | 1             |
+| 2           | 1             |
+| 3           | 3             |
+| 4           | 3             |
+| 4           | 2             |
+
+
+Q. 맨 마지막 row에 (4,2)는 왜 나오는 걸까?
+
+A. union은 주 집합의 unique row를 합치는 건데,
+
+
+//solution2 by sophie84
+
+union
+
+1187ms, 22.95%
+
+select employee_id, department_id
+from Employee
+where primary_flag = 'Y'
+union
+(select employee_id, department_id
+from Employee
+group by employee_id
+having count(*) = 1)
+
+
+아 두 테이블의 같은 column(employee_id, department_id)를 합치되,
+
+집합 A는 'Y'로 통과된 애들이 있고,
+집합 B는 row가 한줄 뿐인, 사실상 'N'인 그룹
+이 둘을 union으로 합치는 거구나
+
+

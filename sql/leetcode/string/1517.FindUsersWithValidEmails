@@ -1,0 +1,33 @@
+//trial01
+
+# Write your MySQL query statement below
+select *
+from Users as u
+where mail like '%@leetcode.com'
+
+
+
+조건 2개를 어떻게 해결할지 모르겠음.
+1. prefix should start with alphabet
+2. string that may contain letters (upper or lower case), digits, underscore '_', period '.', and/or dash '-'
+
+
+//trial02
+
+# Write your MySQL query statement below
+select *
+from Users as u
+where mail REGEXP '^[A-Za-z]' and mail like '%@leetcode.com'
+
+
+이제 특수문자 #같은 애들 빼면 됨.
+근데 저 like 이랑 regex랑 특수문자 빼는걸 하나의 regex로 하면 좋을 것 같음.
+
+
+//solution1 by MahmoudAI
+
+1226ms, 75.60%
+
+SELECT *
+FROM Users
+WHERE mail REGEXP '^[a-zA-Z][a-zA-Z0-9._-]*@leetcode\\.com'

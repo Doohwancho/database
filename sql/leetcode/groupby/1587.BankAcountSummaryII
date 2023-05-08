@@ -1,0 +1,12 @@
+//solution1
+
+1553ms, 43.88%
+
+# Write your MySQL query statement below
+select u.name as NAME, sum(t.amount) as BALANCE
+from users as u
+    inner join transactions as t on u.account = t.account
+group by u.account
+having BALANCE > 10000
+
+
