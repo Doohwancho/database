@@ -1,0 +1,65 @@
+//trial01
+
+
+# Write your MySQL query statement below
+with base AS (
+  select visited_on, sum(amount) over(order by visited_on) as daily_total
+  from Customer as c
+  group by visited_on
+)
+
+select visited_on, daily_total as amount, round(daily_total / 7, 2) as average_amount
+from base as a
+
+
+
+이런 방식으로 순서대로 누적합을 구하면,
+
+| visited_on | amount | average_amount |
+| ---------- | ------ | -------------- |
+| 2019-01-01 | 100    | 14.29          |
+| 2019-01-02 | 210    | 30             |
+| 2019-01-03 | 330    | 47.14          |
+| 2019-01-04 | 460    | 65.71          |
+| 2019-01-05 | 570    | 81.43          |
+| 2019-01-06 | 710    | 101.43         |
+| 2019-01-07 | 860    | 122.86         |
+| 2019-01-08 | 940    | 134.29         |
+| 2019-01-09 | 1050   | 150            |
+| 2019-01-10 | 1180   | 168.57         |
+
+
+이렇게 되는데, 문제가 visited_on이 하루하루 순차적으로 늘어나지 않으면 소용없음.
+방법을 바꿔야 한다.
+
+
+//solution1 by Shirleyxxy
+
+868ms, 12.97%
+
+
+SELECT
+    a.visited_on AS visited_on,
+    SUM(b.day_sum) AS amount,
+    ROUND(AVG(b.day_sum), 2) AS average_amount
+FROM
+   -- key 1
+  (SELECT visited_on, SUM(amount) AS day_sum FROM Customer GROUP BY visited_on ) a,
+  (SELECT visited_on, SUM(amount) AS day_sum FROM Customer GROUP BY visited_on ) b
+WHERE DATEDIFF(a.visited_on, b.visited_on) BETWEEN 0 AND 6 -- key2
+GROUP BY a.visited_on -- key 3
+HAVING COUNT(b.visited_on) = 7 -- key 4
+
+
+
+설명
+
+key1, it create a cross join, the result is N x N
+key2, from NxN down to N x 7
+key3, grouping, then each group is 1x7 after the first 6 days, the first 6 days are 1x6, 1x5 .... ,1x1
+key4, then we select those 1x7 groups
+
+
+와 씨 똑똑하네
+
+datediff(a,b) bettwen 0 and 6 라는 문법이 있구나.

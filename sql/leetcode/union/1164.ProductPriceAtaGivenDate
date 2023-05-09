@@ -1,0 +1,31 @@
+//solution1 by tianqi2019
+
+
+select distinct product_id, 10 as price -- part1
+from Products
+group by product_id
+having (min(change_date) > "2019-08-16")
+union -- part4
+select p2.product_id, new_price -- part3
+from Products p2
+where (p2.product_id, p2.change_date) in
+(
+select product_id, max(change_date) as recent_date -- part2
+from Products
+where change_date <= "2019-08-16"
+group by product_id
+)
+
+
+
+와 창의력 대장인가?
+
+part1 -> 조건에 검색 안되는 애를 price 10 으로 뽑아놓음
+part2 -> 조건에 맞는 애들 가장 마지막 일 뽑음
+part3 -> part3에서 뽑은 애들 price 뽑음
+part4 -> part1 + part2를 같은 컬럼에 있는 애들을 합침
+
+
+union을 제대로 쓰는게 이런 식으로 쓸 수도 있구나
+
+

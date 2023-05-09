@@ -1,0 +1,32 @@
+//solution1
+
+1196ms, 19.35%
+
+# Write your MySQL query statement below
+
+select customer_id
+from (
+    select c.customer_id, count(distinct p.product_key) as total, count(distinct c.product_key) as part
+    from Product as p,
+        Customer as c
+    group by c.customer_id
+) as a
+where a.total = a.part
+
+
+cross join을 해야만 하는 문제가 나오는데,
+sql 적응 + 약간의 사고력에 도움될진 몰라도 실제론 절대 못쓸텐데..
+
+
+//solution2 by ms25
+
+select customer_id
+from customer c
+group by customer_id
+having count(distinct product_key)=(select count(distinct product_key) from product)
+
+
+이게 훨~씬 낫다.
+n^2 join 안해도 되니까.
+
+아 왜 이생각을 못했지

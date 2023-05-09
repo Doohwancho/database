@@ -1,0 +1,14 @@
+//solution1
+
+588ms, 32.19%
+
+
+# Write your MySQL query statement below
+select name
+from Employee as a
+where a.id in (
+  select managerId
+  from employee
+  group by managerId
+  having count(managerId) >= 5
+)
