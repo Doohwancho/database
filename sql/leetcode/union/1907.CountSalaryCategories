@@ -1,0 +1,57 @@
+//trial01
+
+# Write your MySQL query statement below
+SELECT a.category, count(*) as accounts_count
+FROM
+(SELECT
+    account_id,
+    income,
+    CASE
+        WHEN income < 20000 THEN 'Low Salary'
+        WHEN income > 50000 THEN 'High Salary'
+        ELSE 'Average Salary'
+    END AS category
+FROM
+    accounts
+) as a
+GROUP BY a.category
+UNION
+SELECT ?, 0 as accounts_count
+FROM accounts
+
+
+
+문제점
+
+accounts_count가 0인 row를 만들 수 없었다.
+
+
+
+//solution1 by btad
+
+# Write your MySQL query statement below
+SELECT category, accounts_count
+FROM
+(SELECT 'Low Salary' AS category, count(case when income < 20000 then 1 end) AS accounts_count FROM accounts GROUP BY category) as a
+UNION
+(SELECT 'Average Salary' AS category, count(case when income >= 20000 and income <= 50000 then 1 end) AS accounts_count FROM accounts GROUP BY category)
+UNION
+(SELECT 'High Salary' AS category, count(case when income > 50000 then 1 end) AS accounts_count FROM accounts GROUP BY category)
+
+
+어짜피 row가 3개니까, 각 row마다 가로로 값을 구하고 union으로 합치네
+
+
+//solution2
+
+
+# Write your MySQL query statement below
+SELECT category, accounts_count
+FROM
+(SELECT 'Low Salary' AS category, count(case when income < 20000 then 1 end) AS accounts_count FROM accounts) as a
+UNION
+(SELECT 'Average Salary' AS category, count(case when income >= 20000 and income <= 50000 then 1 end) AS accounts_count FROM accounts)
+UNION
+(SELECT 'High Salary' AS category, count(case when income > 50000 then 1 end) AS accounts_count FROM accounts)
+
+group by도 필요없다.
