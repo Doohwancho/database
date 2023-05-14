@@ -1,0 +1,15 @@
+//solution1
+
+select round(avg(a.tmp_count)*100, 2) as immediate_percentage
+from(
+select a.customer_id, if(b.tmp_date = a.customer_pref_delivery_date, 1, 0) as tmp_count
+from delivery as a
+ join (
+select customer_id, min(order_date) as tmp_date
+from delivery
+group by customer_id
+  ) as b on a.customer_id = b.customer_id and a.order_date = b.tmp_date
+) as a
+
+
+

@@ -1,0 +1,30 @@
+//trial01
+
+SELECT
+    o.buyer_id,
+    u.join_date,
+    count(o.order_date between '2019-01-01' and '2019-12-31') as orders_in_2019
+FROM
+    orders AS o
+    LEFT JOIN users AS u ON o.buyer_id = u.user_id
+GROUP BY
+    o.buyer_id
+
+
+날짜별로 필터링 하는 구간에서 막힘.
+having을 써도
+
+//solution1
+
+SELECT
+    u.user_id as buyer_id,
+    u.join_date,
+    COUNT(o.order_id) as orders_in_2019
+FROM
+    users AS u
+    LEFT JOIN orders AS o ON o.buyer_id = u.user_id and o.order_date between '2019-01-01' and '2019-12-31'
+GROUP BY
+    u.user_id
+
+
+

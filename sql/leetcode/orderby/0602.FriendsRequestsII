@@ -1,0 +1,35 @@
+//trial01
+
+with base as (
+  select accepter_id as id, count(requester_id) as num
+  from RequestAccepted
+  group by accepter_id
+)
+
+select a.id, a.num+base.num as num
+from (select requester_id as id, count(accepter_id) as num
+  from RequestAccepted
+  group by requester_id) as a
+  left join base on a.id = base.id
+order by num desc
+limit 1
+
+
+
+//solution
+
+# Write your MySQL query statement below
+
+with base as (
+  select accepter_id as id, count(requester_id) as num
+  from RequestAccepted
+  group by accepter_id
+)
+
+select a.id, coalesce(a.num, 0)+coalesce(base.num, 0) as num
+from (select requester_id as id, count(accepter_id) as num
+  from RequestAccepted
+  group by requester_id) as a
+  left join base on a.id = base.id
+order by num desc
+limit 1

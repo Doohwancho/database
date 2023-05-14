@@ -1,0 +1,27 @@
+//solution1
+
+966ms, 68.54%
+
+# Write your MySQL query statement below
+
+with base as (
+    select count(*)
+from(
+    select player_id, min(event_date) as edate
+    from activity
+    group by player_id
+) as a
+join activity as b on a.player_id = b.player_id and adddate(a.edate, 1) = b.event_date
+)
+
+select round( (select * from base) / count(*), 2) as fraction
+from(
+    select player_id, min(event_date) as edate
+    from activity
+    group by player_id
+) as a
+left join activity as b on a.player_id = b.player_id and adddate(a.edate, 1) = b.event_date
+
+
+
+

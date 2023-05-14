@@ -1,0 +1,10 @@
+//solution1
+
+with base as (
+    select product_id, min(year) as year
+    from sales
+    group by product_id
+)
+
+select a.product_id, a.year as first_year, a.quantity, a.price
+from sales as a join base on a.product_id = base.product_id and a.year = base.year
