@@ -1,0 +1,41 @@
+//trial01
+
+select score, (SELECT @id := 1) AS id
+from scores as s
+group by score
+order by score desc
+
+
+이걸로 score별 rank 떠서 기존 테이블에 매핑시키고 select 절에서 솎으면 되는데,
+문제는 저 임의의 rank를 어떻게 만드는가를 모르겠다.
+
+
+//solution1 by arpitranqi
+
+
+# Write your MySQL query statement below
+select Score as score , (dense_rank() over(order by Score desc)) as "rank" from Scores;
+
+
+mysql에 dense_rank() 함수 모르면 못푸는 문제잖어 -_-;;
+
+
+//solution2 by WilliamStaudenmeier
+
+
+695ms, 22.63%
+
+
+dense_rank() 없이 푸는 방법.
+
+와 기발하네
+
+rank를 1,2,3,4, ... 하는 방식을
+
+score가 나보다 같거나 더 큰 애들의 갯수의 총합으로 했네
+
+SELECT
+  score,
+  (SELECT COUNT(*) FROM (SELECT distinct score s FROM Scores) CTE WHERE s >= score) 'Rank'
+FROM Scores
+ORDER BY Score DESC

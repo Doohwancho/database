@@ -1,0 +1,18 @@
+//solution1
+
+1406ms, 35.15%
+
+# Write your MySQL query statement below
+
+with base as (select d.id as id, d.name as name, max(e.salary) as max_salary
+from employee as e
+    join department as d on e.departmentId = d.id
+group by d.name)
+
+select b.name as Department, e.name as Employee, b.max_salary as Salary
+from employee as e
+    join base as b on e.departmentId = b.id
+where e.salary = b.max_salary
+
+
+무-난

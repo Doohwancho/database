@@ -1,0 +1,66 @@
+//trial01
+
+select coalesce(salary, 'null') as SecondHighestSalary
+from employee
+order by salary desc
+limit 1 offset 1
+
+
+다른건 다 괜찮은데 2번째로 큰 값이 없을 때 null처리에서 막힘
+
+
+//trial02
+
+
+select if(salary is null, 'null', salary) as SecondHighestSalary
+from employee
+order by salary desc
+limit 1 offset 1
+
+
+
+왜 안되는 것인가
+
+
+//trial03
+
+with base as (
+  select salary as SecondHighestSalary
+  from employee
+  order by salary desc
+  limit 1 offset 1
+)
+
+select if((select count(*) from base) = 0, 'null', base.SecondHighestSalary) as SecondHighestSalary
+from base
+
+
+
+아니 왜 안되는 것인가???
+
+
+
+//solution1 by abstractConnoisseurs
+
+가장 큰 샐러리보다 작은 가장 큰 셀러리가 2번째로 큰 셀러리긴 하지.
+
+
+# Write your MySQL query statement below
+SELECT MAX(Salary) AS SecondHighestSalary
+FROM Employee
+WHERE Salary < (SELECT MAX(Salary) FROM Employee);
+
+
+//solution2 by pathrise-fellows
+
+답은 멀지않은 곳에 있었다.
+괜히 null처리 한다고 삽질했는데, 쓸데없는 짓이었다.
+
+# Write your MySQL query statement below
+SELECT (
+  SELECT distinct Salary
+  from Employee
+  ORDER BY 1 DESC
+  LIMIT 1 OFFSET 1
+)as SecondHighestSalary;
+

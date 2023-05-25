@@ -23,7 +23,9 @@ concept
 >>a-1. DISTINCT :white_check_mark:\
 >>a-2. ANY\
 >>a-3. ALL\
->>a-4. IF :white_check_mark:
+>>a-4. IF :white_check_mark:\
+>>a-5. LIMIT :white_check_mark:\
+>>a-6. OFFSET :white_check_mark:
 
 >step5. modify-data
 >>b. INSERT\
@@ -39,7 +41,7 @@ concept
 
 >>>e. Set Operatiors
 >>>>e-1. UNION :white_check_mark:\
->>>>e-2. UNION ALL\
+>>>>e-2. UNION ALL :white_check_mark:\
 >>>>e-3. INTERSECT\
 >>>>e-4. MINUS
 
@@ -48,7 +50,7 @@ concept
 >>>f-1. subquery :white_check_mark:\
 >>>f-2. LIKE :white_check_mark:\
 >>>f-3. BETWEEN :white_check_mark:\
->>>f-4. IN\
+>>>f-4. IN :white_check_mark:\
 >>>f-5. regex :white_check_mark:
 
 >>g. CASE
@@ -63,7 +65,7 @@ concept
 >>j. number
 >>>j-1. celing()\
 >>>j-2. floor()\
->>>j-3. round()\
+>>>j-3. round() :white_check_mark:\
 >>>j-4. truncate()
 
 >>k. string
@@ -83,3 +85,5 @@ concept
 >>>m-1. to_days()\
 >>>m-2. adddate()\
 >>>m-3. now()
+
+>>n. procedure

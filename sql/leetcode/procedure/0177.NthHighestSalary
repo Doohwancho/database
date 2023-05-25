@@ -1,0 +1,25 @@
+//solution1
+
+
+
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+    DECLARE M INT;
+    SET M = N - 1;
+  RETURN (
+      # Write your MySQL query statement below.
+      SELECT DISTINCT Salary
+      FROM employee
+      ORDER BY Salary DESC
+      LIMIT 1 OFFSET M
+  );
+END
+
+
+프로시저 작성법 몰라서 chatGPT한테 물어봤는데 한방에 알려주네
+뭐냐 -_-;;
+
+
+변수 선언하고, 변수를 offset이라는 키워드로 사용하네
+
+use LIMIT 1 OFFSET M to get the Nth highest salary.
