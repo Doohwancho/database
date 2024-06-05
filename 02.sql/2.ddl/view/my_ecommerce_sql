@@ -1,0 +1,28 @@
+-- step1. what
+CREATE VIEW EmployeeView AS
+SELECT EmployeeID, FirstName, LastName
+FROM Employees
+WHERE Age > 30;
+
+
+-- step2. my_ecommerce
+-- Create a view to get the order details with product and member information
+CREATE VIEW OrderDetailsView AS
+SELECT 
+    o.ORDER_ID,
+    o.ORDER_DATE,
+    o.ORDER_STATUS,
+    m.NAME AS MEMBER_NAME,
+    p.NAME AS PRODUCT_NAME,
+    oi.QUANTITY,
+    oi.PRICE
+FROM 
+    `ORDER` o
+    JOIN MEMBER m ON o.MEMBER_ID = m.MEMBER_ID
+    JOIN ORDER_ITEM oi ON o.ORDER_ID = oi.ORDER_ID
+    JOIN PRODUCT_OPTION_VARIATION pov ON oi.PRODUCT_OPTION_VARIATION_ID = pov.PRODUCT_OPTION_VARIATION_ID
+    JOIN PRODUCT_ITEM pi ON pov.PRODUCT_ITEM_ID = pi.PRODUCT_ITEM_ID
+    JOIN PRODUCT p ON pi.PRODUCT_ID = p.PRODUCT_ID;
+
+-- Query the view
+SELECT * FROM OrderDetailsView;

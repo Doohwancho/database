@@ -1,10 +1,10 @@
 {
   "canvas": {
     "version": "2.2.11",
-    "width": 2500,
-    "height": 2500,
-    "scrollTop": -291,
-    "scrollLeft": -266,
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": -212,
+    "scrollLeft": -248,
     "zoomLevel": 0.8,
     "show": {
       "tableComment": true,
@@ -383,36 +383,13 @@
               "widthDefault": 60
             },
             "id": "7aa139c3-a13e-4493-9ad2-83053bbaf12b"
-          },
-          {
-            "name": "item_id",
-            "comment": "",
-            "dataType": "",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": true,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "ed16181d-9dba-4ae3-8d65-cb4cbc4d0d3a"
           }
         ],
         "ui": {
           "active": false,
           "left": 82,
           "top": 315.5,
-          "zIndex": 6,
+          "zIndex": 2,
           "widthName": 60,
           "widthComment": 60
         },
@@ -675,36 +652,13 @@
               "widthDefault": 60
             },
             "id": "39ffb4ad-3175-4c7c-9774-c49d1269f1ac"
-          },
-          {
-            "name": "item_id",
-            "comment": "",
-            "dataType": "",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": true,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "4db7f618-a3f5-4eb4-8e9c-e2d6ca9e4fa4"
           }
         ],
         "ui": {
           "active": false,
           "left": 512,
           "top": 313.75,
-          "zIndex": 7,
+          "zIndex": 3,
           "widthName": 60,
           "widthComment": 60
         },
@@ -944,36 +898,13 @@
               "widthDefault": 60
             },
             "id": "40e18ce8-0a86-4e1b-882f-fe184716c284"
-          },
-          {
-            "name": "item_id",
-            "comment": "",
-            "dataType": "",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": false,
-              "fk": true,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "2a9519cd-6351-4c63-867c-8ca0ba5fa0ab"
           }
         ],
         "ui": {
           "active": false,
           "left": 946.25,
           "top": 319.5,
-          "zIndex": 8,
+          "zIndex": 4,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1125,9 +1056,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 1160.25,
-          "top": 1003.5,
-          "zIndex": 3,
+          "left": 531.5,
+          "top": 962.25,
+          "zIndex": 6,
           "widthName": 60,
           "widthComment": 60
         },
@@ -1185,7 +1116,7 @@
             "id": "0d494a44-2ace-46be-87a5-c2a80d1db73c"
           },
           {
-            "name": "item_id",
+            "name": "phone_id",
             "comment": "",
             "dataType": "",
             "default": "",
@@ -1205,58 +1136,65 @@
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "96f9ec69-3af6-4cf8-8e11-e90b1fe4000b"
-          }
-        ],
-        "ui": {
-          "active": false,
-          "left": 535.25,
-          "top": 1036,
-          "zIndex": 4,
-          "widthName": 60.33091735839844,
-          "widthComment": 60
-        },
-        "visible": true,
-        "id": "475c0df4-6bd5-4660-adbc-bf21fd731e04"
-      },
-      {
-        "name": "item",
-        "comment": "",
-        "columns": [
+            "id": "06880ed8-ac11-4c1f-89dd-e1ce4446d5c0"
+          },
           {
-            "name": "id",
+            "name": "cloth_id",
             "comment": "",
             "dataType": "",
             "default": "",
             "option": {
               "autoIncrement": false,
-              "primaryKey": true,
+              "primaryKey": false,
               "unique": false,
               "notNull": true
             },
             "ui": {
               "active": false,
-              "pk": true,
-              "fk": false,
+              "pk": false,
+              "fk": true,
               "pfk": false,
               "widthName": 60,
               "widthComment": 60,
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "69534363-9bc1-47af-8da3-1df29de79830"
+            "id": "df5c6a65-13a7-47d4-a4ac-c42dccaa5b81"
+          },
+          {
+            "name": "furniture_id",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 64.347900390625,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "efd40040-4412-4005-b7d2-41492c7e93e3"
           }
         ],
         "ui": {
           "active": false,
-          "left": 528,
-          "top": 814,
+          "left": 534,
+          "top": 713.5,
           "zIndex": 5,
-          "widthName": 60,
+          "widthName": 60.33091735839844,
           "widthComment": 60
         },
         "visible": true,
-        "id": "8dbeb01a-008a-450e-98f7-3ea1ec86673a"
+        "id": "475c0df4-6bd5-4660-adbc-bf21fd731e04"
       }
     ],
     "indexes": []
@@ -1264,26 +1202,26 @@
   "memo": {
     "memos": [
       {
-        "value": "방법론1. product를 비정규화 하면, 개별 상품 query할 떄, join 여러번 안해서 더 좋지 않을까?",
+        "value": "방법론2. \n\bitem 테이블 까지 없앰. order_item에서 구매하지 않는 아이템은 null값으로 채워진",
         "ui": {
-          "active": false,
-          "left": 1335,
-          "top": 156,
-          "zIndex": 2,
-          "width": 127,
-          "height": 100
+          "active": true,
+          "left": 95,
+          "top": 27.25,
+          "zIndex": 12,
+          "width": 285,
+          "height": 101
         },
         "id": "d63c1f07-6f05-4f22-b160-0965fa58c799"
       },
       {
-        "value": "pros\n개별 제품 상세 페이지 쿼리는 빠름\n\ncons\n\n1. 구매자가 주문목록 query하려면, 모든 상품 테이블들 다 돌면서 product_id 찾아야 하니까 엄청 느림.\n이걸 완화하기 위해, 모든 상품테이블에 들어았는 product_id를 인덱스 거는게 최선일지 모르겠음.\n\n\n2. 또한, 상품 카테고리별로 테이블 만들어줘야 해서 테이블 갯수가 수십~수백개로 늘어남. \n찾아보니, 의외로 테이블 갯수 자체가 늘어나는건 별 문제가 아니라고 한다.\n다만, 그보다 비정규화 했을 때, 상품 끼리 통일된 구조가 아닌게 더 문제라고 함. 통일된 구조가 아니면 나중에 확장할 때 merge, 변형 등이 힘들어지기 떄문. \nerd 설계 한번하면 쭉 가는줄 알았는데, 의외로 서비스 초기 때에도 db 변경을 자주 할 수 있다고 한다. 유연한 설계를 하자.\n",
+        "value": "pros\n이 방법을 쓰면, 개발 상품 페이지 쿼리는 빠른데, \n\n\ncons\n\n---\na. 주문목록 query하려면, \n1. null check 먼저 하고,\n2. 해당 아이템의 fk 가지고 아이템 찾는 식일텐데, \n\n테이블에 null값 들어가는게 마음에 안듬. \n뭔가 null 처리 잘못되면 서버 터질거 같고,\nnull checking 하려고 서비스단에 exception handling 해야할 것 같음.\n(코드상 깔끔하지 못함)\n\n\n---\nb. 또한, 상품 종류가 100가지라 상품 테이블이 100가지면, order_item가 받는 상품들의 fk가 100개+가 될텐데, 필드값이 100개인 테이블 개오버인 것 같다.",
         "ui": {
-          "active": true,
+          "active": false,
           "left": 1332.5,
           "top": 333.5,
-          "zIndex": 19,
-          "width": 459,
-          "height": 301
+          "zIndex": 8,
+          "width": 464,
+          "height": 328
         },
         "id": "98a33b66-cead-4e86-8992-4a4ec04d4181"
       }
@@ -1404,18 +1342,18 @@
           "columnIds": [
             "41cd8b7d-62f4-46d3-b2b6-48f83d16c076"
           ],
-          "x": 1160.25,
-          "y": 1099.5,
-          "direction": "left"
+          "x": 709.4034423828125,
+          "y": 962.25,
+          "direction": "top"
         },
         "end": {
           "tableId": "475c0df4-6bd5-4660-adbc-bf21fd731e04",
           "columnIds": [
             "0d494a44-2ace-46be-87a5-c2a80d1db73c"
           ],
-          "x": 882.25,
-          "y": 1101.25,
-          "direction": "right"
+          "x": 709.6739501953125,
+          "y": 885,
+          "direction": "bottom"
         },
         "constraintName": "fk_order_to_order_item",
         "visible": true,
@@ -1423,107 +1361,81 @@
       },
       {
         "identification": false,
-        "relationshipType": "OneN",
+        "relationshipType": "ZeroN",
         "startRelationshipType": "Dash",
         "start": {
-          "tableId": "8dbeb01a-008a-450e-98f7-3ea1ec86673a",
+          "tableId": "81e102b2-bb4f-4bee-9c81-8675cc4dd4b3",
           "columnIds": [
-            "69534363-9bc1-47af-8da3-1df29de79830"
+            "6cbb7eab-f58e-45f0-a2ed-804b6004e0da"
           ],
-          "x": 701.5,
-          "y": 903.5,
+          "x": 265.6559371948242,
+          "y": 610,
           "direction": "bottom"
         },
         "end": {
           "tableId": "475c0df4-6bd5-4660-adbc-bf21fd731e04",
           "columnIds": [
-            "96f9ec69-3af6-4cf8-8e11-e90b1fe4000b"
+            "06880ed8-ac11-4c1f-89dd-e1ce4446d5c0"
           ],
-          "x": 708.75,
-          "y": 1036,
-          "direction": "top"
-        },
-        "constraintName": "fk_item_to_order_item",
-        "visible": true,
-        "id": "1cd3a654-b908-4660-9f00-2ff4c22559f7"
-      },
-      {
-        "identification": false,
-        "relationshipType": "OneN",
-        "startRelationshipType": "Dash",
-        "start": {
-          "tableId": "8dbeb01a-008a-450e-98f7-3ea1ec86673a",
-          "columnIds": [
-            "69534363-9bc1-47af-8da3-1df29de79830"
-          ],
-          "x": 528,
-          "y": 858.75,
+          "x": 534,
+          "y": 799.25,
           "direction": "left"
         },
-        "end": {
-          "tableId": "81e102b2-bb4f-4bee-9c81-8675cc4dd4b3",
-          "columnIds": [
-            "ed16181d-9dba-4ae3-8d65-cb4cbc4d0d3a"
-          ],
-          "x": 265.6559371948242,
-          "y": 630.5,
-          "direction": "bottom"
-        },
-        "constraintName": "fk_item_to_phone",
+        "constraintName": "fk_phone_to_order_item",
         "visible": true,
-        "id": "3bf45171-9dce-4273-9f64-bf2c207e95ba"
+        "id": "b3cbb05d-3326-4756-8fed-4f2bb482ea20"
       },
       {
         "identification": false,
-        "relationshipType": "OneN",
+        "relationshipType": "ZeroN",
         "startRelationshipType": "Dash",
         "start": {
-          "tableId": "8dbeb01a-008a-450e-98f7-3ea1ec86673a",
-          "columnIds": [
-            "69534363-9bc1-47af-8da3-1df29de79830"
-          ],
-          "x": 701.5,
-          "y": 814,
-          "direction": "top"
-        },
-        "end": {
           "tableId": "ac179883-b5f2-4655-b8cf-5daa55adc503",
           "columnIds": [
-            "4db7f618-a3f5-4eb4-8e9c-e2d6ca9e4fa4"
+            "0c10c577-633b-432b-a846-4847d55a52c5"
           ],
           "x": 707.2484130859375,
-          "y": 628.75,
+          "y": 608.25,
           "direction": "bottom"
         },
-        "constraintName": "fk_item_to_cloth",
+        "end": {
+          "tableId": "475c0df4-6bd5-4660-adbc-bf21fd731e04",
+          "columnIds": [
+            "df5c6a65-13a7-47d4-a4ac-c42dccaa5b81"
+          ],
+          "x": 709.6739501953125,
+          "y": 713.5,
+          "direction": "top"
+        },
+        "constraintName": "fk_cloth_to_order_item",
         "visible": true,
-        "id": "64fbe2e3-00e1-4f87-9033-8106bb7532a7"
+        "id": "9535b32d-f32d-4ea9-9ce4-a8ff219949bb"
       },
       {
         "identification": false,
-        "relationshipType": "OneN",
+        "relationshipType": "ZeroN",
         "startRelationshipType": "Dash",
         "start": {
-          "tableId": "8dbeb01a-008a-450e-98f7-3ea1ec86673a",
-          "columnIds": [
-            "69534363-9bc1-47af-8da3-1df29de79830"
-          ],
-          "x": 875,
-          "y": 858.75,
-          "direction": "right"
-        },
-        "end": {
           "tableId": "77057a01-7c39-47a6-a49e-867f4352a6ce",
           "columnIds": [
-            "2a9519cd-6351-4c63-867c-8ca0ba5fa0ab"
+            "4d15a003-66ef-4c0a-90f9-9c059c9d7460"
           ],
           "x": 1121.611946105957,
-          "y": 614,
+          "y": 593.5,
           "direction": "bottom"
         },
-        "constraintName": "fk_item_to_furniture",
+        "end": {
+          "tableId": "475c0df4-6bd5-4660-adbc-bf21fd731e04",
+          "columnIds": [
+            "efd40040-4412-4005-b7d2-41492c7e93e3"
+          ],
+          "x": 885.347900390625,
+          "y": 799.25,
+          "direction": "right"
+        },
+        "constraintName": "fk_furniture_to_order_item",
         "visible": true,
-        "id": "60570082-798e-43b1-bea7-0da4e7182f28"
+        "id": "e43de7b3-e29b-4125-9cf8-b454b1424219"
       }
     ]
   }

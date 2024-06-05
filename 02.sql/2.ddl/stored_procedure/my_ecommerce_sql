@@ -1,0 +1,15 @@
+-- Create a procedure to update the stock quantity of a product item
+DELIMITER 
+CREATE PROCEDURE UpdateProductItemStock(
+    IN productItemId BIGINT(20),
+    IN quantityToAdd INT
+)
+BEGIN
+    UPDATE PRODUCT_ITEM
+    SET QUANTITY = QUANTITY + quantityToAdd
+    WHERE PRODUCT_ITEM_ID = productItemId;
+END 
+DELIMITER ;
+
+-- Call the procedure
+CALL UpdateProductItemStock(1, 10);

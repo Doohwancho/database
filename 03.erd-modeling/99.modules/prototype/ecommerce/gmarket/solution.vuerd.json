@@ -3,8 +3,8 @@
     "version": "2.2.11",
     "width": 3000,
     "height": 3000,
-    "scrollTop": -807,
-    "scrollLeft": -1075.203125,
+    "scrollTop": -880,
+    "scrollLeft": -705.203125,
     "zoomLevel": 0.9,
     "show": {
       "tableComment": true,
@@ -2616,9 +2616,9 @@
         ],
         "ui": {
           "active": false,
-          "left": 435.4444,
-          "top": 559.9997,
-          "zIndex": 22,
+          "left": 488.7772,
+          "top": 507.778,
+          "zIndex": 36,
           "widthName": 79.70089721679688,
           "widthComment": 60
         },
@@ -3387,8 +3387,8 @@
           "columnIds": [
             "c03701ac-5029-4bc3-9ed9-e2b8d0362459"
           ],
-          "x": 608.9444,
-          "y": 559.9997,
+          "x": 662.2772,
+          "y": 507.778,
           "direction": "top"
         },
         "constraintName": "fk_shipping_address_to_address_buyer",
@@ -3803,8 +3803,8 @@
           "columnIds": [
             "acfce469-845d-45fb-a7f1-f94cbfcd9eba"
           ],
-          "x": 522.1944,
-          "y": 710.9997,
+          "x": 575.5272,
+          "y": 658.778,
           "direction": "bottom"
         },
         "constraintName": "fk_buyer_to_address_buyer",
@@ -3820,8 +3820,8 @@
           "columnIds": [
             "09fcb636-f21e-4f8d-84b3-9a4497d2710a"
           ],
-          "x": 695.6944,
-          "y": 710.9997,
+          "x": 749.0272,
+          "y": 658.778,
           "direction": "bottom"
         },
         "end": {

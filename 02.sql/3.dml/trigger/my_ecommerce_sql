@@ -1,0 +1,11 @@
+-- Create a trigger to update the product rating count when a new rating is added
+DELIMITER 
+CREATE TRIGGER UpdateProductRatingCount
+AFTER INSERT ON PRODUCT_RATING
+FOR EACH ROW
+BEGIN
+    UPDATE PRODUCT
+    SET RATING_COUNT = RATING_COUNT + 1
+    WHERE PRODUCT_ID = NEW.PRODUCT_ID;
+END 
+DELIMITER ;
