@@ -1,0 +1,316 @@
+---
+Index
+
+
+A. how to setup?
+B. 동시성 문제 define
+C. 해결법 - java: synchronized
+D. 해결법 - database: pessimistic lock
+E. 해결법 - database: optimistic lock
+F. 해결법 - database: named lock
+G. 해결법 - redis: Lettuce
+H. 해결법 - redis: Redisson
+I. 해결법 - database: update query
+J. 성능비교
+
+
+---
+A. How to setup?
+
+
+a. mysql
+
+1. mysql-workbench 에 접속
+2. CREATE DATABASE stock_example;
+3. USE stock_example;
+
+
+b. redis
+
+1. docker run --name myredis -d -p 6379:6379 redis
+2. docker ps
+3. docker exec -it myredis redis-cli
+
+
+---
+B. 동시성 문제
+
+
+동시에 100개의 쓰레드가 공유자원을 참조해서 update하면,
+
+critical section이 보장되어있지 않은 이상, race condition이 일어나서 값이 의도한대로 안들어간다.
+
+
+왜?
+
+만약, threadA, threadB가 공유자원에 동시접근에 update하려고 할 때,
+
+1. thread A가 Stock에 접근 후,
+2. thread A가 값을 5->4로 변경 후, 일 끝난 다음,
+3. thread B가 Stock에 접근 후,
+4. thread B가 값을 4->3로 변경 후, 일 끝낼 것
+
+...이라 예상했지만,
+
+실상은,
+1. threadA가 Stock에 접근 후,
+2. threadB가 Stock에 접근 후,
+3. thread A가 update Stock to 4로 하고 마침
+4. thread B가 update Stock to 4로 하고 마침
+
+
+이게 race condition.
+
+
+해결법은 SynchronizedTest에서 case1, case2 확인.
+
+
+
+
+---
+C. synchronized
+
+
+race condtion의 해결법으로, critical section 정해주는걸 자바단에서 하는게 synchronized 키워드.
+StockService에서 decrease()에 synchronized 먹이고, @Transactional은 제거.
+이유는 해당 클래스에 주석 확인.
+
+
+---
+D,E. pessimistic & optimistic lock
+
+
+1. 낙관적 락(Optimistic Lock)
+	- 충돌이 발생하지 않을 것이라 가정하고 Lock을 거는 방식
+	- 트랜잭션을 commit 하는 시점에 충돌을 알 수 있음
+	- DB Level 에서 동시성을 처리하는것이 아닌 Application Level(jpa 단) 에서 처리
+		- @Version을 보고, 버전이 맞으면 업데이트 시키는 방식
+		- db와는 다르게 최초 커밋만 인정하기 정책 구현 가능하다.
+		- jpa가 엔티티 수정하고 transaction을 commit하는 시점에서 persistence context를 flush()할 때, update 쿼리를 날린다.
+		- 이 때, where절에 버전도 맞는지 확인하는 조건이 있다.
+		- UPDATE stock SET quantity = ?, version = ? WHERE id = ?, and version = ?
+		- 이 쿼리 날리고 데이터 수정되면, 버전+1을 한다.
+		- 만약 이 쿼리 날렸을 때, 버전 맞는게 없다면, jpa가 예외를 던진다.
+		- 그 예외 처리가 OptimisticLockStockFacade에 있고, Thread.sleep(50ms); 이후 다시 재도전
+	- optimistic lock의 jpa 동시성 제어는 특정 엔티티에 대한 동시 접근을 막기위해 주로 사용하는 반면, pessimistic lock의 트렌젝션 격리 수준은 트랜잭션 동안 일관된 데이터 read(select)를 고려하기 위해 적용한다.
+
+2. 비관적 락(Pessimistic Lock)
+	- 충돌이 발생할것이라 가정하고 우선 DB에 Lock을 거는 방식 (sql에서 select for update 방식으로 동작함)
+	- SELECT ~ FOR UPDATE 구문은 "데이터 수정하려고 SELECT 하는 중이야~ 다른 사람들은 데이터에 손 대지 마!" 라고 할 수 있습니다. 좀 더 딱딱한 표현으로는 동시성 제어를 위하여 특정 데이터(ROW)에 대해 베타적 LOCK을 거는 기능입니다.
+	- 데이터를 수정하는 즉시 충돌을 알 수 있음
+	- DB Level 동시성을 처리
+	- optimistic lock의 jpa 동시성 제어는 특정 엔티티에 대한 동시 접근을 막기위해 주로 사용하는 반면, pessimistic lock의 트렌젝션 격리 수준은 트랜잭션 동안 일관된 데이터 read(select)를 고려하기 위해 적용한다.
+
+
+---
+F. named lock
+
+
+이름을 가진 메타데이터 락.
+특이점은, stock에 직접 lock걸지 않고, 별도 공간에 lock 건다.
+batch때 다량 레코드 넣을 때 deadlock 걸리는걸 named lock으로 해결한다고 한다.
+
+주로 분산 lock 만들 때 사용한다.
+분산 락이란, 공통된 저장소를 이용하여 자원이 사용중인지 체크해 전체 서비스에서 동기화된 처리를 구현하는 것.
+근데 자주 사용되진 않는다고 한다. 보통 Redis나 Zookeeper 와 같은 솔루션을 통한 분산락 구현을 할 수 있기 때문.
+
+
+
+주의점
+	1. transaction 종료 시, lock이 자동해제되지 않기 때문에, 개발자가 별도의 명령어로 해제를 시켜주거나, 선점시간이 끝나야 해제된다. (실 사용시, 구현이 복잡할 수 있따)
+	2. 현업에서는 datasource를 분리하여 사용해야함. 같은 datasource 사용하면, connection pool이 부족해지는 현상 발생함. -> 다른 서비스에 영향 미친다.
+
+
+
+---
+G,H. Redis - Lettuce, Redisson
+
+
+둘 다 분산락 구현하려고 만들어진 redis 라이브러리.
+
+1. Lettuce
+	- redis 내부에 setnx 명령어를 활용하여 분산락 구현
+		- 따라서 별도 외부 라이브러리 필요 없다
+		- named lock과 작동방식이 유사하다
+	- spin lock 방식
+		- spin lock이란, lock 획득 못해도 lock 사용가능한지 반복적으로 시도하는 방식(일정 ms 이후에 재시도)
+		- 따라서, 개발자가 retry 코드 작성해주어야 함
+		- spin lock 방식은 CPU에 부하를 줄 수 있다
+	- 실무에서는?
+		- 재시도가 필요하지 않은 lock은 lettuce를 사용
+2. Redisson
+	- pub sub 기반, lock 구현
+	- pub sub은, 채널을 만들고, 락 획득한 쓰레드가 반환하면, 구독한 subscriber에게 lock 반환했다고 알려주는 방식
+	- spin lock 처럼 잠겨있는 동안 10ms마다 계속 문 두드리질 않으니까, CPU 자원 소모, 부하가 덜 하다.
+	- pub sub 방식이 spin lock보다는 부하가 줄지만, 스프링단 별도 로직 작성 필요하고, redisson 외부 라이브러리 써야한다는 단점이 있다
+	- 실무에서는?
+		- 재시도가 필요한 lock은 redisson 사용
+
+
+---
+I. database - UPDATE query
+
+
+```java
+//Service layer
+
+//case8) database: UPDATE query
+@Transactional
+public void decreaseUpdateQuery(Long id, Long quantity) {
+    Stock stock = stockRepository.findById(id).orElseThrow();
+
+    stockRepository.decreaseQuantity(id, quantity);
+
+    stockRepository.saveAndFlush(stock);
+}
+
+
+//repository layer
+
+@Modifying
+@Query("UPDATE Stock s SET s.quantity = s.quantity - :quantity WHERE s.id = :id")
+int decreaseQuantity(Long id, Long quantity);
+```
+
+이렇게 해도 동시성 문제가 해결되네?
+
+업데이트하는 동안, db단에서 lock거는거 같은데..
+그럼 pessimistic lock이랑 뭐가 다르지?
+
+
+Hibernate:
+    select
+        stock0_.id as id1_0_,
+        stock0_.product_id as product_2_0_,
+        stock0_.quantity as quantity3_0_,
+        stock0_.version as version4_0_
+    from
+        stock stock0_
+    where
+        stock0_.id=? for update
+
+
+이렇게 select ~ for update로 잘 나오는데,
+update query는 돌려보면,
+
+Hibernate:
+        stock0_.id=?
+    select
+        stock0_.id as id1_0_0_,
+        stock0_.product_id as product_2_0_0_,
+        stock0_.quantity as quantity3_0_0_,
+        stock0_.version as version4_0_0_
+    from
+        stock stock0_
+    where
+        stock0_.id=?
+
+
+select ~ for update 안나옴. 이건 아닌듯.
+
+
+알아보니 db에서 update 자체가 동시성 보장 해준다고 한다.
+
+
+Q. 그럼 쭉 update query 쓰지, 왜 pessimistic lock, optimistic lock이라는 개념이 있는거지?
+
+
+동시에 접근하는 쓰레드마다 성능차이가 나서 그런가?
+
+
+
+---
+J. 성능비교 - update query vs pessimistic lock vs optimistic lock
+
+
+
+
+case1) thread 100개가 동시접근 하는 경우(thread pool 32개 기준)
+
+
+a. java - synchronized - 713ms, 789ms, 768ms
+b. database - update query - 308ms, 354ms, 349ms
+c. database - pessimistic lock - 387ms, 449ms, 494ms
+d. database - optimistic lock - 1027ms, 1183ms, 1155ms
+e. database - named lock - 670ms, 699ms, 709ms
+f. redis - lettuce - 3702ms, 2464ms, 3263ms
+g. redis - redisson - 946ms, 829ms, 861ms
+
+
+중간결산:
+
+update query가 GOAT네.
+역시 동시성 이슈는 데이터 베이스한테 맡기는게 최선인가?
+redis는 개오바네 못써먹을정돈데? lettuce는 설정을 좀 느슨하게 해서 그런 것 같기도 하고.
+
+
+
+
+case2) thread 1000개가 동시접근 하는 경우(thread pool 32개 기준)
+
+
+a. java - synchronized - 4421ms, 3512ms, 3639ms
+b. database - update query - 1999ms, 1792ms, 1847ms
+c. database - pessimistic lock - 2122ms, 2261ms, 2058ms
+d. database - optimistic lock - 3268ms, 3293ms, 3664ms
+e. database - named lock - 3040ms, 3161ms, 3105ms
+f. redis - lettuce - 7064ms, 7152ms, 5833ms
+g. redis - redisson - 5256ms, 5374ms, 5466ms
+
+
+중간결산:
+
+1000개 까지도 update query가 성능이 제일 좋네?
+그리고 synchronized, optimistic lock, named lock, lettuce redisson 증가폭 미쳤는데?
+pessimistic lock이 선방중. update query랑 성능 비비는데 나름 안전하기까지?
+
+
+
+case3) thread 10000개가 동시접근 하는 경우(thread pool 32개 기준)
+
+
+a. java - synchronized - 13736ms, 14773ms, 14760ms
+b. database - update query - 6807ms, 6106ms, 6486ms
+c. database - pessimistic lock - 8292ms
+d. database - optimistic lock - 12661ms
+e. database - named lock - 13009ms
+f. redis - lettuce - 33678ms
+g. redis - redisson - 34361ms
+
+
+최종결산:
+
+
+동시 접근 요청 갯수 상관없이 update query가 성능은 최고다.
+
+update query에 비비던 pessimistic lock도, 차이가 꽤 벌어졌다.
+
+
+
+Q. 왜 update query가 pessimistic 보다 더 빠르지? 어짜피 exclusive lock(베타 잠금)이면, 쌤쌤아냐?
+
+
+A. update query가 lock을 얻는 시점은 update 쿼리 실행하고 commit 후 lock 반환인데, pessimistic lock은 내부적으로 select ~ for update로 돌아가는데, select 과정에서 lock을 얻고, update 쿼리 실행한 후, commit -> lock 반환함.
+lock을 점유하는 기간이 pessimistic lock(select ~ for update) 보다 update query가 더 짧기 때문에, 성능이 더 잘나옴.
+
+
+
+
+Q. 왜 낙관적 락의 성능이 비관적 락 성능보다 느리게 나왔지?
+
+A.
+optimistic lock은 트랜잭션 도중, 다른 트랜잭션이 난입하지 않는다고 optimistic한 가정을 한 lock.
+
+optimistic lock은 db단에서 락 하는게 아니라, jpa pesistent context 단에서 entity의 무결성을 보장하기 위해서 하는거라, 막상 디비에 쿼리 날리는 시점엔 버전이 다를 수 있음. 그러면 Exception 터지면서, Thread.sleep(50ms); 후 재 시도 하기 때문에 pessimistic lock보다 느린 것. (50ms는 테스트 때 넣은 임의의 값)
+
+이렇게 충돌이 많이 발생한다면, 비관적 lock은 성능이 별로 안좋다.
+
+
+pessimistic lock은 db단에서 거는베타 락. optimistic lock 처럼, 충돌 일어나도 50ms 잠재우는거 안함. busy waiting 방식이던, 잠자다가 lock 반환하면 깨우는 방식이건, 충돌이 많이 일어나는 상황에서는 optimistic lock 방식보다 빠름.
+
+
+Q. pessimistic lock은 내부적으로 busy_wait인가?
+
+A. 아님. SELECT FOR UPDATE is not a busy waiting method. Threads that cannot access a shared resource due to an exclusive lock will be suspended and placed in a wait state until the lock is released.
+
+
