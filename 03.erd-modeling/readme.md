@@ -3,8 +3,11 @@
 Objective
 
 
-1. modularize Relational Database Modeling
-2. 
+ERD 설계시...
+
+1. 확장성(정규화, scale out: sharding & partitioning & replication(master & read replicas))
+2. 정합성(ACID, concurrency control(like lock, transaction, MVCC), FK, constraints, Trigger for 정합성 검사)
+3. 성능을 위한 반정규화
 
 
 ---\
