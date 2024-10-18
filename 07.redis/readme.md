@@ -13,7 +13,8 @@ Concepts
 a. syntax\
 b. lock - 재고시스템으로 알아보는 동시성이슈 해결방법(along with redis's lettuce lock, redisson's lock) :white_check_mark:\
 c. rate-limiter :white_check_mark:\
-d. visitor_count :white_check_mark:
+d. visitor_count :white_check_mark:\
+e. 선착순 100명(FCFS) :white_check_mark:
 
 
 
@@ -34,6 +35,8 @@ b-8. performance test of all lock methods :white_check_mark:
 c-1. redis로 rate-limiter 구현 :white_check_mark:
 
 d-1. redis로 visitor_count 구현 :white_check_mark:
+
+e-1. redis로 선착순 100명 시스템 구현 :white_check_mark:
 
 
 ---\
