@@ -36,7 +36,8 @@ c-1. redis로 rate-limiter 구현 :white_check_mark:
 
 d-1. redis로 visitor_count 구현 :white_check_mark:
 
-e-1. redis로 선착순 100명 시스템 구현 :white_check_mark:
+e-1. redis로 선착순 100명 시스템 구현 :white_check_mark:\
+e-2. 선착순 100명에 대기큐 기능까지 붙이기 :white_check_mark:
 
 
 ---\
