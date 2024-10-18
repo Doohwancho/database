@@ -11,7 +11,8 @@ Concepts
 
 
 a. syntax\
-b. lock - 재고시스템으로 알아보는 동시성이슈 해결방법(along with redis's lettuce lock, redisson's lock)\
+b. lock - 재고시스템으로 알아보는 동시성이슈 해결방법(along with redis's lettuce lock, redisson's lock) :white_check_mark:\
+c. rate-limiter :white_check_mark:
 
 
 
@@ -28,3 +29,13 @@ b-5. redis - Lettuce :white_check_mark:\
 b-6. redis - Redisson :white_check_mark:\
 b-7. database - update query :white_check_mark:\
 b-8. performance test of all lock methods :white_check_mark:
+
+c-1. redis로 rate-limiter 구현 :white_check_mark:
+
+
+
+---\
+Reference
+
+
+c-1. [rate-limiter in redis](https://github.com/villainscode/Spring-Redis)
