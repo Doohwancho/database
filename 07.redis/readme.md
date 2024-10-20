@@ -51,7 +51,8 @@ i-1. set serializer :white_check_mark:
 
 j-1. 300rps on redis server and monitoring it, analyze results :white_check_mark:
 
-k-1. usecase: job_queue simple version using default redis list datastructure :white_check_mark:
+k-1. usecase: job_queue simple version using default redis list datastructure :white_check_mark:\
+k-2. usecase: job_queue using redisson's job_queue feature. it provides 1. 작업처리보장 2. 재시도 메커니즘 3. 동시성제어 4. 모니터링관리 5. 분산락 :white_check_mark:
 
 ---\
 Reference
