@@ -19,7 +19,8 @@ f. cache strategy(look aside + write through) :white_check_mark:\
 g. usecase: realtime ranking :white_check_mark:\
 h. usecase: like :white_check_mark:\
 i. config :white_check_mark:\
-j. monitoring :white_check_mark:
+j. monitoring :white_check_mark:\
+k. usecase: job_queue :white_check_mark:
 
 
 ---\
@@ -49,6 +50,8 @@ f-1. cache strategy(look aside + write through) :white_check_mark:
 i-1. set serializer :white_check_mark:
 
 j-1. 300rps on redis server and monitoring it, analyze results :white_check_mark:
+
+k-1. usecase: job_queue simple version using default redis list datastructure :white_check_mark:
 
 ---\
 Reference
