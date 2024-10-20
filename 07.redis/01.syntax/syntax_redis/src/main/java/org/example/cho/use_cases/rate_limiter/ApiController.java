@@ -1,4 +1,4 @@
-package org.example.cho.rate_limiter;
+package org.example.cho.use_cases.rate_limiter;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

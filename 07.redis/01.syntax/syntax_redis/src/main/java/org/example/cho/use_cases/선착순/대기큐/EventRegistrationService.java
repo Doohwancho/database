@@ -1,4 +1,4 @@
-package org.example.cho.선착순.대기큐;
+package org.example.cho.use_cases.선착순.대기큐;
 
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Service;

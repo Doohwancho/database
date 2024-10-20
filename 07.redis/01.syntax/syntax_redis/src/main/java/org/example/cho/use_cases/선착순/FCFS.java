@@ -1,4 +1,4 @@
-package org.example.cho.선착순;
+package org.example.cho.use_cases.선착순;
 
 
 /*

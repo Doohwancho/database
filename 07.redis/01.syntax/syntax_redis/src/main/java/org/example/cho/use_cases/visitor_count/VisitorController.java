@@ -1,4 +1,4 @@
-package org.example.cho.visitor_count;
+package org.example.cho.use_cases.visitor_count;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

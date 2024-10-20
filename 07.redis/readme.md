@@ -12,11 +12,11 @@ Concepts
 
 a. syntax\
 b. lock - 재고시스템으로 알아보는 동시성이슈 해결방법(along with redis's lettuce lock, redisson's lock) :white_check_mark:\
-c. rate-limiter :white_check_mark:\
-d. visitor_count :white_check_mark:\
-e. 선착순 100명(FCFS) :white_check_mark:\
-f. cache strategy(look aside + write through) :white_check_mark:
-
+c. usecase: rate-limiter :white_check_mark:\
+d. usecase: visitor_count :white_check_mark:\
+e. usecase: 선착순 100명(FCFS) :white_check_mark:\
+f. cache strategy(look aside + write through) :white_check_mark:\
+g. usecase: realtime ranking :white_check_mark:
 
 
 ---\
@@ -33,7 +33,8 @@ b-6. redis - Redisson :white_check_mark:\
 b-7. database - update query :white_check_mark:\
 b-8. performance test of all lock methods :white_check_mark:
 
-c-1. redis로 rate-limiter 구현 :white_check_mark:
+c-1. redis로 rate-limiter 구현 :white_check_mark:\
+c-2. redis로 인증 재시도시 30초 후 재시도 rate-limit 코드 구현 :white_check_mark:
 
 d-1. redis로 visitor_count 구현 :white_check_mark:
 

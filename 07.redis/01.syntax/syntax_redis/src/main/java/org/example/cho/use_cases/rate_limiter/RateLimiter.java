@@ -1,4 +1,4 @@
-package org.example.cho.rate_limiter;
+package org.example.cho.use_cases.rate_limiter;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
