@@ -1,4 +1,42 @@
+# cache 관련 application.properties config
+# documentation: https://docs.spring.io/spring-boot/appendix/application-properties/index.html#appendix.application-properties.cache
+# data 관련 properties
+# documentation: https://docs.spring.io/spring-boot/appendix/application-properties/index.html#appendix.application-properties.data
+
 spring:
   redis:
     host: localhost
     port: 6379
+    database: 0 # use default redis-database (for persistent).
+    lettuce:
+      pool:
+        max-active: 8 # default 값임. Sets the maximum number of active connections in the pool.
+        max-idle: 8 # default 값임. Sets the maximum number of idle connections in the pool.
+        min-idle: 0 # default 값임.  Sets the minimum number of idle connections in the pool.
+  cache:
+      type: redis
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/stock_example
+    username: root
+    password:
+    hikari:
+      maximum-pool-size: 40 # Named lock 적용 시, 단일 data source connection을 쓰면, pool이 모자랄 수 있으므로, pool size를 늘린다.
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: create
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true  # SQL pretty print
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE

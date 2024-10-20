@@ -18,7 +18,8 @@ e. usecase: 선착순 100명(FCFS) :white_check_mark:\
 f. cache strategy(look aside + write through) :white_check_mark:\
 g. usecase: realtime ranking :white_check_mark:\
 h. usecase: like :white_check_mark:\
-i. config :white_check_mark:
+i. config :white_check_mark:\
+j. monitoring :white_check_mark:
 
 
 ---\
@@ -47,6 +48,7 @@ f-1. cache strategy(look aside + write through) :white_check_mark:
 
 i-1. set serializer :white_check_mark:
 
+j-1. 300rps on redis server and monitoring it, analyze results :white_check_mark:
 
 ---\
 Reference
