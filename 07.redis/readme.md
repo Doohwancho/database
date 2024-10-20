@@ -17,7 +17,8 @@ d. usecase: visitor_count :white_check_mark:\
 e. usecase: 선착순 100명(FCFS) :white_check_mark:\
 f. cache strategy(look aside + write through) :white_check_mark:\
 g. usecase: realtime ranking :white_check_mark:\
-h. usecase: like :white_check_mark:
+h. usecase: like :white_check_mark:\
+i. config :white_check_mark:
 
 
 ---\
@@ -43,6 +44,9 @@ e-1. redis로 선착순 100명 시스템 구현 :white_check_mark:\
 e-2. 선착순 100명에 대기큐 기능까지 붙이기 :white_check_mark:
 
 f-1. cache strategy(look aside + write through) :white_check_mark:
+
+i-1. set serializer :white_check_mark:
+
 
 ---\
 Reference
