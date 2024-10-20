@@ -16,7 +16,8 @@ c. usecase: rate-limiter :white_check_mark:\
 d. usecase: visitor_count :white_check_mark:\
 e. usecase: 선착순 100명(FCFS) :white_check_mark:\
 f. cache strategy(look aside + write through) :white_check_mark:\
-g. usecase: realtime ranking :white_check_mark:
+g. usecase: realtime ranking :white_check_mark:\
+h. usecase: like :white_check_mark:
 
 
 ---\
