@@ -1,0 +1,35 @@
+---
+주의
+
+
+sakila-mv-schema.sql 이 첫방엔 에러 떴는데 두번째 시도 때 잘 되더라.
+
+
+---
+source
+
+
+1. https://github.com/datacharmer/test_db
+2. https://dev.mysql.com/doc/index-other.html
+
+
+This sample database is derived from the Sakila-spatial db, available from the MySQL docs.
+
+The changes applied here are quite simple:
+
+The FULLTEXT index in InnoDB is added conditionally for MySQL 5.6+
+The GEOMETRY column and SPATIAL index are added conditionally for MySQL 5.7+
+
+
+---
+size
+
+
+rental: 약 16,000행 (가장 큰 테이블)
+payment: 약 16,000행
+inventory: 약 4,500행
+film: 약 1,000행
+customer: 약 600행
+address: 약 600행
+film_actor: 약 5,400행
+기타 테이블: 더 작은 크기 (대부분 수백 행 이하)

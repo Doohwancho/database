@@ -1,0 +1,93 @@
+## A.1. how to make fake data?
+### A.1.1. step1) mysql 테이블 만들기
+
+### A.1.2. step2) python faker 라이브러리로 데이터 만들기
+```
+pip install faker pandas
+```
+
+```python
+import pandas as pd
+from faker import Faker
+
+# Faker 객체 생성
+fake = Faker()
+
+# 데이터 생성 함수
+def generate_fake_data(num_rows):
+    data = []
+    for _ in range(num_rows):
+        row = {
+            "name": fake.name(),
+            "email": fake.email(),
+            "address": fake.address(),
+            "phone_number": fake.phone_number(),
+            "date_of_birth": fake.date_of_birth(),
+            "job": fake.job(),
+            "company": fake.company(),
+        }
+        data.append(row)
+    return data
+
+# 10만 행의 데이터 생성
+num_rows = 100000
+fake_data = generate_fake_data(num_rows)
+
+# DataFrame으로 변환
+df = pd.DataFrame(fake_data)
+
+# CSV 파일로 저장
+df.to_csv("fake_data.csv", index=False)
+```
+
+### A.1.3. step3) 주의점!
+1. **Foreign Key 문제**
+	- `orders` 테이블이 `users`의 `id`를 참조하므로,
+		`users.csv` → `users` 테이블 INSERT 후
+		`orders.csv` → `orders` 테이블 INSERT 순서로 진행해야 함.
+	- FK 제약으로 인해 `orders.csv`를 먼저 넣으면 **에러 발생**
+1. **CSV에서 `AUTO_INCREMENT` 컬럼 (`id`) 제외**
+	- `id`는 자동 증가되므로 CSV에서 제외
+	- MySQL이 자동으로 `id`를 할당하게 함
+2. **파일 인코딩 문제**
+	- `utf8mb4`를 지원하는 MySQL 환경에서 CSV가 UTF-8로 저장되어야 함
+
+### A.1.4. step4) 대량 데이터 import 최적화
+1. 외래 키 검사 비활성화 → 성능 최적화
+	- `SET FOREIGN_KEY_CHECKS = 0;`
+2. `LOAD DATA INFILE` 실행 후 다시 활성화
+	- `SET FOREIGN_KEY_CHECKS = 1;`
+3. **`COMMIT` 제어** (트랜잭션 사용 가능)
+```sql
+START TRANSACTION;
+LOAD DATA INFILE '/path/to/users.csv' INTO TABLE users ...
+LOAD DATA INFILE '/path/to/orders.csv' INTO TABLE orders ...
+COMMIT;
+```
+
+### A.1.5. step5) LOAD DATA INLINE을 테이블 하나씩 진행
+```sql
+LOAD DATA INFILE '/path/to/users.csv'
+INTO TABLE users
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(name, email, created_at);
+```
+- `/path/to/users.csv` → 실제 경로로 변경
+- `IGNORE 1 ROWS` → 첫 줄(컬럼명) 무시
+
+
+```sql
+LOAD DATA INFILE '/path/to/orders.csv'
+INTO TABLE orders
+FIELDS TERMINATED BY ','
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS
+(user_id, product_name, price, order_date);
+```
+
+
+

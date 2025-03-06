@@ -15,6 +15,15 @@ FROM { table_source }
 [ ORDER BY order_clause ]
 ```
 
+
+---\
+실행순서 
+
+```
+FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY -> LIMIT
+```
+
+
 ---\
 concept
 
