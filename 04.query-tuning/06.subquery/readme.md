@@ -4,6 +4,7 @@ practice
 
 subquery 최적화 연습 예제 (test_db, employees)
 
+
 ```sql
 -- 부서별 최고 연봉자 
 SELECT d.dept_name, e.first_name, e.last_name, s.salary
