@@ -3,14 +3,14 @@ Goal
 
 
 1. relational database modeling
-2. query optimization
+2. query optimization (write least i/o query)
 
 
 ---
 Fields
 
 
-A. Mysql
+A. Fundamental
 B. ERD modeling
 C. SQL
 D. query-tuning
