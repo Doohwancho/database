@@ -110,12 +110,12 @@ TEST(TrieTest, BasicRemoveTest2) {
   trie = trie.Put<uint32_t>("", 123);
   ASSERT_EQ(*trie.Get<uint32_t>(""), 123);
   // Delete something
-  trie = trie.Remove("");
+  trie = trie.Remove(""); 
   trie = trie.Remove("te");
   trie = trie.Remove("tes");
   trie = trie.Remove("test");
 
-  ASSERT_EQ(trie.Get<uint32_t>(""), nullptr);
+  ASSERT_EQ(trie.Get<uint32_t>(""), nullptr);   //<-------- 여기서 문제발생. Get()에서. 먼저 "" 필터링 하는 코드 추가하자. 
   ASSERT_EQ(trie.Get<uint32_t>("te"), nullptr);
   ASSERT_EQ(trie.Get<uint32_t>("tes"), nullptr);
   ASSERT_EQ(trie.Get<uint32_t>("test"), nullptr);
@@ -123,14 +123,38 @@ TEST(TrieTest, BasicRemoveTest2) {
 
 TEST(TrieTest, RemoveFreeTest) {
   auto trie = Trie();
+  
+  //step1) put 
   trie = trie.Put<uint32_t>("test", 2333);
+  // std::cout << "first put! - 'test', 2333" << std::endl;
+  // trie.PrintStructure();
   trie = trie.Put<uint32_t>("te", 23);
+  // std::cout << "second put! - 'te', 23" << std::endl;
+  // trie.PrintStructure();
   trie = trie.Put<uint32_t>("tes", 233);
+  // std::cout << "third put! - 'tes', 233" << std::endl;
+  // trie.PrintStructure();
+  // std::cout << "--------------------------------------" << std::endl;
+
+  //step2) remove 
   trie = trie.Remove("tes");
+  // trie.PrintStructure();
   trie = trie.Remove("test");
-  ASSERT_EQ(trie.GetRoot()->children_.at('t')->children_.at('e')->children_.size(), 0);
+  // trie.PrintStructure();
+
+  // std::cout << "--------------------------------------" << std::endl;
+
+
+  ASSERT_EQ(trie.GetRoot()->children_.at('t')->children_.at('e')->children_.size(), 0); //failed! result is 1, not 0.
+
   trie = trie.Remove("te");
-  ASSERT_EQ(trie.GetRoot(), nullptr);
+  ASSERT_EQ(trie.GetRoot(), nullptr); 
+  //                                       // Failure
+  //                                       // Expected equality of these values:
+  //                                       //   trie.GetRoot()
+  //                                       //     Which is: (ptr = 0x105a02450, value = 40-byte object <E0-CB A4-02 01-00 00-00 20-5A 60-05 01-00 00-00 20-5A 60-05 01-00 00-00 01-00 00-00 00-00 00-00 00-BE BE-BE BE-BE BE-BE>)
+  //                                       //   nullptr
+  //                                       //     Which is: (nullptr)
 }
 
 TEST(TrieTest, MismatchTypeTest) {

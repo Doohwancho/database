@@ -47,12 +47,9 @@ class TrieStore {
   void Remove(std::string_view key);
 
  private:
-  // This mutex protects the root. Every time you want to access the trie root or modify it, you
-  // will need to take this lock.
-  std::mutex root_lock_;
+  std::mutex root_lock_; //root node에 대한 접근만 protect함. 다르노드 말고.
 
-  // This mutex sequences all writes operations and allows only one write operation at a time.
-  std::mutex write_lock_;
+  std::mutex write_lock_; //모든 tree에 대한 접근을 protect 하는 듯 
 
   // Stores the current root for the trie.
   Trie root_;
