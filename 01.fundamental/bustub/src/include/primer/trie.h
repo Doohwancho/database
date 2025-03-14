@@ -125,10 +125,18 @@ class TrieNode {
   // Q. why use virtual on 소멸자?
   // A. 상속 관계에서 자식 클래스 소멸자 제대로 호출되게 하려고. 안 그러면 메모리 누수 생길 수 있음.
 
-  // 중요!) 이게 write-on-copy의 핵심!
-  // deepcopy 해서 모든 데이터 다 옮긴다? == 비효율
-  // shallow copy한다? -> read() 하던 도중에 put() 해버리면 원본 데이터 훼손됨 
-  virtual auto Clone() const -> std::unique_ptr<TrieNode> { return std::make_unique<TrieNode>(children_); }
+  virtual auto Clone() const -> std::unique_ptr<TrieNode> { 
+    // 중요!) 이게 write-on-copy의 핵심!
+    // Q. 이건 deepcopy임 shallow copy임?
+    // A. deepcopy는 아님. 그렇게 구현해도 엄청 비효율이고. 그러면 Get(), Put(), Remove() 할 때마다 전체 Trie 카피하니까 비효율 
+    //    그렇다고 shallow copy를 한다? -> Get() 도중에 Put() 해버리면 원본 데이터가 오염되버림 
+    //    make_unique()로 이 문제를 해결?
+    //    이 코드는 새 TrieNode 객체를 만들어서 생성자에 children_ 넣음.
+    //    근데 TrieNode 생성자에 children_(std::move(children)) 이라, 기존 children_의 포인터로 데이터 접근 불가. 
+    //    원본과 완전히 다른 객체임: 진짜 얕은 복사면 그냥 포인터만 복사해서 같은 객체 가리키는데, 이건 아님
+    //    수정되는 경로만 새로 생성: 이게 핵심인데, "apple"을 수정하면 a->p->p->l->e 경로만 새로 만들고 나머지는 다 공유함
+      return std::make_unique<TrieNode>(children_); 
+  }
   // Q. 왜 이 함수는 virtual로 만들었지?
   // A. 다형성 때문임. 자식 클래스(TrieNodeWithValue)가 이 함수 오버라이드해서 자기만의 복제 로직 구현할 수 있게
   // Q. 왜 std::unique_ptr을 썼지? 여태껏은 shared_ptr 썼었잖아?

@@ -103,14 +103,17 @@ namespace bustub {
       // A. lock_guard에 감싸진 mutex가 {} 벗어나면 자동으로 해제되거든. 이 {} 안에 있으면 root_lock_이 걸리는거임. 
       std::lock_guard<std::mutex> root_lock(root_lock_); //root_lock_에 락 걸어서 {} 스코프 내부에 원본데이터 복사 끝날 때 까지 lock을 안품 
       local_trie = root_; //원본 데이터를 1. 단 복사해 
-    }
+    } // root_lock_ 자동 해제
     
+    // COW 패턴이라 Put()이 락 없이 수행된다! 
+    // 이 함수는 실제로 Trie 구조 따라 내려가면서 노드 생성하고 복사하는 무거운 연산임. 이거 하는 동안 락 잡고 있으면 다른 스레드들 다 ㅈ됨.이 함수는 실제로 Trie 구조 따라 내려가면서 노드 생성하고 복사하는 무거운 연산임. 이거 하는 동안 락 잡고 있으면 다른 스레드들 다 쳐짐.
+    // 복사본에 작업하니까 안전함: local_trie = root_ 하고 락 풀어도 local_trie는 그냥 복사본이라 원본이랑 관계 없음. 다른 스레드가 root_를 바꿔도 이 복사본에는 영향 없음.
     Trie new_trie = local_trie.Put(key, std::move(value)); //복사한 Trie에 Put()을 해. 근데 Put()할 땐 어짜피 새로 만든 Trie에 하는거라 락 걸 필요 없음 
     
-    {
+    { // 이 블록 안에서만 root_lock_ 유지
       std::lock_guard<std::mutex> root_lock(root_lock_); //새로 trie를 원본 trie에 덮어쓰기 위해 다시 root_lock_을 검
       root_ = new_trie; //원본 Trie에 덮어 써 
-    }
+    } // root_lock_ 자동 해제
   }
   
 
@@ -145,10 +148,10 @@ namespace bustub {
     
     Trie new_trie = local_trie.Remove(key);
     
-    {
+    { // 이 블록 안에서만 root_lock_ 유지
       std::lock_guard<std::mutex> root_lock(root_lock_);
       root_ = new_trie;
-    }
+    } // root_lock_ 자동 해제
   }
 
 // Below are explicit instantiation of template functions.

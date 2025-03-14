@@ -115,45 +115,45 @@ auto Trie::Get(std::string_view key) const -> const T * {
  */
 template <class T>
 auto Trie::Put(std::string_view key, T value) const -> Trie {
-  // Note that `T` might be a non-copyable type. Always use `std::move` when creating `shared_ptr` on that value.
-  // throw NotImplementedException("Trie::Put is not implemented.");
-
-  // You should walk through the trie and create new nodes if necessary. If the node corresponding to the key already
-  // exists, you should create a new `TrieNodeWithValue`.
-  
-  //step1) root가 null이면 empty trie를 만들고, null이 아니면 기존 root_를 먼저 clone()함. 그래야 기존 trie에 read하는 동안 새 trie에 write하지. 
+  //step1) copy-on-write(COW) 패턴 하려면 먼저 shallow copy를 해야겠지? 그 다음에 수정할 노드만 deepcopy 하는거니까 일단 Clone()으로 shallow_copy 한다. 
   std::shared_ptr<TrieNode> root;
   if (root_ == nullptr) {
     root = std::make_shared<TrieNode>();
   } else {
-    root = root_->Clone(); //이게 핵심! 
+    root = root_->Clone(); //COW의 시작! 먼저 shallow copy of root node로부터 시작.
   }
 
-  //step2) Q. 왜 굳이 새로운 변수에 할당하는거지? Clone() 하면 새 변수가 아니라 original data 변경해서 그런가?
-  //       A. ㅇㅇ copy-on-write 패턴이라 멀티스레드 환경에서 안전하게 동작한다.
+  // step2) 오해! trie 순회가 아니라 문자열 순회하면서 그에 해당하는 trie 경로를 찾거나 만듬 ("hello"면 "h","e","l","l","e" 노드 순으로 가는 것)
+  // root->children_은 map이니까, 
+  //root노드 대체할 새 root_node 생성 
   std::shared_ptr<TrieNode> parent = root;
-  // walk through key without last char and create new node
-  auto it = key.begin();
-  while (it != key.end() && std::next(it) != key.end()) {
-    auto iter = parent->children_.find(*it);
+
+  auto it = key.begin(); //문자열의 첫 char부터 시작. ex. "hello" -> "h"
+  while (it != key.end() && std::next(it) != key.end()) { //문자열 끝까지 반복해서 map을 찾음. children_은 std::map<char, std::shared_ptr<const TrieNode>> children_; 이기 때문에, key: char 
+    auto iter = parent->children_.find(*it); 
     std::shared_ptr<TrieNode> node; //새 node를 만들어서
-    if (iter != parent->children_.end()) {
-      node = iter->second->Clone();
+
+    if (iter != parent->children_.end()) { //문자열 끝까지 반복 (마지막 글자는 특별처리)
+      node = iter->second->Clone(); // 기존 노드 복제. 예를 들어, "apple"과 "app"이 저장된 Trie에 "applet"을 Put 한다면:
+                                    // "a", "p", "p" 경로는 이미 존재하므로 해당 노드들을 Clone() (원본꺼 shallow copy로 그대로 씀)
+                                    // "l", "e", "t" 노드는 새로 생성
+                                    // "apple"의 "l", "e" 부분은 원래 트리에 그대로 남음
     } else {
-      node = std::make_shared<TrieNode>();
+      node = std::make_shared<TrieNode>(); //새 노드 생성. 이 부분은 복사 안함 
     }
 
-    //Q. 이 부분 잘 이해가 안가
-    parent->children_[*it] = node;
+    parent->children_[*it] = node; //수정한 노드의 "자식들"은 **원본 노드에서 그대로 가져옴**
     parent = node;
-    it++;
+    it++; //다음글자로 이동 
   }
 
-  // process the last char
+  // step3) 만약 그냥 쌩 string이 아니라 value까지 있으면? 
   std::shared_ptr<T> pvalue = std::make_shared<T>(std::move(value));
   //원래 value를 std::move()로 deference 하고 pvalue에 할당 
 
   auto iter = parent->children_.find(*it);
+
+  // string의 마지막 문자열 처리 
   if (key.empty() || iter == parent->children_.end()) {
     parent->children_[*it] = std::make_shared<TrieNodeWithValue<T>>(pvalue);
   } else {
@@ -161,6 +161,7 @@ auto Trie::Put(std::string_view key, T value) const -> Trie {
     parent->children_[*it] = std::make_shared<TrieNodeWithValue<T>>(children->children_, pvalue);
   }
 
+  // step4) 새로운 Trie 반환 
   std::shared_ptr<Trie> new_trie = std::make_shared<Trie>();
   new_trie->root_ = root;
   return *new_trie;
