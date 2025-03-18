@@ -49,10 +49,14 @@ make lru_k_replacer_test -j$(nproc)
 
 test task2
 ```
+make buffer_pool_manager_test -j$(nproc)
+./test/buffer_pool_manager_test
 ```
 
 tset task3
 ```
+make page_guard_test -j$(nproc)
+./test/page_guard_test
 ```
 
 ## 2. task1
@@ -144,4 +148,59 @@ mutex거는 부분
 2. RecordAccess() 함수
 3. SetEvictable() 함수
 4. Remove() 함수
+
+
+
+## 3. task2
+### 3-1. what 
+Q. what is buffer pool manager?
+A. 페이지 가져오고 관리하는 놈
+
+
+Q. 이게 진짜 중요한 이유?
+1. 디스크 읽기/쓰기는 개느림
+2. 자주 쓰는 페이지는 메모리에 계속 있어야 함
+3. 여러 트랜잭션이 동시에 페이지 접근할 수 있음
+
+
+Q. read & write 시 진행과정?
+A.
+1. 먼저 요청하는 이 페이지가 버퍼풀에 있나 확인
+2. 있으면 해당 페이지의 pin_count 증가하고 반환 (페이지 사용중이면 pin_count가 1이 되어 LRU-K replacement policy로 교체되지 않도록 함)
+3. 없으면 빈 frame을 찾거나 task1에서 구현한 LRU-K 로 disk에 보낼 희생자 선택
+4. disk에서 페이지 읽어오기
+5. 페이지 ID <-> 프레임 ID 매핑 테이블 업데이트
+6. 핀 카운트 = 1 설정 (페이지 사용중이면 pin_count가 1이 되어 LRU-K replacement policy로 교체되지 않도록 함)
+7. 페이지 반환
+
+
+Q. page와 frame?
+
+A.
+page는 disk에 있는 논리적 데이터 단위이고\
+frame은 RAM에 있는 논리적 데이터 단위임.
+
+disk가 용량이 훨씬 더 크고(500GiB), RAM은 고작 8GiB라,\
+frame 갯수는 몇개 안됨 한 10개라고 치는데,\
+page는 갯수가 100개가 될 수도 있음.
+
+이 둘을 매핑해주는게 buffer pool manager에 `std::unordered_map<page_id_t, frame_id_t> page_table_;`
+
+모든 page를 frame(RAM)에 못올리니까 어떤 page 쫓아낼지 정하는게 LRU_K replacement policy.\
+`auto victim = replacer_->Evict();`
+
+
+## 4. task3
+
+### 4-1. what 
+
+Q. page guard는 왜 씀?
+
+A. 메모리 관리 + pin count set to 0 + setEvictable to false 자동화 하려고. (RAII)
+
+개발자가 수동으로 set pin count to 0같은거 하다가 깜박하고 뺴먹으면 그 페이지 계속 못씀.
+
+page_guard.cpp에 소멸자 보면, Drop()을 호출하고(RAII), Drop()을 보면, 
+
+frame에 lock 해제하고, pin count 0, evictable to false 함.
 

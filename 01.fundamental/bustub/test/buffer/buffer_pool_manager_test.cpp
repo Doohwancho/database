@@ -31,7 +31,7 @@ void CopyString(char *dest, const std::string &src) {
   snprintf(dest, BUSTUB_PAGE_SIZE, "%s", src.c_str());
 }
 
-TEST(BufferPoolManagerTest, DISABLED_VeryBasicTest) {
+TEST(BufferPoolManagerTest, VeryBasicTest) {
   // A very basic test.
 
   auto disk_manager = std::make_shared<DiskManager>(db_fname);
@@ -42,10 +42,10 @@ TEST(BufferPoolManagerTest, DISABLED_VeryBasicTest) {
 
   // Check `WritePageGuard` basic functionality.
   {
-    auto guard = bpm->WritePage(pid);
-    CopyString(guard.GetDataMut(), str);
-    EXPECT_STREQ(guard.GetData(), str.c_str());
-  }
+    auto guard = bpm->WritePage(pid); 
+    CopyString(guard.GetDataMut(), str); //여기서 페이지 데이터 수정 
+    EXPECT_STREQ(guard.GetData(), str.c_str()); 
+  } // 여기서 guard 소멸되면서 자동으로 락 풀리고 핀 카운트 감소
 
   // Check `ReadPageGuard` basic functionality.
   {
@@ -62,7 +62,7 @@ TEST(BufferPoolManagerTest, DISABLED_VeryBasicTest) {
   ASSERT_TRUE(bpm->DeletePage(pid));
 }
 
-TEST(BufferPoolManagerTest, DISABLED_PagePinEasyTest) {
+TEST(BufferPoolManagerTest, PagePinEasyTest) {
   auto disk_manager = std::make_shared<DiskManager>(db_fname);
   auto bpm = std::make_shared<BufferPoolManager>(2, disk_manager.get(), 5);
 
@@ -74,6 +74,7 @@ TEST(BufferPoolManagerTest, DISABLED_PagePinEasyTest) {
   const std::string str0updated = "page0updated";
   const std::string str1updated = "page1updated";
 
+  //step1) 첫 번째 블록에서 pageid0, pageid1에 데이터를 씁니다.
   {
     auto page0_write_opt = bpm->CheckedWritePage(pageid0);
     ASSERT_TRUE(page0_write_opt.has_value());
@@ -103,8 +104,9 @@ TEST(BufferPoolManagerTest, DISABLED_PagePinEasyTest) {
     ASSERT_EQ(1, bpm->GetPinCount(pageid1));
     page1_write.Drop();
     ASSERT_EQ(0, bpm->GetPinCount(pageid0));
-  }
+  } // 첫 번째 블록이 끝나면 page0_write와 page1_write가 소멸됩니다.
 
+  //step2) 두 개의 새 페이지를 만들려고 시도합니다(버퍼 풀 크기는 2).
   {
     const auto temp_page_id1 = bpm->NewPage();
     const auto temp_page1_opt = bpm->CheckedReadPage(temp_page_id1);
@@ -116,13 +118,18 @@ TEST(BufferPoolManagerTest, DISABLED_PagePinEasyTest) {
 
     ASSERT_FALSE(bpm->GetPinCount(pageid0).has_value());
     ASSERT_FALSE(bpm->GetPinCount(pageid1).has_value());
-  }
+  } //두 번째 블록에서 두 개의 새 페이지를 성공적으로 만듭니다.
 
+  //step3) 세 번째 블록에서 pageid0에 다시 접근하려고 할 때 데이터가 유실됩니다.
   {
     auto page0_write_opt = bpm->CheckedWritePage(pageid0);
     ASSERT_TRUE(page0_write_opt.has_value());
     auto page0_write = std::move(page0_write_opt.value());
-    EXPECT_STREQ(page0_write.GetData(), str0.c_str());
+    EXPECT_STREQ(page0_write.GetData(), str0.c_str());  // error!) 
+                                                        // page0_write.GetData()
+                                                        //   Which is: ""
+                                                        // str0.c_str()
+                                                        //   Which is: "page0"
     CopyString(page0_write.GetDataMut(), str0updated);
 
     auto page1_write_opt = bpm->CheckedWritePage(pageid1);
@@ -160,7 +167,7 @@ TEST(BufferPoolManagerTest, DISABLED_PagePinEasyTest) {
   remove(disk_manager->GetLogFileName());
 }
 
-TEST(BufferPoolManagerTest, DISABLED_PagePinMediumTest) {
+TEST(BufferPoolManagerTest, PagePinMediumTest) {
   auto disk_manager = std::make_shared<DiskManager>(db_fname);
   auto bpm = std::make_shared<BufferPoolManager>(FRAMES, disk_manager.get(), K_DIST);
 
@@ -178,6 +185,7 @@ TEST(BufferPoolManagerTest, DISABLED_PagePinMediumTest) {
   // Create a vector of unique pointers to page guards, which prevents the guards from getting destructed.
   std::vector<WritePageGuard> pages;
 
+  //step1) buffer pool 가득 채우기 
   // Scenario: We should be able to create new pages until we fill up the buffer pool.
   for (size_t i = 0; i < FRAMES; i++) {
     const auto pid = bpm->NewPage();
@@ -198,6 +206,7 @@ TEST(BufferPoolManagerTest, DISABLED_PagePinMediumTest) {
     ASSERT_FALSE(fail.has_value());
   }
 
+  //step2) 반절 언핀 후 새 페이지 할당 → LRU 확인
   // Scenario: Drop the first 5 pages to unpin them.
   for (size_t i = 0; i < FRAMES / 2; i++) {
     const auto pid = pages[0].GetPageId();
@@ -222,6 +231,7 @@ TEST(BufferPoolManagerTest, DISABLED_PagePinMediumTest) {
 
   // Scenario: There should be one frame available, and we should be able to fetch the data we wrote a while ago.
   {
+    //step3) 데이터 접근성 테스트
     const auto original_page = bpm->ReadPage(pid0);
     EXPECT_STREQ(original_page.GetData(), hello.c_str());
   }
@@ -239,7 +249,8 @@ TEST(BufferPoolManagerTest, DISABLED_PagePinMediumTest) {
   remove(db_fname);
 }
 
-TEST(BufferPoolManagerTest, DISABLED_PageAccessTest) {
+// 멀티스레드 환경에서 읽기/쓰기 락 테스트 
+TEST(BufferPoolManagerTest, PageAccessTest) {
   const size_t rounds = 50;
 
   auto disk_manager = std::make_shared<DiskManager>(db_fname);
@@ -248,6 +259,7 @@ TEST(BufferPoolManagerTest, DISABLED_PageAccessTest) {
   const auto pid = bpm->NewPage();
   char buf[BUSTUB_PAGE_SIZE];
 
+  //step1) 쓰기 스레드 (다른 스레드에서 계속 쓰기)
   auto thread = std::thread([&]() {
     // The writer can keep writing to the same page.
     for (size_t i = 0; i < rounds; i++) {
@@ -257,10 +269,12 @@ TEST(BufferPoolManagerTest, DISABLED_PageAccessTest) {
     }
   });
 
+
   for (size_t i = 0; i < rounds; i++) {
     // Wait for a bit before taking the latch, allowing the writer to write some stuff.
     std::this_thread::sleep_for(std::chrono::milliseconds(10));
 
+    //step2) 읽기 스레드 (읽는 동안 데이터 불변 확인)
     // While we are reading, nobody should be able to modify the data.
     const auto guard = bpm->ReadPage(pid);
 
@@ -277,7 +291,8 @@ TEST(BufferPoolManagerTest, DISABLED_PageAccessTest) {
   thread.join();
 }
 
-TEST(BufferPoolManagerTest, DISABLED_ContentionTest) {
+//여러 스레드가 동시에 같은 페이지 경합할 때 성능/안정성 테스트
+TEST(BufferPoolManagerTest, ContentionTest) {
   auto disk_manager = std::make_shared<DiskManager>(db_fname);
   auto bpm = std::make_shared<BufferPoolManager>(FRAMES, disk_manager.get(), K_DIST);
 
@@ -285,6 +300,7 @@ TEST(BufferPoolManagerTest, DISABLED_ContentionTest) {
 
   const auto pid = bpm->NewPage();
 
+  //4개 스레드가 동시에 같은 페이지에 10만 번 쓰기 경합
   auto thread1 = std::thread([&]() {
     for (size_t i = 0; i < rounds; i++) {
       auto guard = bpm->WritePage(pid);
@@ -319,18 +335,22 @@ TEST(BufferPoolManagerTest, DISABLED_ContentionTest) {
   thread1.join();
 }
 
-TEST(BufferPoolManagerTest, DISABLED_DeadlockTest) {
+// 데드락 상황 테스트 (페이지 대기 중 다른 락 획득 가능한지)
+// 관전 포인트: 버퍼 풀 전체 락(bpm_latch_)과 개별 페이지 락을 분리했는지 확인하는 테스트임. 전체 락을 오래 들고 있으면 데드락 발생함 ㅉㅉ
+TEST(BufferPoolManagerTest, DeadlockTest) {
   auto disk_manager = std::make_shared<DiskManager>(db_fname);
   auto bpm = std::make_shared<BufferPoolManager>(FRAMES, disk_manager.get(), K_DIST);
 
   const auto pid0 = bpm->NewPage();
   const auto pid1 = bpm->NewPage();
 
+  // 메인 스레드가 페이지0 락 보유한 채로 대기
   auto guard0 = bpm->WritePage(pid0);
 
   // A crude way of synchronizing threads, but works for this small case.
   std::atomic<bool> start = false;
 
+  //자식 스레드가 페이지0 쓰기 요청해서 대기 중
   auto child = std::thread([&]() {
     // Acknowledge that we can begin the test.
     start.store(true);
@@ -343,6 +363,7 @@ TEST(BufferPoolManagerTest, DISABLED_DeadlockTest) {
   while (!start.load()) {
   }
 
+  // lock 계속 걸리게 1초동안 내비둠. 그 사이에 다른 애 접근시킴 
   // Make the other thread wait for a bit.
   // This mimics the main thread doing some work while holding the write latch on page 0.
   std::this_thread::sleep_for(std::chrono::milliseconds(1000));
@@ -350,6 +371,8 @@ TEST(BufferPoolManagerTest, DISABLED_DeadlockTest) {
   // If your latching mechanism is incorrect, the next line of code will deadlock.
   // Think about what might happen if you hold a certain "all-encompassing" latch for too long...
 
+
+  // 메인 스레드가 페이지1 락 획득 (이게 됨?)
   // While holding page 0, take the latch on page 1.
   const auto guard1 = bpm->WritePage(pid1);
 
@@ -359,7 +382,8 @@ TEST(BufferPoolManagerTest, DISABLED_DeadlockTest) {
   child.join();
 }
 
-TEST(BufferPoolManagerTest, DISABLED_EvictableTest) {
+//핀된 페이지는 교체 대상에서 제외되는지 테스트
+TEST(BufferPoolManagerTest, EvictableTest) {
   // Test if the evictable status of a frame is always correct.
   const size_t rounds = 1000;
   const size_t num_readers = 8;
@@ -375,6 +399,7 @@ TEST(BufferPoolManagerTest, DISABLED_EvictableTest) {
     // This signal tells the readers that they can start reading after the main thread has already taken the read latch.
     bool signal = false;
 
+    // 1프레임 버퍼풀에 페이지 로드하고 핀하기
     // This page will be loaded into the only available frame.
     const auto winner_pid = bpm->NewPage();
     // We will attempt to load this page into the occupied frame, and it should fail every time.
@@ -390,9 +415,11 @@ TEST(BufferPoolManagerTest, DISABLED_EvictableTest) {
           cv.wait(lock);
         }
 
+        // 여러 스레드가 동시에 같은 페이지 읽기 접근
         // Read the page in shared mode.
         const auto read_guard = bpm->ReadPage(winner_pid);
 
+        // 새 페이지 로드 시도 실패 확인 (모든 프레임 핀됨)
         // Since the only frame is pinned, no thread should be able to bring in a new page.
         ASSERT_FALSE(bpm->CheckedReadPage(loser_pid).has_value());
       });

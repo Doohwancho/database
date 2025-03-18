@@ -58,6 +58,7 @@ class WritePageGuard;
  */
 class FrameHeader {
   friend class BufferPoolManager;
+  //Q. what is friend class? 
   friend class ReadPageGuard;
   friend class WritePageGuard;
 
@@ -174,3 +175,4 @@ class BufferPoolManager {
    */
 };
 }  // namespace bustub
+  

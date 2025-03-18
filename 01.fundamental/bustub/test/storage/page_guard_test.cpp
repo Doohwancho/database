@@ -23,7 +23,16 @@ namespace bustub {
 const size_t FRAMES = 10;
 const size_t K_DIST = 2;
 
-TEST(PageGuardTest, DISABLED_DropTest) {
+
+/*
+page_guard.cpp 에 Drop() 봐봐 
+
+- Drop() 메서드가 제대로 작동하는지 테스트함
+- 페이지 가드가 소멸되거나 명시적으로 Drop()을 호출할 때 핀 카운트가 제대로 감소하는지 체크함
+- 이미 Drop()된 가드에 대해 또 Drop()해도 문제 없는지 확인함 (이중 해제 방지)
+- 핀 카운트가 정확히 관리되어야 메모리 누수나 무한 대기 상태 안 생김 ㅇㅇ
+*/
+TEST(PageGuardTest, DropTest) {
   auto disk_manager = std::make_shared<DiskManagerUnlimitedMemory>();
   auto bpm = std::make_shared<BufferPoolManager>(FRAMES, disk_manager.get(), K_DIST);
 
@@ -112,7 +121,15 @@ TEST(PageGuardTest, DISABLED_DropTest) {
   disk_manager->ShutDown();
 }
 
-TEST(PageGuardTest, DISABLED_MoveTest) {
+/*
+page_guard.cpp에 operator= 봐봐 
+
+- 페이지 가드의 이동 생성자와 이동 할당 연산자가 제대로 작동하는지 테스트
+- 이동 후에 원본 가드는 무효화되고, 새로운 가드는 유효한 상태여야 함
+- 핀 카운트도 올바르게 관리되는지 확인
+- 잘못된 이동 처리하면 락이 해제 안 되거나 페이지가 영원히 고정될 수 있어서 중요함 ㄹㅇ
+*/
+TEST(PageGuardTest, MoveTest) {
   auto disk_manager = std::make_shared<DiskManagerUnlimitedMemory>();
   auto bpm = std::make_shared<BufferPoolManager>(FRAMES, disk_manager.get(), K_DIST);
 

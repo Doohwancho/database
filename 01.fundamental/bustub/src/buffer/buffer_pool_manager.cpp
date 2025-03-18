@@ -105,7 +105,7 @@ BufferPoolManager::~BufferPoolManager() = default;
 auto BufferPoolManager::Size() const -> size_t { return num_frames_; }
 
 /**
- * @brief Allocates a new page on disk.
+ * @brief Allocates a new page on disk. (새 페이지를 할당하고 그 ID를 반환합니다.)
  *
  * ### Implementation
  *
@@ -116,10 +116,80 @@ auto BufferPoolManager::Size() const -> size_t { return num_frames_; }
  *
  * @return The page ID of the newly allocated page.
  */
-auto BufferPoolManager::NewPage() -> page_id_t { UNIMPLEMENTED("TODO(P1): Add implementation."); }
+auto BufferPoolManager::NewPage() -> page_id_t { 
+  std::scoped_lock latch(*bpm_latch_);
+  
+  // 사용 가능한 프레임 찾기
+  frame_id_t frame_id;
+  
+  // 사용 가능한 프레임이 있는지 확인
+  if (!free_frames_.empty()) {
+    // 자유 프레임 목록에서 프레임 가져오기
+    frame_id = free_frames_.front();
+    free_frames_.pop_front();
+  } else {
+    // 교체해야 할 프레임 찾기
+    if (replacer_->Size() == 0) {
+      // 모든 프레임이 고정되어 있으면 nullptr 반환
+      return INVALID_PAGE_ID;
+    }
+    
+    // LRU-K 교체자에서 희생자 찾기
+    auto victim = replacer_->Evict();
+    if (!victim.has_value()) {
+      return INVALID_PAGE_ID;
+    }
+    
+    frame_id = victim.value();
+    auto frame = frames_[frame_id];
+    
+    // 희생 프레임에 있던 페이지가 더러우면 디스크에 쓰기
+    page_id_t old_page_id = INVALID_PAGE_ID;
+    for (const auto &entry : page_table_) {
+      if (entry.second == frame_id) {
+        old_page_id = entry.first;
+        break;
+      }
+    }
+    
+    if (old_page_id != INVALID_PAGE_ID) {
+      if (frame->is_dirty_) {
+        // 더러운 페이지를 디스크에 쓰기 - 완료될 때까지 대기
+        auto promise = disk_scheduler_->CreatePromise();
+        auto future = promise.get_future();
+        disk_scheduler_->Schedule({true, frame->GetDataMut(), old_page_id, std::move(promise)});
+        future.wait(); // 쓰기가 완료될 때까지 대기
+      }
+      // 페이지 테이블에서 제거
+      page_table_.erase(old_page_id);
+    }
+  }
+  
+  // 새 페이지 ID 할당
+  page_id_t new_page_id = next_page_id_++;
+  
+  // 프레임 초기화
+  auto frame = frames_[frame_id];
+  frame->Reset();
+  
+  // 페이지 테이블 업데이트
+  page_table_[new_page_id] = frame_id;
+  
+  // LRU-K 교체자에 접근 기록 추가
+  replacer_->RecordAccess(frame_id);
+  replacer_->SetEvictable(frame_id, false);  // 페이지가 핀되었으므로 교체 불가능으로 설정
+  
+  // 핀 카운트 증가 (여기서 빠트린 부분)
+  // frame->pin_count_++; //핀카운트 여기서 증가 안시키고, CheckedReadPage()나 CheckedWritePage()에서 증가시키자. 
+  
+  return new_page_id;
+}
 
 /**
- * @brief Removes a page from the database, both on disk and in memory.
+ * 페이지 삭제한다. (both on disk & in memory)
+ * 근데 해당 페이지가 pinned 되있으면 does nothing and return false
+ * 
+ * @brief Removes a page from the database, both on disk and in memory. 
  *
  * If the page is pinned in the buffer pool, this function does nothing and returns `false`. Otherwise, this function
  * removes the page from both disk and memory (if it is still in the buffer pool), returning `true`.
@@ -144,9 +214,57 @@ auto BufferPoolManager::NewPage() -> page_id_t { UNIMPLEMENTED("TODO(P1): Add im
  * @param page_id The page ID of the page we want to delete.
  * @return `false` if the page exists but could not be deleted, `true` if the page didn't exist or deletion succeeded.
  */
-auto BufferPoolManager::DeletePage(page_id_t page_id) -> bool { UNIMPLEMENTED("TODO(P1): Add implementation."); }
+auto BufferPoolManager::DeletePage(page_id_t page_id) -> bool {
+  // debug) pin count 먼저 확인해보기 
+  auto pin_count_opt = GetPinCount(page_id);
+  if (pin_count_opt.has_value()) {
+    std::cerr << "Trying to delete page " << page_id << " with pin count: " 
+              << pin_count_opt.value() << std::endl;
+  } else {
+    std::cerr << "Trying to delete page " << page_id << " which is not in buffer pool" << std::endl;
+  }
+
+
+  std::scoped_lock latch(*bpm_latch_);
+  
+  // 페이지가 페이지 테이블에 없으면 true 반환
+  if (page_table_.find(page_id) == page_table_.end()) {
+    return true;
+  }
+  
+  frame_id_t frame_id = page_table_[page_id];
+  auto frame = frames_[frame_id];
+  
+  // 페이지가 핀되어 있으면 삭제할 수 없음
+  if (frame->pin_count_ > 0) {
+    return false;
+  }
+  
+  // 페이지 테이블에서 제거
+  page_table_.erase(page_id);
+  
+  // 교체자에서 제거
+  replacer_->Remove(frame_id);
+  
+  // 프레임 초기화
+  frame->Reset();
+  
+  // 자유 프레임 목록에 추가
+  free_frames_.push_back(frame_id);
+  
+  // 디스크에서 페이지 삭제
+  disk_scheduler_->DeallocatePage(page_id);
+  
+  return true;
+}
 
 /**
+ * 1. 페이지가 버퍼 풀에 있는지 확인
+ * 2. 없으면 새 프레임 할당 (자유 프레임 또는 희생자 선택)
+ * 3. 디스크에서 페이지 데이터 읽어옴 (동기 I/O)
+ * 4. 프레임에 핀 카운트 증가시키고 exclusive_lock 획득
+ * 5. WritePageGuard 생성해서 반환
+ * 
  * @brief Acquires an optional write-locked guard over a page of data. The user can specify an `AccessType` if needed.
  *
  * If it is not possible to bring the page of data into memory, this function will return a `std::nullopt`.
@@ -186,10 +304,100 @@ auto BufferPoolManager::DeletePage(page_id_t page_id) -> bool { UNIMPLEMENTED("T
  * returns `std::nullopt`, otherwise returns a `WritePageGuard` ensuring exclusive and mutable access to a page's data.
  */
 auto BufferPoolManager::CheckedWritePage(page_id_t page_id, AccessType access_type) -> std::optional<WritePageGuard> {
-  UNIMPLEMENTED("TODO(P1): Add implementation.");
+  frame_id_t frame_id;
+  bool is_in_buffer_pool;
+  std::shared_ptr<FrameHeader> frame;
+  
+  {
+    // 버퍼 풀 잠금을 최소한으로 유지
+    std::scoped_lock latch(*bpm_latch_);
+    
+    is_in_buffer_pool = page_table_.find(page_id) != page_table_.end();
+    
+    if (is_in_buffer_pool) {
+      // 페이지가 이미 버퍼 풀에 있는 경우
+      frame_id = page_table_[page_id];
+    } else {
+      // 페이지가 버퍼 풀에 없는 경우, 프레임 할당 필요
+      if (!free_frames_.empty()) {
+        // 자유 프레임 사용
+        frame_id = free_frames_.front();
+        free_frames_.pop_front();
+      } else {
+        // 교체자에서 희생자 찾기
+        auto victim = replacer_->Evict();
+        if (!victim.has_value()) {
+          // 모든 페이지가 핀되어 있으면 교체할 수 없음
+          return std::nullopt;
+        }
+        
+        frame_id = victim.value();
+        auto victim_frame = frames_[frame_id];
+        
+        // 희생 프레임에 있던 페이지가 더러우면 디스크에 쓰기
+        page_id_t old_page_id = INVALID_PAGE_ID;
+        for (const auto &entry : page_table_) {
+          if (entry.second == frame_id) {
+            old_page_id = entry.first;
+            break;
+          }
+        }
+        
+        if (old_page_id != INVALID_PAGE_ID) {
+          if (victim_frame->is_dirty_) {
+            // 더러운 페이지를 디스크에 쓰기
+            auto promise = disk_scheduler_->CreatePromise();
+            auto future = promise.get_future();
+            disk_scheduler_->Schedule({true, victim_frame->GetDataMut(), old_page_id, std::move(promise)});
+            future.wait(); // 쓰기가 완료될 때까지 대기
+          }
+          
+          // 페이지 테이블에서 제거
+          page_table_.erase(old_page_id);
+        }
+      }
+      
+      // 새로운 프레임 초기화
+      auto new_frame = frames_[frame_id];
+      new_frame->Reset();
+      
+      // 페이지 테이블 업데이트
+      page_table_[page_id] = frame_id;
+    }
+    
+    // 프레임 획득
+    frame = frames_[frame_id];
+    
+    // 핀 카운트 증가
+    frame->pin_count_++;
+    
+    // LRU-K 교체자에 접근 기록 추가
+    replacer_->RecordAccess(frame_id, access_type);
+    replacer_->SetEvictable(frame_id, false);  // 페이지가 핀되었으므로 교체 불가능으로 설정
+  }
+  
+  // 버퍼 풀 잠금 밖에서 디스크 I/O 수행
+  if (!is_in_buffer_pool) {
+    auto promise = disk_scheduler_->CreatePromise();
+    auto future = promise.get_future();
+    disk_scheduler_->Schedule({false, frame->GetDataMut(), page_id, std::move(promise)});
+    future.wait();  // 읽기가 완료될 때까지 대기
+  }
+  
+  // 쓰기 락 획득 - 차단형으로 변경
+  frame->rwlatch_.lock();  // try_lock() 대신 lock() 사용
+  
+  // WritePageGuard 반환
+  return WritePageGuard(page_id, frame, replacer_, bpm_latch_, disk_scheduler_);
 }
 
 /**
+ * 1. 페이지가 버퍼 풀에 있는지 확인
+ * 2. 없으면 새 프레임 할당 (자유 프레임 또는 희생자 선택)
+ * 3. 디스크에서 페이지 데이터 읽어옴 (동기 I/O)
+ * 4. 프레임에 핀 카운트 증가시키고 shared_lock 획득
+ * 5. ReadPageGuard 생성해서 반환
+ * 
  * @brief Acquires an optional read-locked guard over a page of data. The user can specify an `AccessType` if needed.
  *
  * If it is not possible to bring the page of data into memory, this function will return a `std::nullopt`.
@@ -214,7 +422,85 @@ auto BufferPoolManager::CheckedWritePage(page_id_t page_id, AccessType access_ty
  * returns `std::nullopt`, otherwise returns a `ReadPageGuard` ensuring shared and read-only access to a page's data.
  */
 auto BufferPoolManager::CheckedReadPage(page_id_t page_id, AccessType access_type) -> std::optional<ReadPageGuard> {
-  UNIMPLEMENTED("TODO(P1): Add implementation.");
+  std::scoped_lock latch(*bpm_latch_);
+  
+  frame_id_t frame_id;
+  bool is_in_buffer_pool = page_table_.find(page_id) != page_table_.end();
+  
+  if (is_in_buffer_pool) {
+    // 페이지가 이미 버퍼 풀에 있는 경우
+    frame_id = page_table_[page_id];
+  } else {
+    // 페이지가 버퍼 풀에 없는 경우, 프레임 할당 필요
+    if (!free_frames_.empty()) {
+      // 자유 프레임 사용
+      frame_id = free_frames_.front();
+      free_frames_.pop_front();
+    } else {
+      // 교체자에서 희생자 찾기
+      auto victim = replacer_->Evict();
+      if (!victim.has_value()) {
+        // 모든 페이지가 핀되어 있으면 교체할 수 없음
+        return std::nullopt;
+      }
+      
+      frame_id = victim.value();
+      auto frame = frames_[frame_id];
+      
+      // 희생 프레임에 있던 페이지가 더러우면 디스크에 쓰기
+      page_id_t old_page_id = INVALID_PAGE_ID;
+      for (const auto &entry : page_table_) {
+        if (entry.second == frame_id) {
+          old_page_id = entry.first;
+          break;
+        }
+      }
+
+      if (old_page_id != INVALID_PAGE_ID) {
+        if (frame->is_dirty_) {
+          // Use a promise to wait for the write to complete
+          auto promise = disk_scheduler_->CreatePromise();
+          auto future = promise.get_future();
+          disk_scheduler_->Schedule({true, frame->GetDataMut(), old_page_id, std::move(promise)});
+          future.wait(); // Wait for the write to complete
+        }
+        // 페이지 테이블에서 제거
+        page_table_.erase(old_page_id);
+      }
+    }
+    
+    // 디스크에서 페이지 읽기
+    auto frame = frames_[frame_id];
+    frame->Reset();
+    
+    // 디스크에서 데이터 읽기
+    //before
+    // disk_scheduler_->Schedule({false, frame->GetDataMut(), page_id, {}});
+    //after
+    // 디스크에서 데이터 읽기 - 완료될 때까지 대기
+    auto promise = disk_scheduler_->CreatePromise();
+    auto future = promise.get_future();
+    disk_scheduler_->Schedule({false, frame->GetDataMut(), page_id, std::move(promise)});
+    future.wait(); // 읽기가 완료될 때까지 대기
+    
+    // 페이지 테이블 업데이트
+    page_table_[page_id] = frame_id;
+  }
+  
+  // 프레임 획득 및 핀 카운트 증가
+  auto frame = frames_[frame_id];
+  frame->pin_count_++;
+
+  // 읽기 락 획득
+  frame->rwlatch_.lock_shared();
+  
+  // LRU-K 교체자에 접근 기록 추가
+  replacer_->RecordAccess(frame_id, access_type);
+  replacer_->SetEvictable(frame_id, false);  // 페이지가 핀되었으므로 교체 불가능으로 설정
+  
+  // ReadPageGuard 반환
+  return ReadPageGuard(page_id, frame, replacer_, bpm_latch_, disk_scheduler_);
+  // UNIMPLEMENTED("TODO(P1): Add implementation.");
 }
 
 /**
@@ -268,6 +554,8 @@ auto BufferPoolManager::ReadPage(page_id_t page_id, AccessType access_type) -> R
 }
 
 /**
+ * 페이지를 디스크에 쓰기 (안전하지 않은 버전)
+ * 
  * @brief Flushes a page's data out to disk unsafely.
  *
  * This function will write out a page's data to disk if it has been modified. If the given page is not in memory, this
@@ -286,9 +574,30 @@ auto BufferPoolManager::ReadPage(page_id_t page_id, AccessType access_type) -> R
  * @param page_id The page ID of the page to be flushed.
  * @return `false` if the page could not be found in the page table, otherwise `true`.
  */
-auto BufferPoolManager::FlushPageUnsafe(page_id_t page_id) -> bool { UNIMPLEMENTED("TODO(P1): Add implementation."); }
+auto BufferPoolManager::FlushPageUnsafe(page_id_t page_id) -> bool { 
+  std::scoped_lock latch(*bpm_latch_);
+  
+  // 페이지가 버퍼 풀에 없으면 false 반환
+  if (page_table_.find(page_id) == page_table_.end()) {
+    return false;
+  }
+  
+  frame_id_t frame_id = page_table_[page_id];
+  auto frame = frames_[frame_id];
+  
+  // 페이지가 더러우면 디스크에 쓰기
+  if (frame->is_dirty_) {
+    disk_scheduler_->Schedule({true, frame->GetDataMut(), page_id, {}});
+    frame->is_dirty_ = false;
+  }
+  
+  return true;
+  // UNIMPLEMENTED("TODO(P1): Add implementation."); 
+}
 
 /**
+ * 페이지를 디스크에 쓰기 (안전한 버전)
+ * 
  * @brief Flushes a page's data out to disk safely.
  *
  * This function will write out a page's data to disk if it has been modified. If the given page is not in memory, this
@@ -306,9 +615,35 @@ auto BufferPoolManager::FlushPageUnsafe(page_id_t page_id) -> bool { UNIMPLEMENT
  * @param page_id The page ID of the page to be flushed.
  * @return `false` if the page could not be found in the page table, otherwise `true`.
  */
-auto BufferPoolManager::FlushPage(page_id_t page_id) -> bool { UNIMPLEMENTED("TODO(P1): Add implementation."); }
+auto BufferPoolManager::FlushPage(page_id_t page_id) -> bool { 
+  std::scoped_lock latch(*bpm_latch_);
+  
+  // 페이지가 버퍼 풀에 없으면 false 반환
+  if (page_table_.find(page_id) == page_table_.end()) {
+    return false;
+  }
+  
+  frame_id_t frame_id = page_table_[page_id];
+  auto frame = frames_[frame_id];
+  
+  // 쓰기 락 획득
+  std::scoped_lock frame_latch(frame->rwlatch_);
+  
+  // 페이지가 더러우면 디스크에 쓰기
+  if (frame->is_dirty_) {
+    auto promise = disk_scheduler_->CreatePromise();
+    auto future = promise.get_future();
+    disk_scheduler_->Schedule({true, frame->GetDataMut(), page_id, std::move(promise)});
+    future.wait(); // 쓰기가 완료될 때까지 대기
+    frame->is_dirty_ = false;
+  }
+  
+  return true;
+}
 
-/**
+/** 
+ * 모든 페이지를 디스크에 쓰기 (안전하지 않은 버전)
+ * 
  * @brief Flushes all page data that is in memory to disk unsafely.
  *
  * You should not take locks on the pages in this function.
@@ -321,9 +656,28 @@ auto BufferPoolManager::FlushPage(page_id_t page_id) -> bool { UNIMPLEMENTED("TO
  *
  * TODO(P1): Add implementation
  */
-void BufferPoolManager::FlushAllPagesUnsafe() { UNIMPLEMENTED("TODO(P1): Add implementation."); }
+void BufferPoolManager::FlushAllPagesUnsafe() { 
+  std::scoped_lock latch(*bpm_latch_);
+  
+  for (const auto &entry : page_table_) {
+    page_id_t page_id = entry.first;
+    frame_id_t frame_id = entry.second;
+    auto frame = frames_[frame_id];
+    
+    // 페이지가 더러우면 디스크에 쓰기
+    if (frame->is_dirty_) {
+      auto promise = disk_scheduler_->CreatePromise();
+      auto future = promise.get_future();
+      disk_scheduler_->Schedule({true, frame->GetDataMut(), page_id, std::move(promise)});
+      future.wait(); // 쓰기가 완료될 때까지 대기
+      frame->is_dirty_ = false;
+    }
+  }
+}
 
 /**
+ * 모든 페이지를 디스크에 쓰기 (안전한 버전)
+ * 
  * @brief Flushes all page data that is in memory to disk safely.
  *
  * You should take locks on the pages in this function to ensure that a consistent state is flushed to disk.
@@ -335,9 +689,31 @@ void BufferPoolManager::FlushAllPagesUnsafe() { UNIMPLEMENTED("TODO(P1): Add imp
  *
  * TODO(P1): Add implementation
  */
-void BufferPoolManager::FlushAllPages() { UNIMPLEMENTED("TODO(P1): Add implementation."); }
+void BufferPoolManager::FlushAllPages() { 
+  std::scoped_lock latch(*bpm_latch_);
+  
+  for (const auto &entry : page_table_) {
+    page_id_t page_id = entry.first;
+    frame_id_t frame_id = entry.second;
+    auto frame = frames_[frame_id];
+    
+    // 쓰기 락 획득
+    std::scoped_lock frame_latch(frame->rwlatch_);
+    
+    // 페이지가 더러우면 디스크에 쓰기
+    if (frame->is_dirty_) {
+      auto promise = disk_scheduler_->CreatePromise();
+      auto future = promise.get_future();
+      disk_scheduler_->Schedule({true, frame->GetDataMut(), page_id, std::move(promise)});
+      future.wait(); // 쓰기가 완료될 때까지 대기
+      frame->is_dirty_ = false;
+    }
+  }
+}
 
 /**
+ * 페이지의 핀 카운트를 반환합니다.
+ * 
  * @brief Retrieves the pin count of a page. If the page does not exist in memory, return `std::nullopt`.
  *
  * This function is thread safe. Callers may invoke this function in a multi-threaded environment where multiple threads
@@ -362,7 +738,19 @@ void BufferPoolManager::FlushAllPages() { UNIMPLEMENTED("TODO(P1): Add implement
  * @return std::optional<size_t> The pin count if the page exists, otherwise `std::nullopt`.
  */
 auto BufferPoolManager::GetPinCount(page_id_t page_id) -> std::optional<size_t> {
-  UNIMPLEMENTED("TODO(P1): Add implementation.");
+  std::scoped_lock latch(*bpm_latch_);
+  
+  // 페이지가 버퍼 풀에 없으면 std::nullopt 반환
+  if (page_table_.find(page_id) == page_table_.end()) {
+    return std::nullopt;
+  }
+  
+  frame_id_t frame_id = page_table_[page_id];
+  auto frame = frames_[frame_id];
+  
+  // 핀 카운트 반환
+  return frame->pin_count_.load();
+  // UNIMPLEMENTED("TODO(P1): Add implementation.");
 }
 
 }  // namespace bustub
