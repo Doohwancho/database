@@ -1,0 +1,50 @@
+# option1) wikipedia
+
+초당 트래픽 200~300개씩 오는데 최대 10개 병렬로 받을 수 있다 (그 이상 연결하면 차단당함)
+
+https://enterprise.wikimedia.com/blog/realtime-api-parallel-connections-restart-support/
+
+하루 250만 건의 실시간 스트리밍 데이터를 처리하는 파이프라인을 구축
+
+https://stream.wikimedia.org/v2/stream/recentchange
+평균 초당 29건
+시간당 약 106,027건
+하루(24시간) 약 254만 건
+
+https://stream.wikimedia.org/v2/stream/page-create
+2 evict per second
+https://stream.wikimedia.org/v2/stream/revision-create
+
+recentchange
+모든 위키미디어 프로젝트의 최근 변경 이벤트
+https://stream.wikimedia.org/v2/stream/recentchange
+
+revision-create
+문서(또는 위키데이터 항목)의 새로운 리비전(수정/편집) 생성 이벤트
+https://stream.wikimedia.org/v2/stream/revision-create
+
+page-create
+새 페이지가 생성될 때 발생하는 이벤트
+https://stream.wikimedia.org/v2/stream/page-create
+
+page-delete
+페이지가 삭제될 때 발생하는 이벤트
+https://stream.wikimedia.org/v2/stream/page-delete
+
+page-undelete
+삭제된 페이지가 복구될 때 발생하는 이벤트
+https://stream.wikimedia.org/v2/stream/page-undelete
+
+page-move
+페이지 이름이 이동(이름변경)될 때 발생하는 이벤트
+https://stream.wikimedia.org/v2/stream/page-move
+
+page-properties-change
+페이지 속성(예: 보호, 표시여부 등)이 변경될 때 발생하는 이벤트
+https://stream.wikimedia.org/v2/stream/page-properties-change
+
+이 외에도 복수 스트림을 콤마(,)로 이어서 한 번에 구독할 수도 있습니다.
+예시:
+https://stream.wikimedia.org/v2/stream/page-create,page-delete,page-undelete,page-move,page-properties-change
+
+데이터 스키마: https://stream.wikimedia.org/?doc#/streams

@@ -1,0 +1,1 @@
+rootProject.name = "wikipedia_pipeline1"
