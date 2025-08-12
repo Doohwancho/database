@@ -1,6 +1,9 @@
 # option1) wikipedia
 
-초당 트래픽 200~300개씩 오는데 최대 10개 병렬로 받을 수 있다 (그 이상 연결하면 차단당함)
+트래픽이 많을 줄 알았는데 병렬로 10개씩 받아도 20~700 RPS으로 요동치고, 보통 한 200RPS정도 된다. 
+
+이런식이면 부하거는 서버 따로 띄워서 하는게 좋을 지 싶다. 
+최대 10개 병렬로 받을 수 있다 (그 이상 연결하면 차단당함)
 
 https://enterprise.wikimedia.com/blog/realtime-api-parallel-connections-restart-support/
 

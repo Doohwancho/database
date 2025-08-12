@@ -2,7 +2,7 @@
 위키미디어에 stream 트래픽을 10개 쓰레드가 병렬로 받는 코드.\
 [병렬요청은 최대 10개까지](https://enterprise.wikimedia.com/blog/realtime-api-parallel-connections-restart-support/)
 
-트래픽이 많을 줄 알았는데 20~700 RPS으로 요동치고, 보통 한 200RPS정도 된다. 
+트래픽이 많을 줄 알았는데 병렬로 10개씩 받아도 20~700 RPS으로 요동치고, 보통 한 200RPS정도 된다. 
 
 이런식이면 부하거는 서버 따로 띄워서 하는게 좋을 지 싶다. 
 
