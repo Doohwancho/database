@@ -4,7 +4,7 @@
     "width": 2000,
     "height": 2000,
     "scrollTop": 0,
-    "scrollLeft": 0,
+    "scrollLeft": -1,
     "zoomLevel": 1,
     "show": {
       "tableComment": true,
@@ -43,11 +43,11 @@
   "table": {
     "tables": [
       {
-        "name": "학생",
+        "name": "환자",
         "comment": "",
         "columns": [
           {
-            "name": "학생번호",
+            "name": "환자번호",
             "comment": "",
             "dataType": "",
             "default": "",
@@ -55,7 +55,7 @@
               "autoIncrement": false,
               "primaryKey": true,
               "unique": false,
-              "notNull": false
+              "notNull": true
             },
             "ui": {
               "active": false,
@@ -67,27 +67,73 @@
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "223404e2-f297-457b-8400-106c1deac328"
+            "id": "080e6eed-1ec5-4096-8d0a-547c760b9ca5"
+          },
+          {
+            "name": "이름",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "7464a194-5c76-4d55-a9e1-ff70bc7a0152"
+          },
+          {
+            "name": "나이",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "8db1af27-7e3b-4121-b9e8-73d6451c2973"
           }
         ],
         "ui": {
           "active": false,
-          "left": 22,
-          "top": 48,
+          "left": 68,
+          "top": 112,
           "zIndex": 1,
           "widthName": 60,
           "widthComment": 60,
           "color": "#F44336"
         },
         "visible": true,
-        "id": "706afd45-ce51-49d8-8388-044a5dd1d481"
+        "id": "fc402906-b7cb-42df-9a3f-4ad4cc64e228"
       },
       {
-        "name": "과목",
+        "name": "질병",
         "comment": "",
         "columns": [
           {
-            "name": "과목번호",
+            "name": "질병코드",
             "comment": "",
             "dataType": "",
             "default": "",
@@ -107,10 +153,10 @@
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "cc17eaf1-e0cb-42ff-8b12-15c90b75238f"
+            "id": "97c925ac-982c-403e-b446-c0c82274ce86"
           },
           {
-            "name": "학생번호",
+            "name": "질병명",
             "comment": "",
             "dataType": "",
             "default": "",
@@ -118,175 +164,118 @@
               "autoIncrement": false,
               "primaryKey": false,
               "unique": false,
-              "notNull": true
+              "notNull": false
             },
             "ui": {
               "active": false,
               "pk": false,
-              "fk": true,
+              "fk": false,
               "pfk": false,
               "widthName": 60,
               "widthComment": 60,
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "d4966538-f0a5-4352-9c9a-ed8f3802a715"
+            "id": "c2bfaac4-569a-4f0e-a0ff-af730e05a3d9"
+          },
+          {
+            "name": "증상",
+            "comment": "",
+            "dataType": "",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "e9824125-d179-4ffa-b9b0-cfc887023ca2"
           }
         ],
         "ui": {
           "active": false,
-          "left": 459,
-          "top": 38,
+          "left": 545,
+          "top": 127,
           "zIndex": 2,
           "widthName": 60,
           "widthComment": 60,
           "color": "#2196F3"
         },
         "visible": true,
-        "id": "ff329463-9d19-43c0-9f87-c5b9f26a3103"
+        "id": "f0b85990-6e23-453a-8f43-55aa05751f85"
       },
       {
-        "name": "학생",
+        "name": "환자_질병",
         "comment": "",
         "columns": [
           {
-            "name": "학생번호",
+            "name": "환자번호",
             "comment": "",
             "dataType": "",
             "default": "",
             "option": {
               "autoIncrement": false,
               "primaryKey": true,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": true,
-              "fk": false,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "f7629a72-4f03-44e4-b10d-b317ac89ee5b"
-          }
-        ],
-        "ui": {
-          "active": false,
-          "left": 30,
-          "top": 381,
-          "zIndex": 4,
-          "widthName": 60,
-          "widthComment": 60,
-          "color": "#F44336"
-        },
-        "visible": true,
-        "id": "e0c6f07d-f544-47cc-98da-6602393d39e1"
-      },
-      {
-        "name": "과목",
-        "comment": "",
-        "columns": [
-          {
-            "name": "과목번호",
-            "comment": "",
-            "dataType": "",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": true,
-              "unique": false,
-              "notNull": true
-            },
-            "ui": {
-              "active": false,
-              "pk": true,
-              "fk": false,
-              "pfk": false,
-              "widthName": 60,
-              "widthComment": 60,
-              "widthDataType": 60,
-              "widthDefault": 60
-            },
-            "id": "0e92e5de-4faa-4846-bdfd-9a1529411800"
-          }
-        ],
-        "ui": {
-          "active": false,
-          "left": 546,
-          "top": 376,
-          "zIndex": 6,
-          "widthName": 60,
-          "widthComment": 60,
-          "color": "#2196F3"
-        },
-        "visible": true,
-        "id": "fb71cfde-24a3-4b25-9cf6-f63b0ea05827"
-      },
-      {
-        "name": "수강",
-        "comment": "",
-        "columns": [
-          {
-            "name": "학생번호",
-            "comment": "",
-            "dataType": "",
-            "default": "",
-            "option": {
-              "autoIncrement": false,
-              "primaryKey": false,
               "unique": false,
               "notNull": true
             },
             "ui": {
               "active": false,
               "pk": false,
-              "fk": true,
-              "pfk": false,
+              "fk": false,
+              "pfk": true,
               "widthName": 60,
               "widthComment": 60,
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "4228cf3c-58ce-4cf6-b970-01a20b37e928"
+            "id": "4dd57900-85cf-4266-b8a4-e063a070a3f1"
           },
           {
-            "name": "과목번호",
+            "name": "질병코드",
             "comment": "",
             "dataType": "",
             "default": "",
             "option": {
               "autoIncrement": false,
-              "primaryKey": false,
+              "primaryKey": true,
               "unique": false,
               "notNull": true
             },
             "ui": {
               "active": false,
               "pk": false,
-              "fk": true,
-              "pfk": false,
+              "fk": false,
+              "pfk": true,
               "widthName": 60,
               "widthComment": 60,
               "widthDataType": 60,
               "widthDefault": 60
             },
-            "id": "5105cbf8-79c4-4147-9b34-6cadd633947c"
+            "id": "8f6adab5-00c7-45e5-849b-aad465ddb1d6"
           }
         ],
         "ui": {
           "active": false,
-          "left": 262,
-          "top": 587,
-          "zIndex": 5,
+          "left": 311,
+          "top": 277,
+          "zIndex": 3,
           "widthName": 60,
           "widthComment": 60,
-          "color": "#FFEB3B"
+          "color": "#CDDC39"
         },
         "visible": true,
-        "id": "8a003266-dbb6-4454-b4cf-e1cee8e8f35e"
+        "id": "a4fb63b5-43d8-4f0c-bd49-0a068f99570b"
       }
     ],
     "indexes": []
@@ -294,98 +283,72 @@
   "memo": {
     "memos": [
       {
-        "value": "case1) m:m\n\n한 학생이 여러 과목 수강 가능하고,\n한 과목을 여러 학생이 수강 가능하니까 m:m관계.\n\n근데 물리모델에서 m:m관계 표기법 없음.\n\n그래서 아래와 같이 치환해줘야 함.\n\n그걸 m:m 해소라고 함.",
+        "value": "takeaway1)\n\n한 환자가 여러 질병 걸릴 수도 있으니까, 또한 한 질병에 여러 환자가 종속될 수 있으니까, M:M관계.\n\ntakeaway2)\ncomposite key(환자번호, 질병코드)\n왜?\n\n'어떤 환자가 어떤 질병에 걸렸다'라는 정보를 나타내는 테이블로써 환자_질병 엔티티를 쓰겠다는 것.\n환자 엔티티와 질병 엔티티를 fk join으로 잇는 용도가 아니라.\n\n\n",
         "ui": {
-          "active": false,
-          "left": 149,
-          "top": 147,
-          "zIndex": 3,
-          "width": 504,
-          "height": 157
+          "active": true,
+          "left": 21,
+          "top": 406,
+          "zIndex": 7,
+          "width": 328,
+          "height": 201
         },
-        "id": "369ca9c0-c194-4fa9-a24a-4caf88326aba"
+        "id": "dab023fd-7fd1-4fc0-af0d-845fb29d668d"
       }
     ]
   },
   "relationship": {
     "relationships": [
       {
-        "identification": false,
+        "identification": true,
         "relationshipType": "OneN",
         "startRelationshipType": "Dash",
         "start": {
-          "tableId": "706afd45-ce51-49d8-8388-044a5dd1d481",
+          "tableId": "fc402906-b7cb-42df-9a3f-4ad4cc64e228",
           "columnIds": [
-            "223404e2-f297-457b-8400-106c1deac328"
+            "080e6eed-1ec5-4096-8d0a-547c760b9ca5"
           ],
-          "x": 369,
-          "y": 92.75,
-          "direction": "right"
+          "x": 241.5,
+          "y": 242.5,
+          "direction": "bottom"
         },
         "end": {
-          "tableId": "ff329463-9d19-43c0-9f87-c5b9f26a3103",
+          "tableId": "a4fb63b5-43d8-4f0c-bd49-0a068f99570b",
           "columnIds": [
-            "d4966538-f0a5-4352-9c9a-ed8f3802a715"
+            "4dd57900-85cf-4266-b8a4-e063a070a3f1"
           ],
-          "x": 459,
-          "y": 93,
+          "x": 311,
+          "y": 332,
           "direction": "left"
         },
-        "constraintName": "fk_학생_to_과목",
+        "constraintName": "fk_환자_to_환자_질병",
         "visible": true,
-        "id": "66dd58c9-3f05-4e4f-a168-988c4c88a3d6"
+        "id": "0113bec9-995a-4dd6-b568-b66557c8d403"
       },
       {
-        "identification": false,
-        "relationshipType": "ZeroN",
+        "identification": true,
+        "relationshipType": "OneN",
         "startRelationshipType": "Dash",
         "start": {
-          "tableId": "e0c6f07d-f544-47cc-98da-6602393d39e1",
+          "tableId": "f0b85990-6e23-453a-8f43-55aa05751f85",
           "columnIds": [
-            "f7629a72-4f03-44e4-b10d-b317ac89ee5b"
+            "97c925ac-982c-403e-b446-c0c82274ce86"
           ],
-          "x": 377,
-          "y": 425.75,
+          "x": 718.5,
+          "y": 257.5,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "a4fb63b5-43d8-4f0c-bd49-0a068f99570b",
+          "columnIds": [
+            "8f6adab5-00c7-45e5-849b-aad465ddb1d6"
+          ],
+          "x": 658,
+          "y": 332,
           "direction": "right"
         },
-        "end": {
-          "tableId": "8a003266-dbb6-4454-b4cf-e1cee8e8f35e",
-          "columnIds": [
-            "4228cf3c-58ce-4cf6-b970-01a20b37e928"
-          ],
-          "x": 348.75,
-          "y": 587,
-          "direction": "top"
-        },
-        "constraintName": "fk_학생_to_수강",
+        "constraintName": "fk_질병_to_환자_질병",
         "visible": true,
-        "id": "4d73f80f-b628-46a3-bd0a-2f75ea77a392"
-      },
-      {
-        "identification": false,
-        "relationshipType": "ZeroN",
-        "startRelationshipType": "Dash",
-        "start": {
-          "tableId": "fb71cfde-24a3-4b25-9cf6-f63b0ea05827",
-          "columnIds": [
-            "0e92e5de-4faa-4846-bdfd-9a1529411800"
-          ],
-          "x": 546,
-          "y": 420.75,
-          "direction": "left"
-        },
-        "end": {
-          "tableId": "8a003266-dbb6-4454-b4cf-e1cee8e8f35e",
-          "columnIds": [
-            "5105cbf8-79c4-4147-9b34-6cadd633947c"
-          ],
-          "x": 522.25,
-          "y": 587,
-          "direction": "top"
-        },
-        "constraintName": "fk_과목_to_수강",
-        "visible": true,
-        "id": "a11e42a8-5f43-43e8-a2f7-a922a07d13bc"
+        "id": "8c8d3d71-7a2e-4148-95d2-bd9d558b14cf"
       }
     ]
   }

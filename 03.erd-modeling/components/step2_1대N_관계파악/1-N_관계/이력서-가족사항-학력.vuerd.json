@@ -1,0 +1,898 @@
+{
+  "$schema": "https://raw.githubusercontent.com/dineug/erd-editor/main/json-schema/schema.json",
+  "version": "3.0.0",
+  "settings": {
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": -4,
+    "scrollLeft": 0,
+    "zoomLevel": 1,
+    "show": 431,
+    "database": 4,
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": 1,
+    "tableNameCase": 4,
+    "columnNameCase": 2,
+    "bracketType": 1,
+    "relationshipDataTypeSync": true,
+    "relationshipOptimization": false,
+    "columnOrder": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64
+    ],
+    "maxWidthComment": -1,
+    "ignoreSaveSettings": 0
+  },
+  "doc": {
+    "tableIds": [
+      "1f452171-1bf4-4fac-8334-73a60f84a379",
+      "86298f09-6ce2-49cb-8d38-be012826e875",
+      "3fc2ac50-ffad-4e71-94e9-cd234b7c3760"
+    ],
+    "relationshipIds": [
+      "3cb1de3f-847e-4efc-8bb0-4ec7391849e5",
+      "02644b3e-4e5d-4546-a5eb-23572479abdd"
+    ],
+    "indexIds": [],
+    "memoIds": [
+      "5ccb5beb-3601-48ab-901b-b8c926b7a814"
+    ]
+  },
+  "collections": {
+    "tableEntities": {
+      "1f452171-1bf4-4fac-8334-73a60f84a379": {
+        "id": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "이력서",
+        "comment": "",
+        "columnIds": [
+          "a23d784f-e2ac-41bb-a758-cccba00d51d3",
+          "a04672eb-5d48-4157-8534-91ae0a149100",
+          "e92c7a95-0be5-41af-a6d6-49c830da62d6",
+          "218e963a-5ec1-448c-9cf6-17c4513860e8",
+          "2ccd7101-e4d8-4aa7-8438-ffa3e608c4f4",
+          "bc888818-84f4-47ea-a521-2d915dc21511",
+          "93254fa5-20e0-4653-b1ad-25c7b337a44e",
+          "44c93348-b63a-447e-b018-d182d65e22ab",
+          "21af7cb8-0337-42ec-b73a-62d02eba3863",
+          "f932145b-d438-4b06-a5e8-516ca63b5e7d",
+          "5e0a09c4-4c45-4c4b-9630-16705899a438",
+          "afc1a292-cfb2-435a-bc20-8fb7ff4469ed",
+          "179b8e81-6f68-4241-b4c3-720e6f48e7bd",
+          "20a9366b-5f64-405a-bd9b-a2bb099fdb52",
+          "01da7658-b313-460c-b7e7-171ac2a668cf",
+          "ec06cedc-e262-4d1e-a6fd-d11b1fe8a75f",
+          "ac1f700e-79d2-4f7a-8aec-483a4de97bad",
+          "78a5958e-b235-4dfd-862c-7eb05ec8b4a0",
+          "673ce424-e8eb-4d9b-a4c4-72140c881ec8"
+        ],
+        "seqColumnIds": [
+          "a23d784f-e2ac-41bb-a758-cccba00d51d3",
+          "a04672eb-5d48-4157-8534-91ae0a149100",
+          "e92c7a95-0be5-41af-a6d6-49c830da62d6",
+          "218e963a-5ec1-448c-9cf6-17c4513860e8",
+          "2ccd7101-e4d8-4aa7-8438-ffa3e608c4f4",
+          "bc888818-84f4-47ea-a521-2d915dc21511",
+          "93254fa5-20e0-4653-b1ad-25c7b337a44e",
+          "44c93348-b63a-447e-b018-d182d65e22ab",
+          "21af7cb8-0337-42ec-b73a-62d02eba3863",
+          "f932145b-d438-4b06-a5e8-516ca63b5e7d",
+          "5e0a09c4-4c45-4c4b-9630-16705899a438",
+          "afc1a292-cfb2-435a-bc20-8fb7ff4469ed",
+          "179b8e81-6f68-4241-b4c3-720e6f48e7bd",
+          "20a9366b-5f64-405a-bd9b-a2bb099fdb52",
+          "01da7658-b313-460c-b7e7-171ac2a668cf",
+          "ec06cedc-e262-4d1e-a6fd-d11b1fe8a75f",
+          "ac1f700e-79d2-4f7a-8aec-483a4de97bad",
+          "78a5958e-b235-4dfd-862c-7eb05ec8b4a0",
+          "673ce424-e8eb-4d9b-a4c4-72140c881ec8"
+        ],
+        "ui": {
+          "x": 38,
+          "y": 71,
+          "zIndex": 68,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#F44336"
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "86298f09-6ce2-49cb-8d38-be012826e875": {
+        "id": "86298f09-6ce2-49cb-8d38-be012826e875",
+        "name": "가족사항",
+        "comment": "",
+        "columnIds": [
+          "4eca93d7-3860-4f25-adcd-c8578a4012de",
+          "5545c1d8-7191-4437-83f4-a5c093f98b15",
+          "6c813121-7485-434e-ab7f-82b7b2e7fedd",
+          "48d69e7c-0f95-4593-8ae3-8b7c300b00b7",
+          "c1ea0d84-fcca-4e48-abcd-98757ca9b733",
+          "955c712d-fdbb-4751-8996-930d7caa3f3d",
+          "3a26c306-bd78-4456-9764-846d858868b2",
+          "377074d7-79e6-4d8d-bc2c-54bee8fb9214",
+          "dde8b9d9-c580-4009-a382-31b5770a8807"
+        ],
+        "seqColumnIds": [
+          "4eca93d7-3860-4f25-adcd-c8578a4012de",
+          "5545c1d8-7191-4437-83f4-a5c093f98b15",
+          "6c813121-7485-434e-ab7f-82b7b2e7fedd",
+          "48d69e7c-0f95-4593-8ae3-8b7c300b00b7",
+          "c1ea0d84-fcca-4e48-abcd-98757ca9b733",
+          "955c712d-fdbb-4751-8996-930d7caa3f3d",
+          "3a26c306-bd78-4456-9764-846d858868b2",
+          "377074d7-79e6-4d8d-bc2c-54bee8fb9214",
+          "dde8b9d9-c580-4009-a382-31b5770a8807"
+        ],
+        "ui": {
+          "x": 526,
+          "y": 73,
+          "zIndex": 76,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#9C27B0"
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "3fc2ac50-ffad-4e71-94e9-cd234b7c3760": {
+        "id": "3fc2ac50-ffad-4e71-94e9-cd234b7c3760",
+        "name": "학력",
+        "comment": "",
+        "columnIds": [
+          "2bce5506-3cee-4d19-90af-4136dd01b028",
+          "7779bd08-ab9a-4d8e-afda-fd38c646ffdc",
+          "64f3d8df-aca1-417b-8993-c2979538be64",
+          "61303b03-b0fa-4cf7-8923-dfb7beeea78d"
+        ],
+        "seqColumnIds": [
+          "2bce5506-3cee-4d19-90af-4136dd01b028",
+          "7779bd08-ab9a-4d8e-afda-fd38c646ffdc",
+          "64f3d8df-aca1-417b-8993-c2979538be64",
+          "61303b03-b0fa-4cf7-8923-dfb7beeea78d"
+        ],
+        "ui": {
+          "x": 523,
+          "y": 438,
+          "zIndex": 66,
+          "widthName": 60,
+          "widthComment": 60,
+          "color": "#2196F3"
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      }
+    },
+    "tableColumnEntities": {
+      "a23d784f-e2ac-41bb-a758-cccba00d51d3": {
+        "id": "a23d784f-e2ac-41bb-a758-cccba00d51d3",
+        "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "이력서번호",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 62,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "a04672eb-5d48-4157-8534-91ae0a149100": {
+        "id": "a04672eb-5d48-4157-8534-91ae0a149100",
+        "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "이름",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "e92c7a95-0be5-41af-a6d6-49c830da62d6": {
+        "id": "e92c7a95-0be5-41af-a6d6-49c830da62d6",
+        "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "주민등록번호",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 74,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "218e963a-5ec1-448c-9cf6-17c4513860e8": {
+        "id": "218e963a-5ec1-448c-9cf6-17c4513860e8",
+        "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "이메일",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "2ccd7101-e4d8-4aa7-8438-ffa3e608c4f4": {
+        "id": "2ccd7101-e4d8-4aa7-8438-ffa3e608c4f4",
+        "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "전화번호",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "bc888818-84f4-47ea-a521-2d915dc21511": {
+        "id": "bc888818-84f4-47ea-a521-2d915dc21511",
+        "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "우편번호",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "93254fa5-20e0-4653-b1ad-25c7b337a44e": {
+        "id": "93254fa5-20e0-4653-b1ad-25c7b337a44e",
+        "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "팩스번호",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "44c93348-b63a-447e-b018-d182d65e22ab": {
+        "id": "44c93348-b63a-447e-b018-d182d65e22ab",
+        "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "주소",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "21af7cb8-0337-42ec-b73a-62d02eba3863": {
+        "id": "21af7cb8-0337-42ec-b73a-62d02eba3863",
+        "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "호주성명",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "f932145b-d438-4b06-a5e8-516ca63b5e7d": {
+        "id": "f932145b-d438-4b06-a5e8-516ca63b5e7d",
+        "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "호주와의관계",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 74,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "5e0a09c4-4c45-4c4b-9630-16705899a438": {
+        "id": "5e0a09c4-4c45-4c4b-9630-16705899a438",
+        "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "사진",
+        "comment": "사진의경로",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 62,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "afc1a292-cfb2-435a-bc20-8fb7ff4469ed": {
+        "id": "afc1a292-cfb2-435a-bc20-8fb7ff4469ed",
+        "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "최종학력",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "179b8e81-6f68-4241-b4c3-720e6f48e7bd": {
+        "id": "179b8e81-6f68-4241-b4c3-720e6f48e7bd",
+        "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "결혼여부",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "20a9366b-5f64-405a-bd9b-a2bb099fdb52": {
+        "id": "20a9366b-5f64-405a-bd9b-a2bb099fdb52",
+        "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "종교",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "01da7658-b313-460c-b7e7-171ac2a668cf": {
+        "id": "01da7658-b313-460c-b7e7-171ac2a668cf",
+        "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "신장",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "ec06cedc-e262-4d1e-a6fd-d11b1fe8a75f": {
+        "id": "ec06cedc-e262-4d1e-a6fd-d11b1fe8a75f",
+        "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "체중",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "ac1f700e-79d2-4f7a-8aec-483a4de97bad": {
+        "id": "ac1f700e-79d2-4f7a-8aec-483a4de97bad",
+        "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "혈액형",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "78a5958e-b235-4dfd-862c-7eb05ec8b4a0": {
+        "id": "78a5958e-b235-4dfd-862c-7eb05ec8b4a0",
+        "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "시력",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "673ce424-e8eb-4d9b-a4c4-72140c881ec8": {
+        "id": "673ce424-e8eb-4d9b-a4c4-72140c881ec8",
+        "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+        "name": "취미",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "4eca93d7-3860-4f25-adcd-c8578a4012de": {
+        "id": "4eca93d7-3860-4f25-adcd-c8578a4012de",
+        "tableId": "86298f09-6ce2-49cb-8d38-be012826e875",
+        "name": "이력서번호",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 3,
+          "widthName": 62,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "5545c1d8-7191-4437-83f4-a5c093f98b15": {
+        "id": "5545c1d8-7191-4437-83f4-a5c093f98b15",
+        "tableId": "86298f09-6ce2-49cb-8d38-be012826e875",
+        "name": "연번",
+        "comment": "auto_increment",
+        "dataType": "",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 84,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "6c813121-7485-434e-ab7f-82b7b2e7fedd": {
+        "id": "6c813121-7485-434e-ab7f-82b7b2e7fedd",
+        "tableId": "86298f09-6ce2-49cb-8d38-be012826e875",
+        "name": "연인",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "48d69e7c-0f95-4593-8ae3-8b7c300b00b7": {
+        "id": "48d69e7c-0f95-4593-8ae3-8b7c300b00b7",
+        "tableId": "86298f09-6ce2-49cb-8d38-be012826e875",
+        "name": "관계",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "c1ea0d84-fcca-4e48-abcd-98757ca9b733": {
+        "id": "c1ea0d84-fcca-4e48-abcd-98757ca9b733",
+        "tableId": "86298f09-6ce2-49cb-8d38-be012826e875",
+        "name": "성명",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "955c712d-fdbb-4751-8996-930d7caa3f3d": {
+        "id": "955c712d-fdbb-4751-8996-930d7caa3f3d",
+        "tableId": "86298f09-6ce2-49cb-8d38-be012826e875",
+        "name": "연령",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "3a26c306-bd78-4456-9764-846d858868b2": {
+        "id": "3a26c306-bd78-4456-9764-846d858868b2",
+        "tableId": "86298f09-6ce2-49cb-8d38-be012826e875",
+        "name": "최종학력",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "377074d7-79e6-4d8d-bc2c-54bee8fb9214": {
+        "id": "377074d7-79e6-4d8d-bc2c-54bee8fb9214",
+        "tableId": "86298f09-6ce2-49cb-8d38-be012826e875",
+        "name": "직업",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "dde8b9d9-c580-4009-a382-31b5770a8807": {
+        "id": "dde8b9d9-c580-4009-a382-31b5770a8807",
+        "tableId": "86298f09-6ce2-49cb-8d38-be012826e875",
+        "name": "동거여부",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "2bce5506-3cee-4d19-90af-4136dd01b028": {
+        "id": "2bce5506-3cee-4d19-90af-4136dd01b028",
+        "tableId": "3fc2ac50-ffad-4e71-94e9-cd234b7c3760",
+        "name": "이력서번호",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 3,
+          "widthName": 62,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "7779bd08-ab9a-4d8e-afda-fd38c646ffdc": {
+        "id": "7779bd08-ab9a-4d8e-afda-fd38c646ffdc",
+        "tableId": "3fc2ac50-ffad-4e71-94e9-cd234b7c3760",
+        "name": "졸업일",
+        "comment": "년/월/일",
+        "dataType": "",
+        "default": "",
+        "options": 10,
+        "ui": {
+          "keys": 1,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "64f3d8df-aca1-417b-8993-c2979538be64": {
+        "id": "64f3d8df-aca1-417b-8993-c2979538be64",
+        "tableId": "3fc2ac50-ffad-4e71-94e9-cd234b7c3760",
+        "name": "학교명",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "61303b03-b0fa-4cf7-8923-dfb7beeea78d": {
+        "id": "61303b03-b0fa-4cf7-8923-dfb7beeea78d",
+        "tableId": "3fc2ac50-ffad-4e71-94e9-cd234b7c3760",
+        "name": "학과",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      }
+    },
+    "relationshipEntities": {
+      "3cb1de3f-847e-4efc-8bb0-4ec7391849e5": {
+        "id": "3cb1de3f-847e-4efc-8bb0-4ec7391849e5",
+        "identification": true,
+        "relationshipType": 16,
+        "startRelationshipType": 2,
+        "start": {
+          "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+          "columnIds": [
+            "a23d784f-e2ac-41bb-a758-cccba00d51d3"
+          ],
+          "x": 419,
+          "y": 455,
+          "direction": 2
+        },
+        "end": {
+          "tableId": "3fc2ac50-ffad-4e71-94e9-cd234b7c3760",
+          "columnIds": [
+            "2bce5506-3cee-4d19-90af-4136dd01b028"
+          ],
+          "x": 523,
+          "y": 514,
+          "direction": 1
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      },
+      "02644b3e-4e5d-4546-a5eb-23572479abdd": {
+        "id": "02644b3e-4e5d-4546-a5eb-23572479abdd",
+        "identification": true,
+        "relationshipType": 16,
+        "startRelationshipType": 2,
+        "start": {
+          "tableId": "1f452171-1bf4-4fac-8334-73a60f84a379",
+          "columnIds": [
+            "a23d784f-e2ac-41bb-a758-cccba00d51d3"
+          ],
+          "x": 419,
+          "y": 199,
+          "direction": 2
+        },
+        "end": {
+          "tableId": "86298f09-6ce2-49cb-8d38-be012826e875",
+          "columnIds": [
+            "4eca93d7-3860-4f25-adcd-c8578a4012de"
+          ],
+          "x": 526,
+          "y": 209,
+          "direction": 1
+        },
+        "meta": {
+          "updateAt": 1755045418716,
+          "createAt": 1755045418716
+        }
+      }
+    },
+    "indexEntities": {},
+    "indexColumnEntities": {},
+    "memoEntities": {
+      "5ccb5beb-3601-48ab-901b-b8c926b7a814": {
+        "id": "5ccb5beb-3601-48ab-901b-b8c926b7a814",
+        "value": "Q1. 왜 학력이 1:M이지? \n\nA. 한 직원이 다닌 \n초,중,고,대학교 여러개니까.\n\n\n\nQ2. 왜 이력서의 pk는 주민등록번호가 아니라 이력서번호(uuid)지?\n\nA. 한 회사에 같은 사람이 여러번 이력서 내는 경우도 있어서.\n\n\nQ3. 이력서 엔티티는 정규화 더 가능하지 않나?\n이메일,전화번호, 주소, 사진 등, 그 사람에 대한 정보는 그 사람의 주민등록번호(부모)에 속하는 자식들이니까,\nPerson 테이블에 사람 정보 저장하고, 그 사람의 주민등록번호를 pk로 이력서 엔티티에서 fk로 가져와서 써도 되지 않을까?\n\nA. 가능은 한데, 그렇게까지 복잡하게 안함. 왜냐하면 이렇게 했을 때 유용한 경우가, 한 사람이 여러번 이력서 넣은 경우인데, 그 경우가 많지도 않아서, 사람별로 따로 데이터 관리할 필요가 없음. 이력서별로 관리하는게 더 용이.\n\n\nQ4. 가족사항의 pk\n이력서번호 누구의 1번 = 아빠,\n이력서번호 누구의 2번 = 엄마,\n이력서번호 누구의 3번 = 동생,\n\n이런식으로 가기 때문에 연번을 composite key의 두번째로 붙인 것 \n\n\nQ5. 왜 학력에서 PK(이력서번호, 졸업일) 하지?\nPK(이력서)만 해도 되지않나?\n일단 이력서만으로 unique하잖아.\n졸업일은 학교가 같으면 같지 않나?\n\nA.\n가족사항에서 pk(이력서번호, 연번)하는 것과 비슷.\n이력서번호 누구에 졸업일 몇일 해서 pk 잡는 것.\n\nPK(이력서번호, 학교명) 이렇게 하고 싶었는데,\n학교명이 STRING 대신에 졸업일인 DATE가 pk query시 성능이 더 좋아서 그랬나?\n\nㅇㅇ 그런듯.\n\n\nQ6. 왜 이력서-학력 1:M임? M:M이 아니라?\n\nA.\n만약 쿼리를 이력서 넣은 사람들 중에서 출신 학교별로 분류하고 싶었다면, 이력서-학력을 M:N 엔티티로 만들어야 함.\n그 학교를 나온 사람들이 많을거아냐.\n근데 이건 간단한 이력서 테이블이니까. 이정도로 마무리.\n\n",
+        "ui": {
+          "x": 899,
+          "y": 94,
+          "zIndex": 97,
+          "width": 447,
+          "height": 689,
+          "color": ""
+        },
+        "meta": {
+          "updateAt": 1755045424083,
+          "createAt": 1755045418716
+        }
+      }
+    }
+  }
+}
